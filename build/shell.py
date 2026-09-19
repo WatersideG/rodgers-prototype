@@ -36,7 +36,7 @@ a{color:inherit;text-decoration:none}
 h1,h2,h3,h4{color:var(--ink);line-height:1.15}
 .display{font-weight:600;text-transform:none;letter-spacing:-.01em;line-height:1.05}
 .kicker{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--steel);margin-bottom:12px}
-.btn{display:inline-block;background:var(--navy);color:#fff;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:13px 24px;border-radius:0;border:1.5px solid var(--navy);transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease);cursor:pointer;line-height:1.2}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;box-sizing:border-box;vertical-align:middle;background:var(--navy);color:#fff;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:13px 24px;border-radius:0;border:2px solid var(--navy);transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease);cursor:pointer;line-height:1.2}
 .btn+.btn{margin-left:10px}
 .btn:hover{background:var(--navy2)}
 .btn.ghost{background:transparent;color:var(--navy)}
@@ -46,7 +46,7 @@ h1,h2,h3,h4{color:var(--ink);line-height:1.15}
 .btn.ghost-d:hover{border-color:#fff}
 .btn.accent{background:var(--accent);border-color:var(--accent)}
 .btn.accent:hover{background:var(--accent2)}
-.btn.sm{padding:9px 16px;font-size:10.5px}
+.btn.sm{padding:9px 16px;font-size:10.5px;min-height:36px}
 .skip{position:absolute;left:-999px;top:8px;background:var(--navy);color:#fff;padding:10px 16px;z-index:100}
 .skip:focus{left:8px}
 /* top bar */
@@ -73,18 +73,21 @@ nav.main .menu a.muted{color:var(--steel);font-weight:500}
 /* hero */
 .hero{position:relative;color:#fff;overflow:hidden;background:var(--deep)}
 .hero .wrap{position:relative;z-index:2;padding-top:96px;padding-bottom:72px;min-height:520px;display:flex;flex-direction:column;justify-content:flex-end}
-.hero h1{color:#fff;font-size:clamp(34px,4.2vw,54px);max-width:560px}
+.hero h1{color:#fff;font-size:clamp(36px,4.6vw,60px);max-width:600px;font-family:"Avenir Next","Inter","Helvetica Neue",Helvetica,"Segoe UI",Roboto,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.5px;line-height:.98}
+.lede{background:#fff;border-bottom:1px solid var(--line)}
+.lede .wrap{padding-top:26px;padding-bottom:24px}
+.lede p{font-size:18px;line-height:1.55;max-width:760px;color:var(--ink)}
 .hero .sub{font-size:17px;color:#E4ECF5;max-width:520px;margin-top:14px;line-height:1.5}
 .hero .ctas{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap}
 .hero .ctas .btn+.btn{margin-left:0}
 .hero .stats{position:absolute;right:32px;top:72px;text-align:right;z-index:3}
-.hero .stats b{display:block;font-size:32px;font-weight:800;color:#fff;line-height:1}
-.hero .stats span{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:#AFC2DA;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.hero .stats b{display:block;font-size:32px;font-weight:800;color:#fff;line-height:1;font-family:"Avenir Next","Inter","Helvetica Neue",Helvetica,sans-serif}
+.hero .stats span{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:#fff;opacity:.9;text-shadow:0 1px 6px rgba(0,0,0,.6)}
 .hero .stats>div{margin-bottom:26px}
 .hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0}
 .hero .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,27,51,.82) 0%,rgba(7,27,51,.45) 45%,rgba(7,27,51,.15) 100%);z-index:1}
 .hero.short .wrap{padding-top:72px;padding-bottom:56px;min-height:420px}
-.hero.short h1{font-size:clamp(30px,3.6vw,46px)}
+.hero.short h1{font-size:clamp(32px,4vw,52px)}
 .hero .credit{position:absolute;right:14px;bottom:10px;z-index:3;font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.5px}
 .crumbbar{background:var(--ice);border-bottom:1px solid var(--line);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel)}
 .crumbbar .wrap{padding-top:10px;padding-bottom:10px}
@@ -117,15 +120,15 @@ section.tight{padding:44px 0}
 .split{display:flex;gap:56px;align-items:center}
 .split>*{flex:1}
 .split.rev{flex-direction:row-reverse}
-.card{background:#fff;border:1px solid var(--line);padding:24px;transition:box-shadow var(--dur) var(--ease),transform var(--dur) var(--ease);display:block}
+.card{background:#fff;border:1px solid var(--line);padding:24px;transition:box-shadow var(--dur) var(--ease),transform var(--dur) var(--ease);display:flex;flex-direction:column;height:100%;box-sizing:border-box}
 a.card:hover{box-shadow:0 14px 34px rgba(7,27,51,.10);transform:translateY(-2px)}
 .card.img{padding:0;overflow:hidden}
-.card.img .body{padding:20px 22px 22px}
+.card.img .body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
 .navy .card{background:#12315A;border-color:#1D4470;color:#C9D6E6}
 .navy .card h3,.navy .card b{color:#fff}
 .card h3{font-size:19px;font-weight:600;letter-spacing:0}
 .card p{margin-top:8px;font-size:15px}
-.card .go{display:block;margin-top:14px;font-weight:700;color:var(--navy);font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase}
+.card .go{display:block;margin-top:auto;padding-top:14px;font-weight:700;color:var(--navy);font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase}
 .tagline{font-style:italic}
 .tick{display:inline-block;width:34px;height:34px;background:var(--ice);color:var(--navy);font-weight:800;text-align:center;line-height:34px;margin-bottom:14px}
 .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
@@ -211,7 +214,11 @@ label.f{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text
 .wx.dark .now span,.wx.dark .stat b,.wx.dark .day b{color:#fff}
 .wx.dark .days{border-color:rgba(255,255,255,.2)}
 /* hours */
-.hoursbox{background:#fff;border:1px solid var(--line);padding:22px 24px}
+.hoursbox{background:#fff;border:1px solid var(--line);padding:22px 24px;display:flex;flex-direction:column}
+.hoursbox .acts{margin-top:auto;padding-top:14px}
+.stack{display:flex;flex-direction:column}
+.stack .hoursbox{flex:1}
+.grid{align-items:stretch}
 .hoursbox h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--steel);margin-bottom:10px}
 .hoursbox table{width:100%;font-size:14px;border-collapse:collapse}
 .hoursbox td{padding:6px 0;color:var(--ink)}
@@ -441,7 +448,8 @@ def hero(h1, sub, img, ctas="", kicker="", stats="", short=False, credit="", pos
     kk = f'<div class="kicker" style="color:#AFC2DA">{kicker}</div>' if kicker else ''
     cr = f'<div class="credit">{credit}</div>' if credit else ''
     return (f'<div class="hero{" short" if short else ""}"><div class="bg" style="background-image:url(img/{img});background-position:{pos}"></div><div class="shade"></div>{st}'
-            f'<div class="wrap">{kk}<h1 class="display">{h1}</h1><p class="sub">{sub}</p>{"<div class=ctas>"+ctas+"</div>" if ctas else ""}</div>{cr}</div>')
+            f'<div class="wrap">{kk}<h1 class="display">{h1}</h1>{"<div class=ctas>"+ctas+"</div>" if ctas else ""}</div>{cr}</div>'
+            + (f'<!--LEDE--><div class="lede"><div class="wrap"><p>{sub}</p></div></div>' if sub else ''))
 
 def crumbs(*parts):
     items = [f'<a href="index.html">Home</a>'] + [f'<a href="{h}">{t}</a>' if h else t for t,h in parts]
@@ -459,7 +467,7 @@ def hours_box(store, rows):
     tr = ''.join(f'<tr><td>{d}</td><td>{h}</td></tr>' for d,h in rows)
     return (f'<div class="hoursbox"><h4>Hours &middot; {store["name"]}</h4><table>{tr}</table>'
             f'<p class="gbp">Hours and holiday changes sync from the store&rsquo;s Google Business Profile.</p>'
-            f'<p style="margin-top:14px"><a class="btn sm" href="{store["maps"]}">Get directions</a> <a class="btn ghost sm" href="tel:{store["teltag"]}">Call {store["tel"]}</a></p></div>')
+            f'<p class="acts"><a class="btn sm" href="{store["maps"]}">Get directions</a> <a class="btn ghost sm" href="tel:{store["teltag"]}">Call {store["tel"]}</a></p></div>')
 
 def map_embed(store):
     return f'<div class="map"><iframe src="{store["embed"]}" title="Map to Rodgers Ski &amp; Sport, {store["name"]}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>'

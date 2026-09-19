@@ -33,7 +33,10 @@ LEGAL = {
 <h2>Tell us</h2><p>If something on the site is hard to use, email office@rodgersskiandsport.com or call the Lincoln store at (603) 745-8347 and we will fix it or help you another way.</p>"""),
 }
 
+import re
+LEDE_RE = re.compile(r'<!--LEDE-->(<div class="lede">.*?</p></div></div>)(<div class="crumbbar">.*?</div></div>)', re.S)
 def write(name, html):
+    html = LEDE_RE.sub(lambda m: m.group(2)+m.group(1), html).replace('<!--LEDE-->','')
     with open(os.path.join(OUT, name), 'w') as f: f.write(html)
     print(f'{name:36s} {len(html)//1024:4d} KB')
 
