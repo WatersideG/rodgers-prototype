@@ -148,8 +148,9 @@ label.f{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text
 .season .card.img .ph{aspect-ratio:4/3}
 .season .card h3{font-size:15px}
 /* staff picks */
-.pick{display:grid;grid-template-columns:200px 1fr;gap:0;border:1px solid var(--line);background:#fff;overflow:hidden}
-.pick .ph{aspect-ratio:auto;height:100%;min-height:260px}
+.pick{display:grid;grid-template-columns:240px 1fr;gap:0;border:1px solid var(--line);background:#fff;overflow:hidden}
+.pick .ph{aspect-ratio:auto;height:100%;min-height:300px}
+.pick .ph img{object-fit:cover;object-position:center bottom}
 .pick .body{padding:24px 26px}
 .pick .who{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent2)}
 .pick h3{font-size:21px;font-weight:600;margin:6px 0 10px;letter-spacing:0}
@@ -285,7 +286,7 @@ footer.site .legal{border-top:1px solid #16355C;padding:18px 0;display:flex;just
   .wrap{padding:0 16px}
   .g2,.g3,.g4,.g5,.g6,.stagger,.timeline{grid-template-columns:1fr}
   .pick{grid-template-columns:1fr}
-  .pick .ph{min-height:0;aspect-ratio:4/3}
+  .pick .ph{min-height:0;aspect-ratio:4/5}
   footer.site .cols{grid-template-columns:1fr}
   footer.site .band .field,footer.site .band select.field{flex:1 1 100%}
   .hero h1{font-size:32px}
