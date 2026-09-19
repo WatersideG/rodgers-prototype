@@ -334,7 +334,7 @@ JS = r"""
     var f=m.querySelector('form'); if(f){ f.addEventListener('submit',function(e){ e.preventDefault(); m.querySelector('.body').innerHTML='<div class="kicker">You are on the list</div><h2>Check your inbox</h2><p>Your 10%% off code is on its way. Show it at the register in Lincoln or Scarborough.</p><p class="fine">Prototype: no email is sent from this page. In production the form posts to the email platform and the welcome flow delivers the code.</p>'; }); }
   }
 })();
-""" % (str({k:v for k,v in WX_ICONS.items()}).replace("'",'"'))
+""" % __import__("json").dumps(WX_ICONS)
 
 
 def nav_html(active=""):
