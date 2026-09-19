@@ -104,7 +104,7 @@ def buyers_guide():
     h = hero("Buyer&rsquo;s guide", "Which skis, snowboards and boots fit which skier. Every recommendation below is a product we stock, matched to the use its maker states for it. The Boot Lab and the sales floor make the final call with you.",
              "hero-ski-carving.jpg", kicker="Skis &middot; Snowboards &middot; Boots", short=True, pos="center 40%",
              ctas='<a class="btn accent" href="#skis">Skis</a><a class="btn ghost-d" href="#snowboards">Snowboards</a><a class="btn ghost-d" href="#boots">Boots</a>')
-    h += crumbs(("Journal","journal.html"), ("Buyer&rsquo;s Guide",""))
+    h += crumbs(("Guides","buyers-guide.html"), ("Buyer&rsquo;s Guide",""))
     h += (f'<section><div class="wrap"><p style="max-width:720px">Seven skier profiles run through each category. Find yourself in the left column, then read across. Prices, sizes and this season&rsquo;s stock are in the store; call either location or book a fitting.</p>'
           f'<div class="chips" style="margin-top:18px">' + ''.join(f'<span>{n}</span>' for _,n,_ in PROFILES) + '</div></div></section>')
     h += (f'<section class="ice" id="skis"><div class="wrap">{sechead("Skis", "Twelve ski brands in Lincoln and Scarborough.")}{brands(SKI_BRANDS)}<div class="guide">{_guide_rows(SKI_GUIDE,"ski")}</div></div></section>')
@@ -112,7 +112,7 @@ def buyers_guide():
     h += (f'<section class="ice" id="boots"><div class="wrap">{sechead("Ski boots", "Fitted in the Boot Lab. Eleven boot brands.")}{brands(BOOT_BRANDS)}<div class="guide">{_guide_rows(BOOT_GUIDE,"boot")}</div>'
           f'<div style="margin-top:28px"><a class="btn" href="boot-lab.html#book">Book a boot fitting</a> <a class="btn ghost" href="rentals.html">Rentals in Lincoln</a> <a class="btn ghost" href="lease.html">Junior lease in Scarborough</a></div></div></section>')
     h += (f'<section><div class="wrap"><p class="note">Positioning statements are paraphrased from each brand&rsquo;s product page or its authorized retailers as of September 2026. Models change each season; this page is a Payload collection (profile, category, picks, image) so the shop can update it without a developer.</p></div></section>')
-    return page("journal", "Buyer&rsquo;s Guide | Rodgers Ski &amp; Sport", "Which skis, snowboards and ski boots fit first-timers, intermediates, all-mountain skiers, powder skiers, carvers, racers and juniors, from the brands Rodgers Ski & Sport carries.", h, "buyers-guide.html")
+    return page("guides", "Buyer&rsquo;s Guide | Rodgers Ski &amp; Sport", "Which skis, snowboards and ski boots fit first-timers, intermediates, all-mountain skiers, powder skiers, carvers, racers and juniors, from the brands Rodgers Ski & Sport carries.", h, "buyers-guide.html")
 
 # ---------------------------------------------------------------- Outdoor Guide
 # level: easy / moderate / difficult / expert / mixed (ski areas whose trail mix is not published)
@@ -288,7 +288,7 @@ def outdoor_guide():
     h = hero("Outdoor guide", "Where to ski, ride, hike and bike from either store: every alpine area, Nordic center, trailhead and bike network within 50 miles of Lincoln and 15 miles of Scarborough, color-coded by difficulty.",
              "hero-hiker-ridge.jpg", kicker="Mountains &middot; Trails &middot; Bike parks", short=True, pos="center 45%",
              ctas='<a class="btn accent" href="#lincoln">Lincoln, NH</a><a class="btn ghost-d" href="#scarborough">Scarborough, ME</a>')
-    h += crumbs(("Journal","journal.html"), ("Outdoor Guide",""))
+    h += crumbs(("Guides","buyers-guide.html"), ("Outdoor Guide",""))
     nearest = ''.join(f'<tr><td><a href="{u}" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700">{n}</a><small>{t} &middot; {s}</small></td><td class="p">{d}</td></tr>' for n,t,d,s,u in NEAREST_ALPINE_SCA)
     h += (f'<section id="lincoln"><div class="wrap">{sechead("Lincoln, New Hampshire", "50-mile radius from 5 Railroad Street.")}'
           + _mapblock("map-lin", LIN, POINTS_LIN, "Thirteen alpine areas, six Nordic centers, twenty hikes, eight mountain-bike networks and the notch bike path. Filter by type; click a pin for the numbers and a link to the official site. Trail mixes and vertical are as published by each area.")
@@ -298,4 +298,4 @@ def outdoor_guide():
           + f'<div style="margin-top:28px;max-width:640px"><div class="kicker">Nearest alpine skiing from Scarborough</div><table class="pricelist" style="margin-top:10px"><tbody>{nearest}</tbody></table></div></div></section>')
     h += (f'<section><div class="wrap"><p class="note">Distances are straight-line from each store. Ski-area figures are from the resorts; hike lengths and gains from the US Forest Service, NH State Parks, AMC and Cannon Mountain hiker pages; bike networks from NEMBA chapters and Trailforks; Maine trails from Maine Trail Finder and the land trusts. Lincoln Woods Trail is closed for restoration through November 2026. Map pins are a Payload collection (name, type, level, coordinates, stats, link) so the shop can add or retire a location without a developer.</p></div></section>')
     h += f'<style>{MAP_CSS}</style>' + loader + f'<script>{js}</script>'
-    return page("journal", "Outdoor Guide | Rodgers Ski &amp; Sport", "Ski areas, Nordic centers, hiking trails and mountain-bike networks within 50 miles of Lincoln, NH and 15 miles of Scarborough, ME, mapped and color-coded by difficulty.", h, "outdoor-guide.html")
+    return page("guides", "Outdoor Guide | Rodgers Ski &amp; Sport", "Ski areas, Nordic centers, hiking trails and mountain-bike networks within 50 miles of Lincoln, NH and 15 miles of Scarborough, ME, mapped and color-coded by difficulty.", h, "outdoor-guide.html")

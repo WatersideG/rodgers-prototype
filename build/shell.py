@@ -36,7 +36,7 @@ a{color:inherit;text-decoration:none}
 h1,h2,h3,h4{color:var(--ink);line-height:1.15}
 .display{font-weight:600;text-transform:none;letter-spacing:-.01em;line-height:1.05}
 .kicker{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--steel);margin-bottom:12px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;box-sizing:border-box;vertical-align:middle;background:var(--navy);color:#fff;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:13px 24px;border-radius:0;border:2px solid var(--navy);transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease);cursor:pointer;line-height:1.2}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;white-space:nowrap;box-sizing:border-box;vertical-align:middle;background:var(--navy);color:#fff;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:13px 24px;border-radius:0;border:2px solid var(--navy);transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease);cursor:pointer;line-height:1.2}
 .btn+.btn{margin-left:10px}
 .btn:hover{background:var(--navy2)}
 .btn.ghost{background:transparent;color:var(--navy)}
@@ -314,6 +314,9 @@ footer.site .legal{border-top:1px solid #16355C;padding:18px 0;display:flex;just
   .hero h1{font-size:32px}
   .hero .wrap{min-height:0}
   .btn+.btn{margin-left:0;margin-top:8px}
+  .hero .ctas{flex-direction:column;align-items:stretch}
+  .hero .ctas .btn{width:100%;margin-top:0}
+  .btn{padding:13px 18px}
   .hero .stats{flex-wrap:wrap;gap:18px}
   .pricelist{font-size:13.5px}
   .modal .off{font-size:48px}
@@ -386,7 +389,8 @@ def nav_html(active=""):
     sca = [("scarborough-me.html","Overview"),("scarborough-me-ski.html","Ski"),("scarborough-me-bikes.html","Bikes"),
            ("scarborough-me-services.html","Services &amp; Tuning"),("lease.html","Junior Seasonal Lease"),
            ("scarborough-me-accessories.html","Accessories")]
-    jou = [("journal.html","Latest"),("journal-fall-tent-sale.html","Fall Tent Sale"),("staff-picks.html","Staff Picks"),("buyers-guide.html","Buyer&rsquo;s Guide"),("outdoor-guide.html","Outdoor Guide")]
+    jou = [("journal.html","Latest"),("journal-fall-tent-sale.html","Fall Tent Sale"),("staff-picks.html","Staff Picks")]
+    gui = [("buyers-guide.html","Buyer&rsquo;s Guide"),("outdoor-guide.html","Outdoor Guide")]
     abt = [("about.html","Our Story"),("partners.html","Partners &amp; Teams"),("employment.html","Employment"),("gift-cards.html","Gift Cards"),("contact.html","Contact")]
     def menu(items): return '<div class="menu">'+''.join(f'<a href="{h}">{t}</a>' for h,t in items)+'</div>'
     desk = (f'<div><a class="top dd{on("lincoln")}" href="lincoln-nh.html">Lincoln, NH</a>{menu(lin)}</div>'
@@ -394,6 +398,7 @@ def nav_html(active=""):
             f'<div><a class="top{on("boot")}" href="boot-lab.html">The Boot Lab</a></div>'
             f'<div><a class="top{on("race")}" href="race.html">Race</a></div>'
             f'<div><a class="top dd{on("journal")}" href="journal.html">Journal</a>{menu(jou)}</div>'
+            f'<div><a class="top dd{on("guides")}" href="buyers-guide.html">Guides</a>{menu(gui)}</div>'
             f'<div><a class="top dd{on("about")}" href="about.html">About</a>{menu(abt)}</div>'
             f'<a class="btn accent sm" href="boot-lab.html#book">Book a Boot Fit</a>')
     def mob(items): return ''.join(f'<a href="{h}">{t}</a>' for h,t in items)
@@ -401,16 +406,20 @@ def nav_html(active=""):
               f'<details><summary>Scarborough, ME</summary>{mob(sca)}</details>'
               f'<a href="boot-lab.html">The Boot Lab</a><a href="race.html">Race</a>'
               f'<details><summary>Journal</summary>{mob(jou)}</details>'
+              f'<details><summary>Guides</summary>{mob(gui)}</details>'
               f'<details><summary>About</summary>{mob(abt)}</details>'
               f'<div class="cta"><a class="btn accent" style="display:block;text-align:center" href="boot-lab.html#book">Book a Boot Fit</a></div>')
     return desk, mobile
 
 
+import hashlib as _hl
+ASSET_V = _hl.md5((CSS+JS).encode()).hexdigest()[:8]
+
 def head(title, desc, canonical):
     return (f'<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             f'<title>{title}</title><meta name="description" content="{desc}"><link rel="icon" href="img/logo.png">'
             f'<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">'
-            f'<link rel="stylesheet" href="site.css"></head>')
+            f'<link rel="stylesheet" href="site.css?v={ASSET_V}"></head>')
 
 
 def topbar():
@@ -447,7 +456,7 @@ def footer():
             f'<div><h5>Shop &amp; Services</h5><a href="boot-lab.html">The Boot Lab</a><br><a href="race.html">Race</a><br><a href="rentals.html">Rentals (Lincoln)</a><br><a href="lease.html">Junior Seasonal Lease (Scarborough)</a><br><a href="gift-cards.html">Gift Cards</a><br><a href="journal.html">Journal</a> &middot; <a href="staff-picks.html">Staff Picks</a><br><a href="buyers-guide.html">Buyer&rsquo;s Guide</a> &middot; <a href="outdoor-guide.html">Outdoor Guide</a><br><a href="partners.html">Partners &amp; Teams</a><br><a href="employment.html">Employment</a><br><a href="about.html">About</a> &middot; <a href="contact.html">Contact</a><br><a href="mailto:{LINCOLN["email"]}">{LINCOLN["email"]}</a></div></div>'
             f'<div class="band"><b>Sale dates, new arrivals and tune reminders. 10% off your next in-store purchase when you join.</b><input class="field" placeholder="Email address"><select class="field"><option>Lincoln, NH</option><option>Scarborough, ME</option><option>Both</option></select><a class="btn ondark sm" href="#">Sign up</a></div>'
             f'<div class="legal"><span>Family-run since 1974 &middot; Ski Magazine Gold Medal Shop &middot; Lincoln, NH &middot; Scarborough, ME</span><span>&copy; 2026 Rodgers Ski &amp; Sport &middot; <a href="privacy-policy.html">Privacy</a> &middot; <a href="terms-of-use.html">Terms</a> &middot; <a href="accessibility.html">Accessibility</a></span></div></div></footer>'
-            f'{modal()}<script src="site.js"></script></body></html>')
+            f'{modal()}<script src="site.js?v={ASSET_V}"></script></body></html>')
 
 
 def page(active, title, desc, main_html, fname):
