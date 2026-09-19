@@ -444,6 +444,9 @@ def page(active, title, desc, main_html, fname):
 
 # ---------- reusable fragments ----------
 def hero(h1, sub, img, ctas="", kicker="", stats="", short=False, credit="", pos="center"):
+    if not credit:
+        for k,v in (('atomic-','Atomic'),('rossignol-','Rossignol'),('fischer-','Fischer'),('vandeer-','Van Deer')):
+            if img.startswith(k): credit=f'Photo: {v}'
     st = f'<div class="stats">{stats}</div>' if stats else ''
     kk = f'<div class="kicker" style="color:#AFC2DA">{kicker}</div>' if kicker else ''
     cr = f'<div class="credit">{credit}</div>' if credit else ''
