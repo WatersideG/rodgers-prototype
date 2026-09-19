@@ -8,6 +8,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from shell import CSS, JS
 import pages as P
+import guides as G
 
 OUT = os.path.join(os.path.dirname(HERE), 'prototype')
 os.makedirs(OUT, exist_ok=True)
@@ -64,6 +65,8 @@ write('journal.html', P.journal())
 write('journal-fall-tent-sale.html', P.tent_sale_article())
 write('partners.html', P.partners())
 write('employment.html', P.employment())
+write('buyers-guide.html', G.buyers_guide())
+write('outdoor-guide.html', G.outdoor_guide())
 write('about.html', P.about())
 write('gift-cards.html', P.gift_cards())
 write('contact.html', P.contact())

@@ -155,6 +155,17 @@ label.f{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text
 .pick h3{font-size:21px;font-weight:600;margin:6px 0 10px;letter-spacing:0}
 .pick blockquote{font-style:italic;font-size:15.5px;color:var(--ink);line-height:1.55}
 .pick .meta{font-size:12px;color:var(--steel);margin-top:12px}
+
+/* buyer's guide */
+.guide{margin-top:22px;border-top:1px solid var(--line)}
+.grow{display:grid;grid-template-columns:220px 1fr 200px;gap:28px;padding:26px 0;border-bottom:1px solid var(--line);align-items:start}
+.gwho p{font-size:14px;color:var(--steel);margin-top:8px;line-height:1.5}
+.gbody p{margin-top:12px;font-size:15px}
+.gpic{background:#fff;border:1px solid var(--line);padding:12px;text-align:center}
+.gpic img{width:100%;aspect-ratio:1/1;object-fit:contain;display:block;mix-blend-mode:multiply}
+.gpic span{display:block;font-size:12px;color:var(--steel);margin-top:6px}
+.gpic.none{border:0;background:transparent}
+@media (max-width:900px){.grow{grid-template-columns:1fr;gap:14px}.gpic{max-width:220px}}
 /* journal */
 .post .ph{aspect-ratio:16/10}
 .post .cat{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent2)}

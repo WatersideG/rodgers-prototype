@@ -177,6 +177,17 @@ label.f{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text
 .pick h3{font-size:21px;font-weight:600;margin:6px 0 10px;letter-spacing:0}
 .pick blockquote{font-style:italic;font-size:15.5px;color:var(--ink);line-height:1.55}
 .pick .meta{font-size:12px;color:var(--steel);margin-top:12px}
+
+/* buyer's guide */
+.guide{margin-top:22px;border-top:1px solid var(--line)}
+.grow{display:grid;grid-template-columns:220px 1fr 200px;gap:28px;padding:26px 0;border-bottom:1px solid var(--line);align-items:start}
+.gwho p{font-size:14px;color:var(--steel);margin-top:8px;line-height:1.5}
+.gbody p{margin-top:12px;font-size:15px}
+.gpic{background:#fff;border:1px solid var(--line);padding:12px;text-align:center}
+.gpic img{width:100%;aspect-ratio:1/1;object-fit:contain;display:block;mix-blend-mode:multiply}
+.gpic span{display:block;font-size:12px;color:var(--steel);margin-top:6px}
+.gpic.none{border:0;background:transparent}
+@media (max-width:900px){.grow{grid-template-columns:1fr;gap:14px}.gpic{max-width:220px}}
 /* journal */
 .post .ph{aspect-ratio:16/10}
 .post .cat{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent2)}
@@ -374,7 +385,7 @@ def nav_html(active=""):
     sca = [("scarborough-me.html","Overview"),("scarborough-me-ski.html","Ski"),("scarborough-me-bikes.html","Bikes"),
            ("scarborough-me-services.html","Services &amp; Tuning"),("lease.html","Junior Seasonal Lease"),
            ("scarborough-me-accessories.html","Accessories")]
-    jou = [("journal.html","Latest"),("journal-fall-tent-sale.html","Fall Tent Sale"),("staff-picks.html","Staff Picks")]
+    jou = [("journal.html","Latest"),("journal-fall-tent-sale.html","Fall Tent Sale"),("staff-picks.html","Staff Picks"),("buyers-guide.html","Buyer&rsquo;s Guide"),("outdoor-guide.html","Outdoor Guide")]
     abt = [("about.html","Our Story"),("partners.html","Partners &amp; Teams"),("employment.html","Employment"),("gift-cards.html","Gift Cards"),("contact.html","Contact")]
     def menu(items): return '<div class="menu">'+''.join(f'<a href="{h}">{t}</a>' for h,t in items)+'</div>'
     desk = (f'<div><a class="top dd{on("lincoln")}" href="lincoln-nh.html">Lincoln, NH</a>{menu(lin)}</div>'
@@ -432,7 +443,7 @@ def footer():
             f'<div class="soc"><a href="{SOCIAL["ig"]}" aria-label="Instagram @rodgersski">IG</a><a href="{SOCIAL["fb"]}" aria-label="Facebook RodgersSkiSport">FB</a><a href="{SOCIAL["tt"]}" aria-label="TikTok @rodgersskiandsport">TT</a></div></div>'
             f'<div><h5><a href="lincoln-nh.html">Lincoln, NH &rarr;</a></h5>{LINCOLN["addr"]}<br><a href="tel:{LINCOLN["teltag"]}"><b style="color:#fff">{LINCOLN["tel"]}</b></a><br>{LINCOLN["hours"]}<br>Ski &middot; Snowboard &middot; Bikes &middot; Rentals &middot; Boot Lab<br><a href="{LINCOLN["maps"]}">Directions</a></div>'
             f'<div><h5><a href="scarborough-me.html">Scarborough, ME &rarr;</a></h5>{SCARB["addr"]}<br><a href="tel:{SCARB["teltag"]}"><b style="color:#fff">{SCARB["tel"]}</b></a><br>Mon&ndash;Tue 10&ndash;6 &middot; Wed closed<br>Thu&ndash;Fri 10&ndash;6 &middot; Sat 10&ndash;5 &middot; Sun 11&ndash;5<br>Ski &middot; Bikes &middot; Junior Seasonal Lease<br><a href="{SCARB["maps"]}">Directions</a></div>'
-            f'<div><h5>Shop &amp; Services</h5><a href="boot-lab.html">The Boot Lab</a><br><a href="race.html">Race</a><br><a href="rentals.html">Rentals (Lincoln)</a><br><a href="lease.html">Junior Seasonal Lease (Scarborough)</a><br><a href="gift-cards.html">Gift Cards</a><br><a href="journal.html">Journal</a> &middot; <a href="staff-picks.html">Staff Picks</a><br><a href="partners.html">Partners &amp; Teams</a><br><a href="employment.html">Employment</a><br><a href="about.html">About</a> &middot; <a href="contact.html">Contact</a><br><a href="mailto:{LINCOLN["email"]}">{LINCOLN["email"]}</a></div></div>'
+            f'<div><h5>Shop &amp; Services</h5><a href="boot-lab.html">The Boot Lab</a><br><a href="race.html">Race</a><br><a href="rentals.html">Rentals (Lincoln)</a><br><a href="lease.html">Junior Seasonal Lease (Scarborough)</a><br><a href="gift-cards.html">Gift Cards</a><br><a href="journal.html">Journal</a> &middot; <a href="staff-picks.html">Staff Picks</a><br><a href="buyers-guide.html">Buyer&rsquo;s Guide</a> &middot; <a href="outdoor-guide.html">Outdoor Guide</a><br><a href="partners.html">Partners &amp; Teams</a><br><a href="employment.html">Employment</a><br><a href="about.html">About</a> &middot; <a href="contact.html">Contact</a><br><a href="mailto:{LINCOLN["email"]}">{LINCOLN["email"]}</a></div></div>'
             f'<div class="band"><b>Sale dates, new arrivals and tune reminders. 10% off your next in-store purchase when you join.</b><input class="field" placeholder="Email address"><select class="field"><option>Lincoln, NH</option><option>Scarborough, ME</option><option>Both</option></select><a class="btn ondark sm" href="#">Sign up</a></div>'
             f'<div class="legal"><span>Family-run since 1974 &middot; Ski Magazine Gold Medal Shop &middot; Lincoln, NH &middot; Scarborough, ME</span><span>&copy; 2026 Rodgers Ski &amp; Sport &middot; <a href="privacy-policy.html">Privacy</a> &middot; <a href="terms-of-use.html">Terms</a> &middot; <a href="accessibility.html">Accessibility</a></span></div></div></footer>'
             f'{modal()}<script src="site.js"></script></body></html>')
