@@ -1,0 +1,97 @@
+# Content data pulled from Rodgers' own channels (verbatim quotes) and the live site.
+# Sources: resources/research/social-instagram-index.md, social-tiktok-facebook-index.md, live-site-index.md
+
+STAFF_PICKS = [
+ dict(who="Robbie", store="Lincoln, NH", product="Elan Ripstick 96 Black", img="staffpick-robbie-elan-ripstick-96.jpg",
+      quote="In the days of the 1 ski quiver, the Elan Ripstick 96 Black stood out from the rest as a lightweight, agile platform that hard charges on the downhill, and performs when you want to play and get creative. Those days are over, but the Ripstick is still here. This would be a great addition to a quiver, or could be that one ski that you drive daily, and at $699 including bindings, someone's going home with an absolute steal on this ski.",
+      date="September 16, 2026", tag="Fall Tent Sale pick &middot; $699 with bindings", link="https://www.instagram.com/rodgersski/p/DdVzn18Fd-4/"),
+ dict(who="Denis", store="Lincoln, NH", product="Atomic Redster 130 World Cup Race Boot", img="staffpick-denis-atomic-redster-130.jpg",
+      quote="The Atomic Redster 130 World Cup Race Boot offers a race-focused shell and narrow World Cup fit that delivers exceptional power, precision, and edge control for aggressive skiing.",
+      date="September 9, 2026", tag="Race boot &middot; fitted in the Boot Lab", link="https://www.instagram.com/rodgersski/p/DdEYmUwHG6V/"),
+ dict(who="Jamie", store="Lincoln, NH", product="Atomic Arc 735 RS", img="staffpick-jamie-atomic-arc-735.jpg",
+      quote="One of the most enjoyable mid-radius carvers on the market in the X9S &mdash; the limited edition 1990-91 Arc graphic will make all your friends jealous and be a conversation starter in the lift line.",
+      date="September 2, 2026", tag="Carving ski &middot; limited-edition graphic", link="https://www.instagram.com/rodgersski/p/DcydGjmoAxY/"),
+ dict(who="Avery", store="Lincoln, NH", product="Blizzard Black Pearl", img="staffpick-avery-blizzard-black-pearl.jpg",
+      quote="The two-piece Titanal layup gives you real edge hold on the hardpack, but the women's-specific wood core keeps it light and playful enough to throw around all day.",
+      date="August 27, 2026", tag="Women&rsquo;s all-mountain", link="https://www.instagram.com/rodgersski/p/DcjXRPmznBl/"),
+]
+
+# Journal posts. Content drawn from Rodgers' posts, July–September 2026. `img` from the in-house library or vendor.
+POSTS = [
+ dict(slug="journal-fall-tent-sale.html", cat="Promotions", date="September 18, 2026", title="The Fall Tent Sale is on: September 18 to October 12 in Lincoln",
+      img="lincoln-service-desk-ski-front.jpg", alt="Race skis lining the front of the Lincoln service desk",
+      teaser="Our biggest deals of the year are back under the tent on Railroad Street: skis, snowboards, boots, apparel, helmets and everything in between. Staff picks and deal reveals all sale long."),
+ dict(slug="#", cat="New arrivals", date="September 14, 2026", title="The 2027 Smith goggles just landed at Rodgers Lincoln",
+      img="smith-goggle-case.jpg", alt="Smith goggles in the lit display case",
+      teaser="ChromaPop clarity, dialed-in fit, colorways for days. Come see the wall for yourself."),
+ dict(slug="#", cat="Services", date="September 11, 2026", title="Inside binding mounting and testing at the Scarborough shop",
+      img="scarborough-atomic-boot-bench.jpg", alt="Race boot on the bench under the Atomic sign in Scarborough",
+      teaser="Mounted, adjusted, tested. Every pair is checked before it leaves our hands. Get your setup ready for the season."),
+ dict(slug="#", cat="New arrivals", date="September 4, 2026", title="Unwrapping the new K&auml;stle Paragon 93",
+      img="lincoln-ski-wall-armada-salomon.jpg", alt="New-season skis on the Lincoln wall",
+      teaser="The Paragon 93 is in the store now. Come check them out."),
+ dict(slug="#", cat="Brands", date="August 27, 2026", title="Atomic Day recap: the full 2027 lineup is on the floor",
+      img="atomic-factory-redster.jpg", alt="Atomic Redster race skis on the factory line",
+      teaser="Skis, bindings, boots and race skis just hit the shop floor. Stop in and get your hands on next year&rsquo;s gear first."),
+ dict(slug="race.html", cat="Racing", date="August 24, 2026", title="Race gear walkthrough: seven race brands, all in one spot",
+      img="lincoln-race-wall.jpg", alt="Race skis from Fischer, Rossignol, Head and Dynastar on the Lincoln wall",
+      teaser="Avery gives the full lineup at the Lincoln shop: Atomic, Fischer, Head, Rossignol, Dynastar, Van Deer and Salomon race skis. Whether you&rsquo;re gate training or chasing PRs, we have the setup to match your program."),
+ dict(slug="#", cat="Services", date="August 6, 2026", title="Off-season tune-ups: our techs are servicing gear all summer",
+      img="montana-stone-grinder.jpg", alt="Skis on the Montana stone grinder in the Lincoln tune room",
+      teaser="Summer&rsquo;s here, but your gear still needs love. Off-season tune-ups mean your skis and boards are ready to rip the second the snow flies. Don&rsquo;t wait till November."),
+ dict(slug="#", cat="Promotions", date="July 20, 2026", title="The Tent-Less Tent Sale: Scarborough gets its own summer sale",
+      img="scarborough-storefront-sunny-wide.jpg", alt="The Scarborough store on Route 1",
+      teaser="Same markdowns as the Lincoln tent sale, just under an actual roof. Skis, boots, bindings, complete junior packages and helmets, July 24 through August 9."),
+]
+
+CATEGORIES = ["All","News","Promotions","Racing","Brands","New arrivals","Services","Local mountains"]
+
+PARTNERS = [
+ dict(name="South Peak Resort", kind="Resort community &middot; Lincoln, NH", url="https://www.southpeakresort.com/",
+      blurb="A 360-acre slopeside community on Loon Mountain in Lincoln, with homesites, townhomes, condos and rentals. Rodgers is minutes from the resort on Railroad Street."),
+ dict(name="Loon Mountain Resort", kind="Ski area &middot; Lincoln, NH", url="https://www.loonmtn.com/",
+      blurb="Year-round adventure in New Hampshire&rsquo;s White Mountains. The Lincoln store is right down the street: gear up, rent, or tune before you reach the base lodge."),
+ dict(name="Cannon Mountain", kind="Ski area &middot; Franconia, NH", url="https://www.cannonmt.com/",
+      blurb="The state-run ski area in Franconia Notch State Park, a short drive north of Lincoln on I-93."),
+ dict(name="Bretton Woods", kind="Ski area &middot; Bretton Woods, NH", url="https://www.brettonwoods.com/",
+      blurb="New Hampshire&rsquo;s largest ski area, with alpine and Nordic skiing at the Omni Mount Washington Resort."),
+ dict(name="Western White Mountains Chamber of Commerce", kind="Chamber &middot; Lincoln &amp; Woodstock, NH", url="https://www.westernwhitemtns.com/",
+      blurb="Promotes the Lincoln and Woodstock area as a basecamp for the White Mountains: lodging, dining, events and seasonal activities."),
+]
+
+RACE_BRANDS = ["Atomic","Van Deer","Head","Rossignol","Fischer","Dynastar","Salomon"]
+SKI_BRANDS = ["Atomic","Salomon","Nordica","Elan","Blizzard","Rossignol","Fischer","V&ouml;lkl","Dynastar","Armada","K&auml;stle","Head","Van Deer"]
+BOOT_BRANDS = ["Atomic","Salomon","Nordica","Dalbello","Fischer","Head","Tecnica","Lange"]
+BINDING_BRANDS = ["Atomic","Marker","Salomon","Look","Tyrolia"]
+SNOWBOARD_BRANDS = ["Yes","Never Summer","Academy","Lib Tech","GNU","Rome","Bataleon","Nidecker","ThirtyTwo","Arbor"]
+SB_BOOT_BRANDS = ["Deeluxe","ThirtyTwo","Bataleon","Nidecker","Salomon"]
+SB_BINDING_BRANDS = ["Rome","Union","Yes","Salomon","Nidecker","Bataleon","ThirtyTwo"]
+HELMET_GOGGLE = ["Atomic","Smith","Giro","POC","Sweet Protection","Oakley"]
+GLOVES = ["Hestra","Swany","Gordini","Dakine"]
+HEATED = ["Hestra","Lenz","Hotronic"]
+HATS = ["Seirus","Turtle Fur","Coal","Starling","Eisbär"]
+BAGS = ["POC","Atomic","Energiapura","Rossignol","Db","Athalon","Kulkea","Cotopaxi","Mammut","Dakine"]
+OUTERWEAR = ["Armada","Norr&oslash;na","Helly Hansen","686","Flylow","Oakley","RH+","Karbon","Fera","Jorde","Swix","Bogner","Mammut","Arc&rsquo;teryx","Salomon","Scott","Head","Save the Duck","Kjus","POC","Arctica","Descente"]
+LAYERS = ["Kari Traa","Smartwool","Hot Chillys","Krimson Klover","UYN"]
+SWEATERS = ["Dale of Norway","Meister","Krimson Klover","Almgwand"]
+
+# Lincoln price lists (live site, Sept 2026)
+LIN_TUNES = [("Bronze tune","$40"),("Silver tune","$60"),("Gold tune","$75"),("Platinum tune","$85"),("The Full Monty","$99"),("Race day tune","$65")]
+LIN_MOUNT = [("Mount &amp; test","$75"),("Free with purchase of ski and binding",""),("Adjustment &amp; test","$40")]
+LIN_BOOTLAB = [("FIS boot prep","$300"),("USSA boot prep","$200"),("Outside boot (add)","+$100"),("Custom insoles","$200"),("Punch or grind","$35"),("Stance &amp; alignment","$50"),("Canting","$75 per foot"),("Lifters installed","$65"),("Labor rate","$60/hr"),("Consulting rate","$60/hr")]
+LIN_RENTALS = [("Junior ski package","$16","$30","$42","$60"),("Performance shape","$40","$78","$114","$180"),("Advanced shape","$45","$88","$124","$215"),("Demo skis (pro)","$60","$118","$175","$280"),("Snowboard package","$40","$78","$114","$180"),("Snowshoes","$15","$25","$35","$60"),("Nordic package","$15","$25","$35","$55"),("Helmet rental","$8","$16","$24","$40")]
+LIN_BIKE = [("Bronze bike tune","$50","Adjust brakes and shifting, check bolts, lube moving parts, wipe down, inflate tires"),
+            ("Silver bike tune","$99","Bronze, plus: chain, rear cogs and front crank cleaned, wheels trued, braking surfaces cleaned"),
+            ("Gold bike tune","$149","Silver and Bronze, plus: replace and adjust shifting and brake cables and housing, hydraulic brake bleed, inspect bearings")]
+
+# Scarborough price lists (live site, Sept 2026)
+SCA_TUNES = [("Basic ski tune","$40"),("Basic board tune","$50"),("Stone grind","$60"),("Race tune","$100"),("Add premium wax","$20"),("P-tex repair","$5+"),("Base weld","$15+")]
+SCA_BOOTLAB = [("Shell heat mold","$50"),("Liner heat mold","$40"),("Punch out","$25 each"),("Spot grind","$15 each"),("Heel lifts","$200"),("Misc. boot work","$50/hr")]
+SCA_MOUNT = [("Mount","$90"),("Free with purchase of two of three (ski, boot, binding)",""),("Half price with purchase of one of three",""),("Adjustment &amp; test","$40")]
+SCA_BIKE = [("The safety check","$50","20-point inspection of the frame and component system; every bolt, bearing and alignment verified"),
+            ("The standard tune","$100","Safety check, plus: gear indexing and derailleur alignment, pad and cable tension, housing, tire and tube inspection"),
+            ("Standard build","$75","Professional assembly for bikes purchased elsewhere or shipped to the store"),
+            ("E-bike build","$175","Assembly for e-bikes purchased elsewhere or shipped to the store")]
+LEASE = dict(price="$159", includes="Skis, bindings and boots", pickup="Lease pick-ups begin October 1. No appointment needed; walk in and one of our staff will get you outfitted.",
+             end="Latest drop-off is May 1, unless you are still skiing (call to let us know and avoid late fees). Drop-offs after the month of May are subject to a $159 charge.",
+             fit="For kids age 2 to 13, up to 130 lbs. Beginner to intermediate. Ski sizes 70 to 150 cm; boot sizes 14.5 to 26.5.")
