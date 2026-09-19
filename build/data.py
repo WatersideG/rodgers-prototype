@@ -60,31 +60,66 @@ PARTNERS = [
 ]
 
 RACE_BRANDS = ["Atomic","Van Deer","Head","Rossignol","Fischer","Dynastar","Salomon"]
-SKI_BRANDS = ["Atomic","Salomon","Nordica","Elan","Blizzard","Rossignol","Fischer","V&ouml;lkl","Dynastar","Armada","K&auml;stle","Head","Van Deer"]
-BOOT_BRANDS = ["Atomic","Salomon","Nordica","Dalbello","Fischer","Head","Tecnica","Lange"]
+# From the shop's handwritten brand sheet (Sept 2026)
+SKI_BRANDS = ["Rossignol","Dynastar","Head","K&auml;stle","Elan","Atomic","Van Deer","Salomon","Armada","V&ouml;lkl","Fischer","Blizzard"]
+BOOT_BRANDS = ["Lange","Salomon","Atomic","Rossignol","Head","Van Deer","Tecnica","Nordica","Fischer","Dalbello","Armada"]
+RACE_BOOT_BRANDS = ["Rossignol","Lange","Atomic","Nordica","Head","Fischer","Salomon"]
+RACE_BINDING_BRANDS = ["Marker","Look","Atomic","Head","Fischer","Salomon"]
+RACE_POLE_BRANDS = ["Komperdell","Swix","Leki","Atomic"]
+FREERIDE_BRANDS = ["Rossignol","Armada","Atomic","V&ouml;lkl","Fischer","Elan"]
 BINDING_BRANDS = ["Atomic","Marker","Salomon","Look","Tyrolia"]
-SNOWBOARD_BRANDS = ["Yes","Never Summer","Academy","Lib Tech","GNU","Rome","Bataleon","Nidecker","ThirtyTwo","Arbor"]
-SB_BOOT_BRANDS = ["Deeluxe","ThirtyTwo","Bataleon","Nidecker","Salomon"]
-SB_BINDING_BRANDS = ["Rome","Union","Yes","Salomon","Nidecker","Bataleon","ThirtyTwo"]
-HELMET_GOGGLE = ["Atomic","Smith","Giro","POC","Sweet Protection","Oakley"]
+SNOWBOARD_BRANDS = ["Academy","Never Summer","Arbor","Rome","ThirtyTwo","Lib Tech","Nidecker","Yes","Salomon"]
+SB_BOOT_BRANDS = ["Nidecker","Salomon","Deeluxe","ThirtyTwo","Bataleon"]
+SB_BINDING_BRANDS = ["Union","Rome","Bataleon","Salomon","Nidecker","Yes","Flow"]
+HELMET_GOGGLE = ["Atomic","Smith","Giro","Oakley","POC","Sweet Protection"]
 GLOVES = ["Hestra","Swany","Gordini","Dakine"]
 HEATED = ["Hestra","Lenz","Hotronic"]
-HATS = ["Seirus","Turtle Fur","Coal","Starling","Eisbär"]
+HATS = ["Seirus","Turtle Fur","Coal","Starling","Eisb&auml;r"]
 BAGS = ["POC","Atomic","Energiapura","Rossignol","Db","Athalon","Kulkea","Cotopaxi","Mammut","Dakine"]
-OUTERWEAR = ["Armada","Norr&oslash;na","Helly Hansen","686","Flylow","Oakley","RH+","Karbon","Fera","Jorde","Swix","Bogner","Mammut","Arc&rsquo;teryx","Salomon","Scott","Head","Save the Duck","Kjus","POC","Arctica","Descente"]
+MENS_OUTERWEAR = ["Arc&rsquo;teryx","Descente","Karbon","Mammut","Salomon","Scott","Norr&oslash;na","Kjus","Flylow","Quiksilver","RH+","686","Helly Hansen","Picture","Armada"]
+WOMENS_OUTERWEAR = ["Arc&rsquo;teryx","Toni Sailer","Karbon","Mammut","Scott","Norr&oslash;na","Goldbergh","Flylow","Roxy","Jorde","686","Bogner","Fera","Picture"]
+KIDS_OUTERWEAR = ["Helly Hansen","Karbon","Flylow"]
 LAYERS = ["Kari Traa","Smartwool","Hot Chillys","Krimson Klover","UYN"]
 SWEATERS = ["Dale of Norway","Meister","Krimson Klover","Almgwand"]
+BIKE_BRANDS = ["Trek","Electra","Jamis","Scott"]
 
-# Lincoln price lists (live site, Sept 2026)
-LIN_TUNES = [("Bronze tune","$40"),("Silver tune","$60"),("Gold tune","$75"),("Platinum tune","$85"),("The Full Monty","$99"),("Race day tune","$65")]
-LIN_MOUNT = [("Mount &amp; test","$75"),("Free with purchase of ski and binding",""),("Adjustment &amp; test","$40")]
-LIN_BOOTLAB = [("FIS boot prep","$300"),("USSA boot prep","$200"),("Outside boot (add)","+$100"),("Custom insoles","$200"),("Punch or grind","$35"),("Stance &amp; alignment","$50"),("Canting","$75 per foot"),("Lifters installed","$65"),("Labor rate","$60/hr"),("Consulting rate","$60/hr")]
-LIN_RENTALS = [("Junior ski package","$16","$30","$42","$60"),("Performance shape","$40","$78","$114","$180"),("Advanced shape","$45","$88","$124","$215"),("Demo skis (pro)","$60","$118","$175","$280"),("Snowboard package","$40","$78","$114","$180"),("Snowshoes","$15","$25","$35","$60"),("Nordic package","$15","$25","$35","$55"),("Helmet rental","$8","$16","$24","$40")]
+# Lincoln tune board (photographed Sept 2026)
+LIN_TUNES = [("Bronze tune<small>Quick clean-up tune before hitting the slopes</small>","$40"),("Silver tune<small>Routine maintenance for the weekend warrior</small>","$60"),
+             ("Gold tune<small>Been a while? Skis need a little extra love; brings them back to their former glory</small>","$75"),
+             ("Platinum tune<small>The best of the best: highest performance rec tune and the perfect beer-league race tune</small>","$85"),
+             ("The Full Monty<small>The works: Platinum tune with minor P-tex base welds</small>","$99")]
+# Lincoln binding board
+LIN_MOUNT_REC = [("Binding mount or re-mount","$100"),("System binding mounting","$75"),("Binding adjustment and function test","$50")]
+LIN_MOUNT_RACE = [("Race mount with purchase","$25"),("Race binding transfer","$75"),("Race binding lifter install<small>Toe and heel height set to FIS regulation, to the athlete&rsquo;s, coach&rsquo;s or race tech&rsquo;s request</small>","$100")]
+# Race department board and price list (Rodgers purchase / outside purchase)
+RACE_SKI = [("Podium Club<small>Season ski tuning, one ski, unlimited, includes prep</small>","$350/pair","n/a"),
+            ("FIS race ski prep<small>Shaped sidewalls, World Cup structure, Trione edges, race wax</small>","$200","$250"),
+            ("USSA race ski prep<small>Sidewall pull, World Cup structure, belt edge and base, race wax</small>","ask","$200"),
+            ("Junior race ski prep (U10/U12)<small>Stone grind flat, belt edge angles, one wax cycle</small>","$60","$75"),
+            ("Race ski grind only<small>Flat ski, World Cup structure, no edge bevels</small>","$85","n/a"),
+            ("Race day tune<small>Trione edges, race wax; sidewall must be cut to qualify, no grind</small>","$65","$75")]
+RACE_BOOT = [("FIS race boot setup<small>Custom footbeds, grind, alignment, plane, cant, lift, router</small>","$300","$400"),
+             ("USSA race boot setup<small>Sidas drop-in footbed, alignment, plane, cant, lift, router</small>","$150","$250"),
+             ("Custom footbed<small>Build and install</small>","$175","$200"),
+             ("Cant analysis<small>Laser alignment with cuff adjustment</small>","$50","$100"),
+             ("Boot sole plane<small>0 to 5 degrees in quarter-degree increments, one pair</small>","$75","$150"),
+             ("Boot lifter install with router<small>Pre-drill, fit, router toes and heels to DIN spec</small>","$75","$125"),
+             ("Shell molding<small>Custom shell / Memory Fit oven heat molding</small>","varies","varies"),
+             ("Shell grind or stretch","varies","varies"),
+             ("Heater install<small>New or transfer; may require additional parts</small>","$35","$50"),
+             ("Labor rate","$60/hr","$80/hr")]
+RACE_BINDING = [("Binding install, new pre-drill<small>Mount, test binding and lifters (parts not included)</small>","$25","$50"),
+                ("Binding transfer, pre-drill<small>Remove, remount, test</small>","$50","$75"),
+                ("Race plate optimization<small>Drill plate, mount, test</small>","$100","$150"),
+                ("Binding lifters<small>Manufacturer specific, measured for optimization</small>","$100","$150")]
+LIN_BOOTLAB = [("FIS boot prep","$300"),("USSA boot prep","$200"),("Outside boot (add)","+$100"),("Custom insoles","$200"),("Punch or grind","$35"),("Stance &amp; alignment","$50"),("Canting","$75 per foot"),("Lifters installed","$65"),("Labor rate","$60/hr")]
+# Rental rates (handwritten sheet, Sept 2026): 1 to 5 days
+LIN_RENTALS = [("Junior package","$20","$35","$50","$65","$75"),("Performance shape skis","$45","$87","$129","$168","$200"),("Advanced shape skis","$50","$97","$144","$188","$235"),
+               ("Demo skis","$75","$145","$210","$275","$325"),("Snowboard package","$45","$87","$129","$168","$200"),("Cross-country package","$25","$45","$65","$85","$105"),
+               ("Snowshoes","$25","$45","$65","$85","$105"),("Helmet","$10","$10","$10","$10","$10")]
 LIN_BIKE = [("Bronze bike tune","$50","Adjust brakes and shifting, check bolts, lube moving parts, wipe down, inflate tires"),
             ("Silver bike tune","$99","Bronze, plus: chain, rear cogs and front crank cleaned, wheels trued, braking surfaces cleaned"),
             ("Gold bike tune","$149","Silver and Bronze, plus: replace and adjust shifting and brake cables and housing, hydraulic brake bleed, inspect bearings")]
-
-# Scarborough price lists (live site, Sept 2026)
 SCA_TUNES = [("Basic ski tune","$40"),("Basic board tune","$50"),("Stone grind","$60"),("Race tune","$100"),("Add premium wax","$20"),("P-tex repair","$5+"),("Base weld","$15+")]
 SCA_BOOTLAB = [("Shell heat mold","$50"),("Liner heat mold","$40"),("Punch out","$25 each"),("Spot grind","$15 each"),("Heel lifts","$200"),("Misc. boot work","$50/hr")]
 SCA_MOUNT = [("Mount","$90"),("Free with purchase of two of three (ski, boot, binding)",""),("Half price with purchase of one of three",""),("Adjustment &amp; test","$40")]
@@ -95,3 +130,11 @@ SCA_BIKE = [("The safety check","$50","20-point inspection of the frame and comp
 LEASE = dict(price="$159", includes="Skis, bindings and boots", pickup="Lease pick-ups begin October 1. No appointment needed; walk in and one of our staff will get you outfitted.",
              end="Latest drop-off is May 1, unless you are still skiing (call to let us know and avoid late fees). Drop-offs after the month of May are subject to a $159 charge.",
              fit="For kids age 2 to 13, up to 130 lbs. Beginner to intermediate. Ski sizes 70 to 150 cm; boot sizes 14.5 to 26.5.")
+# Fall Tent Sale notes (shop sheet, Sept 2026)
+TENT_DEALS = ["2026/27 demos and pre-mounted skis from Atomic, Blizzard, V&ouml;lkl, Head, Elan, Rossignol, Nordica, Fischer and Salomon",
+              "Nordica men&rsquo;s and women&rsquo;s alpine boots from $199","Rossignol Alltrack 110 W and 130 M boots, $499","Prior-year Head boots 50% off","Left-over boots up to 70% off","All helmets from $69"]
+# Employment (from the shop's hiring posts, Sept 2025)
+JOBS = [dict(title="Sales associate", store="Lincoln, NH and Scarborough, ME", type="Full-time or part-time, seasonal",
+             blurb="Help skiers, riders and families find the right gear and get them out the door happy. No experience required; we&rsquo;ll train. A love for outdoor activities is the requirement."),
+        dict(title="Ski technician", store="Lincoln, NH and Scarborough, ME", type="Full-time or part-time, seasonal",
+             blurb="Tunes, mounts and race prep on the Montana machines, alongside techs who have been doing this for years. No experience required; we&rsquo;ll train.")]
