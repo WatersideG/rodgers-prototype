@@ -286,7 +286,7 @@ def lease():
 # =====================================================================================
 def boot_lab():
     h = hero("The Boot Lab", "Custom fitting and race prep from Masterfit and Sidas certified fitters. Full fitting and FIS and USSA prep in Lincoln; heat molding, punches and grinds at both stores.",
-             "rossignol-hero-2.jpg", kicker="Lincoln, NH &amp; Scarborough, ME", short=True, pos="center 40%", credit="Photo: Rossignol",
+             "boot-lab-bench", kicker="Lincoln, NH &amp; Scarborough, ME", short=True, pos="center 50%",
              ctas='<a class="btn accent" href="#book">Book a fitting</a><a class="btn ghost-d" href="#menu">Service menu</a>')
     h += crumbs(("The Boot Lab",""))
     steps = [("Assess","Feet, stance, and how you actually ski."),("Select","Shell fit first, from Atomic, Nordica, Salomon, Dalbello, Fischer, Head, Tecnica and Lange."),("Build","Footbeds, heat molding, punches, canting, lifters."),("Prove","Ski it. Come back and we adjust until it&rsquo;s right.")]
