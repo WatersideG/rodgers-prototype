@@ -36,12 +36,12 @@ def journal_teaser():
 
 # =====================================================================================
 def home():
-    wx = f'<div class="wxover">{weather(LINCOLN, mini=True)}{weather(SCARB, mini=True)}</div>'
     h = hero("Skis, boards, bikes and boots.",
              "Two family-run ski and bike shops: Lincoln, New Hampshire, first exit off I-93 before Loon, and Scarborough, Maine, off I-95 on Route 1. Gear, fitting and tuning from people who use what they sell.",
-             "skier-powder-gondola", kicker="Lincoln, NH &middot; Scarborough, ME",
+             "skier-powder-gondola",
              ctas='<a class="btn accent" href="lincoln-nh.html">Lincoln, NH</a><a class="btn ondark" href="scarborough-me.html">Scarborough, ME</a>',
-             pos="center 45%", overlay=wx)
+             pos="center 45%")
+    h += (f'<div class="wxband"><div class="wrap"><div class="grid g2">{weather(LINCOLN, mini=True)}{weather(SCARB, mini=True)}</div></div></div>')
     h += '<div style="height:26px"></div>' + journal_teaser()
     # two stores
     h += (f'<section style="padding-top:20px"><div class="wrap">{sechead("Two stores. One standard.", "Each store has its own departments and its own programs. Pick yours; hours and phone numbers stay at the top of every page.")}'
@@ -64,8 +64,6 @@ def home():
           f'<p style="margin-top:16px">Our techs hand-tune every pair on a Montana stone grinder, with race-room standards and every service itemized and priced. Boot fitting runs the same way: certified fitters, custom insoles, punches, grinds, stance and alignment, and full FIS and USSA race prep in Lincoln.</p>'
           f'<div style="margin-top:24px"><a class="btn" href="boot-lab.html">The Boot Lab</a><a class="btn ghost" style="margin-left:10px" href="lincoln-nh-services.html">Tuning menus</a></div></div></div></section>')
     # staff picks
-    h += (f'<section><div class="wrap">{sechead("Staff picks", "What our people are skiing this season, in their own words. Every pick comes from a Rodgers post; the full set lives on the Staff Picks page.", ("All staff picks","staff-picks.html"))}'
-          f'<div class="grid g2">{pick_card(STAFF_PICKS[0])}{pick_card(STAFF_PICKS[1])}</div></div></section>')
     # story band
     h += ('<section class="navy"><div class="wrap" style="text-align:center;max-width:760px"><div class="qm" style="color:#fff">&ldquo;</div>'
           '<h2 class="display" style="font-size:clamp(26px,3.4vw,38px)">Family-run since 1974</h2>'

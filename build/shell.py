@@ -86,6 +86,11 @@ nav.main .menu a.muted{color:var(--steel);font-weight:500}
 .hero{position:relative;color:#fff;overflow:hidden;background:var(--deep);aspect-ratio:12/5;max-height:820px}
 .hero .wrap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding-bottom:64px;display:flex;flex-direction:column;justify-content:flex-end}
 .hero h1{color:#fff;font-size:clamp(36px,4.6vw,60px);max-width:760px;font-family:"Montserrat","Helvetica Neue",Helvetica,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.5px;line-height:.98}
+.wxband{background:var(--cream);border-bottom:1px solid var(--line)}
+.wxband .wrap{padding-top:12px;padding-bottom:12px}
+.wxband .grid{gap:12px}
+.wxband .wx.mini{border:0;background:transparent;padding:6px 0}
+@media (max-width:600px){.wxband .grid{gap:0}}
 .lede{background:#fff;border-bottom:1px solid var(--line)}
 .lede .wrap{padding-top:26px;padding-bottom:24px}
 .lede p{font-size:18px;line-height:1.55;max-width:760px;color:var(--ink)}

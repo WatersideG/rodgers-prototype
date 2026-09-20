@@ -19,7 +19,7 @@ STAFF_PICKS = [
 # Journal posts. Content drawn from Rodgers' posts, July–September 2026. `img` from the in-house library or vendor.
 POSTS = [
  dict(slug="journal-fall-tent-sale.html", cat="Promotions", date="September 18, 2026", title="The Fall Tent Sale is on: September 18 to October 12 in Lincoln",
-      img="lincoln-service-desk-ski-front.jpg", alt="Race skis lining the front of the Lincoln service desk",
+      img="lincoln-ski-wall-armada-salomon.jpg", alt="Armada and Salomon skis with sale tags on the Lincoln wall",
       teaser="Our biggest deals of the year are back under the tent on Railroad Street: skis, snowboards, boots, apparel, helmets and everything in between. Staff picks and deal reveals all sale long."),
  dict(slug="#", cat="New arrivals", date="September 14, 2026", title="The 2027 Smith goggles just landed at Rodgers Lincoln",
       img="smith-goggle-case.jpg", alt="Smith goggles in the lit display case",
