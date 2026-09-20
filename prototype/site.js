@@ -36,7 +36,9 @@
     try{shown=sessionStorage.getItem('rsx')==='1';}catch(e){}
     function open(){ if(shown)return; shown=true; m.classList.add('open'); try{sessionStorage.setItem('rsx','1');}catch(e){} }
     function close(){ m.classList.remove('open'); }
-    if(!shown){ setTimeout(open,7000); window.addEventListener('scroll',function(){ if(window.scrollY>document.body.scrollHeight*0.35)open(); },{passive:true}); }
+    // Exit intent only: opens once per session when the pointer leaves the page through the top edge (toward the tab bar or address bar).
+    var t0=Date.now();
+    if(!shown){ document.addEventListener('mouseout',function(e){ if(!e.relatedTarget&&e.clientY<=0&&Date.now()-t0>3000)open(); }); }
     m.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',close);});
     m.addEventListener('click',function(e){ if(e.target===m)close(); });
     document.addEventListener('keydown',function(e){ if(e.key==='Escape')close(); });
