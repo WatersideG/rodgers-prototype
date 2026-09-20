@@ -87,8 +87,8 @@ def lincoln():
     h = hero("Lincoln, New Hampshire", "5 Railroad St, first exit off I-93, minutes from Loon. Skis, the Mothership snowboard shop, bikes, rentals, the Boot Lab and the tune room. Open every day 8:30&ndash;5.",
              "skier-carving-red-jacket", kicker="Rodgers Ski &amp; Sport &middot; Lincoln", short=True, pos="center 40%",
              ctas=f'<a class="btn accent" href="{LINCOLN["maps"]}">Directions</a><a class="btn ghost-d" href="tel:{LINCOLN["teltag"]}">Call {LINCOLN["tel"]}</a>')
+    h = h.replace('<!--LEDE-->', f'<div class="wxband"><div class="wrap">{weather(LINCOLN)}</div></div><!--LEDE-->', 1)   # weather directly under the hero
     h += crumbs(("Lincoln, NH",""))
-    h += f'<section class="tight"><div class="wrap">{weather(LINCOLN)}</div></section>'
     h += (f'<section style="padding-top:10px"><div class="wrap split"><div><div class="kicker">The location advantage</div><h2 class="display" style="font-size:32px">First shop skiers reach off I-93</h2>'
           f'<p style="margin-top:16px">Heading to Loon, Cannon or anywhere in the Whites: stop here first, gear up, and skip the base-area lines. New Hampshire has no sales tax, and our staff spends its days off on the same hills you&rsquo;re driving to.</p>'
           f'<p style="margin-top:10px">This is the store for rentals, snowboards and full race prep. Scarborough, our Maine store, runs a different program: no rentals or snowboards there, but the Junior Seasonal Lease and a full ski and bike shop.</p>'
@@ -111,8 +111,8 @@ def scarborough():
     h = hero("Scarborough, Maine", "332 US Route 1, off I-95. Southern Maine&rsquo;s ski and bike shop since 1986: skis, boots, bikes, tuning, boot work and the Junior Seasonal Lease.",
              "mountain-bikers-ridge-view", kicker="Rodgers Ski &amp; Sport &middot; Scarborough", short=True, pos="center 40%",
              ctas=f'<a class="btn accent" href="{SCARB["maps"]}">Directions</a><a class="btn ghost-d" href="tel:{SCARB["teltag"]}">Call {SCARB["tel"]}</a>')
+    h = h.replace('<!--LEDE-->', f'<div class="wxband"><div class="wrap">{weather(SCARB)}</div></div><!--LEDE-->', 1)   # weather directly under the hero
     h += crumbs(("Scarborough, ME",""))
-    h += f'<section class="tight"><div class="wrap">{weather(SCARB)}</div></section>'
     h += (f'<section style="padding-top:10px"><div class="wrap split"><div><div class="kicker">Southern Maine</div><h2 class="display" style="font-size:32px">The area ski and bike shop</h2>'
           f'<p style="margin-top:16px">Serving Portland-area skiers, riders and cyclists since 1986. Day-tripping to Sunday River, Sugarloaf or Pleasant Mountain, or driving to the Whites: stop on Route 1 first.</p>'
           f'<p style="margin-top:10px">What&rsquo;s different here: Scarborough sells skis, not snowboards, and does not rent equipment. Families use the Junior Seasonal Lease instead, and the bike shop runs year-round. Rentals and snowboards are at the Lincoln, NH store.</p>'

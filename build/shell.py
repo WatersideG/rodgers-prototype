@@ -86,7 +86,7 @@ nav.main .menu a.muted{color:var(--steel);font-weight:500}
 .wxband{background:var(--cream);border-bottom:1px solid var(--line)}
 .wxband .wrap{padding-top:12px;padding-bottom:12px}
 .wxband .grid{gap:12px}
-.wxband .wx.mini{border:0;background:transparent;padding:6px 0}
+.wxband .wx{border:0;background:transparent;padding:6px 0}
 @media (max-width:600px){.wxband .grid{gap:0}.wxband .wx.mini{gap:10px}.wxband .wx.mini .now svg{width:30px;height:30px}.wxband .wx.mini .stat{min-width:0}.wxband .wx.mini .now span{font-size:18px}}
 .lede{background:#fff;border-bottom:1px solid var(--line)}
 .lede .wrap{padding-top:26px;padding-bottom:24px}
