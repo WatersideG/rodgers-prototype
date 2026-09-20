@@ -157,6 +157,7 @@ a.card:hover{box-shadow:0 14px 34px rgba(7,27,51,.10);transform:translateY(-2px)
 .navy .card h3,.navy .card b{color:#fff}
 .card h3{font-size:19px;font-weight:700;letter-spacing:0}
 .card p{margin-top:8px;font-size:15px}
+.card.reel img{width:100%;aspect-ratio:1/1;object-fit:contain;display:block;mix-blend-mode:multiply;margin-bottom:12px}
 .card .go{display:block;margin-top:auto;padding-top:14px;font-weight:700;color:var(--navy);font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase}
 .tagline{font-style:italic}
 .tick{display:inline-block;width:34px;height:34px;background:var(--ice);color:var(--navy);font-weight:800;text-align:center;line-height:34px;margin-bottom:14px}

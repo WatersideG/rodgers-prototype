@@ -335,13 +335,13 @@ def staff_picks():
     h += (f'<section><div class="wrap"><div class="grid g2">{"".join(pick_card(p) for p in STAFF_PICKS)}</div>'
           f'</div></section>')
     h += (f'<section class="ice"><div class="wrap">{sechead("Shop favorites from the reels", "Quick takes from the TikTok and Instagram reels this year.")}<div class="grid g3">'
-          '<div class="card"><h3>Rossignol Forza 70</h3><p class="tagline">&ldquo;One of the shop favorites: carve like a mad man, manage ski&rsquo;d off chop like a mad man, and can handle the occasional bump run with ease.&rdquo;</p></div>'
-          '<div class="card"><h3>Atomic Maverick 88</h3><p class="tagline">&ldquo;The perfect east coast ski?&rdquo;</p></div>'
-          '<div class="card"><h3>Salomon S/Lab QST Blank</h3><p class="tagline">&ldquo;With a 112 waist these things charge in new snow but are powerful and responsive on crud and groomers. Wicked versatile!&rdquo;</p></div>'
-          '<div class="card"><h3>Elan Playmaker 91</h3><p class="tagline">&ldquo;Hero laps and sunshine. Slashing moguls like nobody&rsquo;s business.&rdquo;</p></div>'
-          '<div class="card"><h3>Blizzard Canvas 100</h3><p class="tagline">&ldquo;Team rider Devon calls the &rsquo;26/&rsquo;27 Blizzard Canvas 100 the ski of the day at Waterville demo day.&rdquo;</p></div>'
-          '<div class="card"><h3>Booster straps</h3><p class="tagline">&ldquo;Booster Straps kill the dead zone at the start of your flex so your shin connects instantly with the boot instead of smashing into it later.&rdquo;</p></div>'
-          '</div></div></section>')
+          '<div class="card reel"><img src="img/p-rossignol-forza-70.jpg" alt="Rossignol Forza 70" loading="lazy"><h3>Rossignol Forza 70</h3><p class="tagline">&ldquo;One of the shop favorites: carve like a mad man, manage ski&rsquo;d off chop like a mad man, and can handle the occasional bump run with ease.&rdquo;</p></div>'
+          '<div class="card reel"><img src="img/p-atomic-maverick-88.jpg" alt="Atomic Maverick 88" loading="lazy"><h3>Atomic Maverick 88</h3><p class="tagline">&ldquo;The perfect east coast ski?&rdquo;</p></div>'
+          '<div class="card reel"><img src="img/p-salomon-qst-blank.jpg" alt="Salomon S/Lab QST Blank" loading="lazy"><h3>Salomon S/Lab QST Blank</h3><p class="tagline">&ldquo;With a 112 waist these things charge in new snow but are powerful and responsive on crud and groomers. Wicked versatile!&rdquo;</p></div>'
+          '<div class="card reel"><img src="img/p-elan-playmaker-91.jpg" alt="Elan Playmaker 91" loading="lazy"><h3>Elan Playmaker 91</h3><p class="tagline">&ldquo;Hero laps and sunshine. Slashing moguls like nobody&rsquo;s business.&rdquo;</p></div>'
+          '<div class="card reel"><img src="img/p-blizzard-canvas-100.jpg" alt="Blizzard Canvas 100" loading="lazy"><h3>Blizzard Canvas 100</h3><p class="tagline">&ldquo;Team rider Devon calls the &rsquo;26/&rsquo;27 Blizzard Canvas 100 the ski of the day at Waterville demo day.&rdquo;</p></div>'
+          '<div class="card reel"><img src="img/p-booster-strap.jpg" alt="Booster straps" loading="lazy"><h3>Booster straps</h3><p class="tagline">&ldquo;Booster Straps kill the dead zone at the start of your flex so your shin connects instantly with the boot instead of smashing into it later.&rdquo;</p></div>'
+'</div></div></section>')
     return page("journal","Staff Picks | Rodgers Ski &amp; Sport","Staff picks from Rodgers Ski & Sport: the skis and boots our staff are riding this season, in their own words.", h, "staff-picks.html")
 
 def journal():
