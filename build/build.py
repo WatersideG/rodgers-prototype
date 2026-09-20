@@ -43,11 +43,12 @@ import re
 LEDE_RE = re.compile(r'<!--LEDE-->(<div class="lede">.*?</p></div></div>)(<div class="crumbbar">.*?</div></div>)', re.S)
 def write(name, html):
     html = LEDE_RE.sub(lambda m: m.group(2)+m.group(1), html).replace('<!--LEDE-->','')
-    LOC = re.compile(r'^(Lincoln|Scarborough|Call\b|Directions|Get directions|Visit the)|\(\d{3}\) \d{3}-\d{4}')
+    # Orange: buttons that lead to a form (booking, reservation, application, sign-up, contact). Navy: everything else.
+    CTA = re.compile(r'^(Book|Reserve|Schedule|Send|Apply|Sign up|Inquire|Contact|Submit|Request)\b', re.I)
     def _cls(m):
         tag, attrs, text = m.group(1), m.group(2), m.group(3)
         plain = re.sub(r'&[a-z]+;', ' ', text).strip()
-        cls = 'btn loc' if LOC.search(plain) else 'btn'
+        cls = 'btn cta' if CTA.search(plain) else 'btn'
         attrs = re.sub(r'class="btn[^"]*"', f'class="{cls}"', attrs, 1)
         return f'<{tag}{attrs}>{text}</{tag}>'
     html = re.sub(r'<(a|button)([^>]*class="btn[^"]*"[^>]*)>([^<]*)</\1>', _cls, html)
@@ -77,6 +78,7 @@ write('race.html', P.race())
 write('staff-picks.html', P.staff_picks())
 write('journal.html', P.journal())
 write('journal-fall-tent-sale.html', P.tent_sale_article())
+write('journal-loon-black-ridge.html', P.black_ridge_article())
 write('partners.html', P.partners())
 write('employment.html', P.employment())
 write('buyers-guide.html', G.buyers_guide())

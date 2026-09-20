@@ -26,8 +26,9 @@ def find_store(store, rows, img, alt):
 LIN_HOURS = [("Every day","8:30 – 5:00")]
 SCA_HOURS = [("Monday – Tuesday","10 – 6"),("Wednesday","Closed"),("Thursday – Friday","10 – 6"),("Saturday","10 – 5"),("Sunday","11 – 5")]
 
+TENT = next(x for x in POSTS if x["slug"]=="journal-fall-tent-sale.html")
 def journal_teaser():
-    p = POSTS[0]
+    p = TENT
     return (f'<section class="tight" style="padding-top:0"><div class="wrap"><div class="feature">'
             f'<div class="ph"><img src="img/{p["img"]}" alt="{p["alt"]}" loading="lazy"></div>'
             f'<div class="body"><span class="pill orange">Now on &middot; through October 12</span><h2>{p["title"]}</h2>'
@@ -71,7 +72,7 @@ def home():
           '<a class="btn ondark" style="margin-top:24px" href="about.html">Our story</a></div></section>')
     # journal + instagram
     h += (f'<section><div class="wrap">{sechead("From the journal", "News, promotions, new brands, racing and what the local mountains are up to.", ("All posts","journal.html"))}'
-          f'<div class="grid g3">{"".join(post_card(p) for p in POSTS[1:4])}</div></div></section>')
+          f'<div class="grid g3">{"".join(post_card(p) for p in [x for x in POSTS if x is not TENT][:3])}</div></div></section>')
     ig = [("staffpick-robbie-elan-ripstick-96.jpg","Robbie with the Elan Ripstick 96 Black"),("lincoln-race-wall-alt.jpg","Race wall at Lincoln"),("staffpick-avery-blizzard-black-pearl.jpg","Avery with the Blizzard Black Pearl"),
           ("smith-goggle-case.jpg","Smith goggle case"),("staffpick-jamie-atomic-arc-735.jpg","Jamie with the Atomic Arc 735 RS"),("scarborough-atomic-boot-bench.jpg","Scarborough binding bench")]
     h += (f'<section class="ice tight"><div class="wrap">{sechead("@rodgersski", "Follow along on Instagram: staff picks, deal reveals, new gear, and race days at Loon.", ("Instagram", SOCIAL["ig"]))}'
@@ -366,6 +367,27 @@ def tent_sale_article():
           f'<p style="margin-top:26px"><a class="btn accent" href="{LINCOLN["maps"]}">Directions to Lincoln</a> <a class="btn ghost" href="staff-picks.html">Staff picks</a></p></div></section>')
     h += (f'<section class="ice"><div class="wrap">{sechead("More from the journal")}<div class="grid g3">{"".join(post_card(x) for x in POSTS[1:4])}</div></div></section>')
     return page("journal","Fall Tent Sale 2026 | Rodgers Ski &amp; Sport","The Rodgers Ski & Sport Fall Tent Sale runs September 18 to October 12, 2026 at the Lincoln, NH store: skis, snowboards, boots, apparel and helmets at the year's lowest prices.", h, "journal-fall-tent-sale.html")
+
+def black_ridge_article():
+    h = hero("Loon&rsquo;s Black Ridge", "272 acres of expert-only glades east of North Peak, opening winter 2027-28. What Loon announced on September 1, and the gear that makes sense for it.",
+             "skier-powder-gondola", kicker="Local mountains &middot; September 20, 2026", short=True, pos="center 40%")
+    h += crumbs(("Journal","journal.html"),("Loon&rsquo;s Black Ridge",""))
+    h += ('<section><div class="wrap article">'
+          '<p>On September 1, Loon Mountain announced Black Ridge, a 272-acre expansion of in-bounds tree skiing on the east side of North Peak, inside the White Mountain National Forest. It opens for the 2027-28 season, with on-mountain work starting in early 2027. When it does, Loon goes from 403 skiable acres to 675, a 67 percent increase, and becomes the largest ski area in New Hampshire. Bretton Woods, the current leader, lists about 468.</p>'
+          '<h2>What Loon is building</h2>'
+          '<p>Loon has 35 acres of glades today; Black Ridge brings that to 307. The terrain is rated expert only: dense softwood, steep gullies and open hardwood glades, with a 1,350-foot vertical drop from a 2,850-foot high point. Tree cutting is being kept to a minimum, so there are a few loosely defined routes rather than trails.</p>'
+          '<p>There is no lift inside Black Ridge. You ride the North Peak Express Quad, pass through a controlled entry gate at the top and traverse up to 1.25 miles east; Loon says hiking or pushing may be required. There is no snowmaking and no grooming, so the zone opens and closes on natural snow. Ski Patrol will cover it, with slower response times. Brian Norton, Loon&rsquo;s president and general manager, put it plainly: &ldquo;Black Ridge isn&rsquo;t for everyone, and that&rsquo;s the point.&rdquo;</p>'
+          '<h2>The gear that fits this terrain</h2>'
+          '<p><strong>Skis.</strong> For a New Hampshire skier who wants one pair for both the groomers and Black Ridge, a 95 to 105 mm waist with tip and tail rocker is the range to shop. Rocker floats in soft snow and releases the tail in tight trees. The Salomon QST 100, Elan Ripstick 96 Black Edition and Atomic Maverick 105 CTI are where we start; for a storm-day second pair, the Atomic Bent 110 or QST 106.</p>'
+          '<p><strong>Boots.</strong> A 1.25-mile traverse is where a walk mode pays off. The Atomic Hawx Ultra XTD, Salomon Shift Alpha and Nordica Unlimited keep a 98 to 99 mm downhill fit and open up for the flats. Fit matters more than flex; the Boot Lab in Lincoln handles both.</p>'
+          '<p><strong>Snowboards.</strong> A stiffer directional board with a setback stance floats best in untracked snow and holds a line through gullies. Never Summer, Lib Tech, Arbor and Nidecker are all on the wall.</p>'
+          '<p><strong>Poles, head and hands.</strong> Powder baskets from Leki, Swix or Komperdell. A helmet is not optional in trees: Smith, Giro, POC and Sweet Protection, with a low-light goggle lens for the shade under softwoods. Hestra gloves with a long cuff keep snow out.</p>'
+          '<p><strong>A small pack.</strong> Water, a spare layer and a strap for a lost ski. Db, Dakine and POC packs sized for a lift day are in both stores. Ski with a partner; the patrol response time is Loon&rsquo;s own warning.</p>'
+          '<p><strong>Tuning.</strong> Natural snow over rock and stumps means base repair. The Lincoln tune room handles p-tex, edges and stone grinding all winter.</p>'
+          '<p>Black Ridge is more than a year out. The gear above is in the stores now, and the tent sale in Lincoln runs through October 12.</p>'
+          '<p style="margin-top:26px"><a class="btn" href="https://www.loonmtn.com/black-ridge" target="_blank" rel="noopener">Read Loon&rsquo;s announcement</a> <a class="btn" href="buyers-guide.html">Buyer&rsquo;s Guide</a> <a class="btn" href="boot-lab.html#book">Book a boot fit</a></p></div></section>')
+    h += (f'<section class="ice"><div class="wrap">{sechead("More from the journal")}<div class="grid g3">{"".join(post_card(x) for x in POSTS[1:4])}</div></div></section>')
+    return page("journal","Loon&rsquo;s Black Ridge expansion and the gear for it | Rodgers Ski &amp; Sport","Loon Mountain's Black Ridge adds 272 acres of expert-only tree skiing for winter 2027-28. What was announced and the skis, boots, boards and accessories that suit it, from Rodgers Ski & Sport.", h, "journal-loon-black-ridge.html")
 
 def partners():
     h = hero("Partners and teams", "The mountains, organizations and programs Rodgers works with, and how to reach us if you run a team, club or school program.",

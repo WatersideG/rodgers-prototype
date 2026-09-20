@@ -18,6 +18,9 @@ STAFF_PICKS = [
 
 # Journal posts. Content drawn from Rodgers' posts, July–September 2026. `img` from the in-house library or vendor.
 POSTS = [
+ dict(slug="journal-loon-black-ridge.html", cat="Local mountains", date="September 20, 2026", title="Loon&rsquo;s Black Ridge: 272 acres of tree skiing, and what to bring",
+      img="hero-loon-aerial.jpg", alt="Aerial view of Loon Mountain and the Lincoln valley in winter",
+      teaser="Loon announced the biggest terrain expansion in its history: expert-only glades east of North Peak, no lifts, no snowmaking, opening winter 2027-28. Here is what the announcement says and the gear that makes sense for it."),
  dict(slug="journal-fall-tent-sale.html", cat="Promotions", date="September 18, 2026", title="The Fall Tent Sale is on: September 18 to October 12 in Lincoln",
       img="lincoln-ski-wall-armada-salomon.jpg", alt="Armada and Salomon skis with sale tags on the Lincoln wall",
       teaser="Our biggest deals of the year are back under the tent on Railroad Street: skis, snowboards, boots, apparel, helmets and everything in between. Staff picks and deal reveals all sale long."),
