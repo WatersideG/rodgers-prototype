@@ -371,7 +371,7 @@ def tent_sale_article():
 
 def black_ridge_article():
     h = hero("Loon&rsquo;s Black Ridge", "272 acres of expert-only glades east of North Peak, opening winter 2027-28. What Loon announced on September 1, and the gear that makes sense for it.",
-             "skier-powder-gondola", kicker="Local mountains &middot; September 20, 2026", short=True, pos="center 40%")
+             "loon-black-ridge-glade", kicker="Local mountains &middot; September 20, 2026", short=True, pos="center 60%", credit="Photo: Loon Mountain Resort")
     h += crumbs(("Journal","journal.html"),("Loon&rsquo;s Black Ridge",""))
     h += ('<section><div class="wrap article">'
           '<p>On September 1, Loon Mountain announced Black Ridge, a 272-acre expansion of in-bounds tree skiing on the east side of North Peak, inside the White Mountain National Forest. It opens for the 2027-28 season, with on-mountain work starting in early 2027. When it does, Loon goes from 403 skiable acres to 675, a 67 percent increase, and becomes the largest ski area in New Hampshire. Bretton Woods, the current leader, lists about 468.</p>'
