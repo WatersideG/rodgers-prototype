@@ -42,7 +42,8 @@ def home():
              "skier-powder-gondola",
              ctas='<a class="btn accent" href="lincoln-nh.html">Lincoln, NH</a><a class="btn ondark" href="scarborough-me.html">Scarborough, ME</a>',
              pos="center 45%")
-    h += (f'<div class="wxband"><div class="wrap"><div class="grid g2">{weather(LINCOLN, mini=True)}{weather(SCARB, mini=True)}</div></div></div>')
+    wx = f'<div class="wxband"><div class="wrap"><div class="grid g2">{weather(LINCOLN, mini=True)}{weather(SCARB, mini=True)}</div></div></div>'
+    h = h.replace('<!--LEDE-->', wx + '<!--LEDE-->', 1)   # weather band sits directly under the hero photo, above the intro text
     h += '<div style="height:26px"></div>' + journal_teaser()
     # two stores
     h += (f'<section style="padding-top:20px"><div class="wrap">{sechead("Two stores. One standard.", "Each store has its own departments and its own programs. Pick yours; hours and phone numbers stay at the top of every page.")}'
