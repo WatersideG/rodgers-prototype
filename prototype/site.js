@@ -40,6 +40,6 @@
     m.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',close);});
     m.addEventListener('click',function(e){ if(e.target===m)close(); });
     document.addEventListener('keydown',function(e){ if(e.key==='Escape')close(); });
-    var f=m.querySelector('form'); if(f){ f.addEventListener('submit',function(e){ e.preventDefault(); m.querySelector('.body').innerHTML='<div class="kicker">You are on the list</div><h2>Check your inbox</h2><p>Your 10% off code is on its way. Show it at the register in Lincoln or Scarborough.</p><p class="fine">Prototype: no email is sent from this page. In production the form posts to the email platform and the welcome flow delivers the code.</p>'; }); }
+    var f=m.querySelector('form'); if(f){ f.addEventListener('submit',function(e){ e.preventDefault(); m.querySelector('.body').innerHTML='<div class="kicker">You are on the list</div><h2>Check your inbox</h2><p>Your 10% off code is on its way. Show it at the register in Lincoln or Scarborough.</p>'; }); }
   }
 })();

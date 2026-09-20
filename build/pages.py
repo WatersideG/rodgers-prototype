@@ -2,7 +2,7 @@ from shell import *
 from data import *
 
 def prod(items):
-    return '<div class="prod">' + ''.join(f'<div><img src="img/{i}.jpg" alt="{n}" loading="lazy"><b>{n}</b>{"<span>"+s+"</span>" if s else ""}</div>' for i,n,s in items) + '</div>'
+    return f'<div class="prod n{len(items)}">' + ''.join(f'<div><img src="img/{i}.jpg" alt="{n}" loading="lazy"><b>{n}</b>{"<span>"+s+"</span>" if s else ""}</div>' for i,n,s in items) + '</div>'
 
 def brands(lst): return brand_wall(lst)
 
@@ -56,7 +56,7 @@ def home():
     import datetime
     season = SEASON_OF[datetime.date.today().month]
     cards = SEASON_CARDS[season]
-    h += (f'<section><div class="wrap">{sechead(SEASON_TITLE[season], "The products and services most people come in for at this time of year. The four cards per season are a list in Payload, so the shop can swap one in minutes.", ("All departments","lincoln-nh.html"))}'
+    h += (f'<section><div class="wrap">{sechead(SEASON_TITLE[season], "The products and services most people come in for at this time of year.", ("All departments","lincoln-nh.html"))}'
           f'<div class="grid g4 season">' + ''.join(card(*c) for c in cards) + '</div></div></section>')
     # boot lab + tune
     h += (f'<section class="ice"><div class="wrap split"><div>{ph("tuning-montana.jpg","Race skis on the Montana grinder","r43","Lincoln tune room")}</div>'
@@ -76,7 +76,7 @@ def home():
           ("smith-goggle-case.jpg","Smith goggle case"),("staffpick-jamie-atomic-arc-735.jpg","Jamie with the Atomic Arc 735 RS"),("scarborough-atomic-boot-bench.jpg","Scarborough binding bench")]
     h += (f'<section class="ice tight"><div class="wrap">{sechead("@rodgersski", "Follow along on Instagram: staff picks, deal reveals, new gear, and race days at Loon.", ("Instagram", SOCIAL["ig"]))}'
           f'<div class="grid g6">' + ''.join(f'<a class="ph r1" href="{SOCIAL["ig"]}"><img src="img/{i}" alt="{a}" loading="lazy"></a>' for i,a in ig) + '</div>'
-          f'<p class="note">The live feed pulls the six most recent posts through the Instagram Basic Display API; these tiles are recent posts placed by hand for the prototype.</p></div></section>')
+          f'</div></section>')
     return page("", "Rodgers Ski &amp; Sport | Ski, Bike &amp; Boot Fitting &mdash; Lincoln NH &amp; Scarborough ME",
                 "Family-run ski and bike shops in Lincoln, NH and Scarborough, ME. Skis, boots, bikes, the Boot Lab, tuning, race gear from seven brands, and the annual Fall Tent Sale.", h, "index.html")
 
@@ -221,15 +221,6 @@ def rentals():
     form = ('<section class="ice tight"><div class="wrap"><div class="card" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap"><div style="flex:2;min-width:280px"><h3>Reserve ahead or walk in</h3>'
             '<p>Send a reservation request with your dates, package and sizes and the Lincoln rental counter stages the gear before you arrive. Walk-ins are welcome every day the store is open.</p></div>'
             f'<a class="btn accent" href="reserve-rental.html">Reserve a rental</a><a class="btn ghost" href="tel:{LINCOLN["teltag"]}">Call {LINCOLN["tel"]}</a></div></div></section>')
-    if False:
-        form = ('<section class="ice"><div class="wrap"><div class="card" style="max-width:720px;margin:0 auto"><h3>Reserve your rentals</h3><p>Pick your dates and package; we stage the gear before you arrive.</p>'
-                '<form style="margin-top:16px"><label class="f">Dates</label><input class="field" placeholder="Pickup and return dates"><label class="f">Name</label><input class="field"><label class="f">Email</label><input class="field" type="email"><label class="f">Phone</label><input class="field" type="tel">'
-                '<label class="f">Height / weight / shoe size</label><input class="field"><label class="f">Package</label><select class="field"><option>Junior ski package</option><option>Performance shape</option><option>Advanced shape</option><option>Demo skis (pro)</option><option>Snowboard package</option><option>Snowshoes</option><option>Nordic package</option></select>'
-                '<button class="btn accent" type="submit">Review reservation</button></form></div></div></section>')
-    else:
-        form = ('<section class="ice tight"><div class="wrap"><div class="card" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap"><div style="flex:2;min-width:280px"><h3>Walk in, we&rsquo;ll fit you on the spot</h3>'
-                '<p>Rentals are first come, first served at the Lincoln store this season. Come in with your height, weight, shoe size and how you ski, and the counter does the rest. Online reservations are planned for next season.</p></div>'
-                f'<a class="btn" href="tel:{LINCOLN["teltag"]}">Call {LINCOLN["tel"]}</a></div></div></section>')
     h = hero("Rentals in Lincoln", "Junior packages from $20 a day, performance and advanced skis, demos, snowboards, snowshoes, cross-country and helmets. Rentals are a Lincoln, NH program; the Scarborough store does not rent equipment.",
              "snowboarder-green-purple", kicker="Lincoln, NH &middot; Rentals", short=True, pos="center 45%")
     h += crumbs(("Lincoln, NH","lincoln-nh.html"),("Rentals",""))
@@ -243,7 +234,7 @@ def rentals():
           ("How does sizing work?","Height, weight, shoe size and skier type. The counter sets bindings and tests them before you leave."),
           ("What is the damage waiver?","$2 a day; it covers normal rental damage."),
           ("Do multi-day rates require consecutive days?","Yes. Rates are only valid with consecutive daily use."),
-          ("Can I reserve online?","Not this season. Online reservations with gear staged for pickup are planned for next winter.")]) + '</div></section>')
+          ("Can I reserve online?","Yes. Send a reservation request with your dates, packages and sizes and the counter confirms by email or phone and stages the gear before you arrive. Nothing is charged online.")]) + '</div></section>')
     return page("lincoln","Rentals &middot; Lincoln, NH | Rodgers Ski &amp; Sport","Ski, snowboard, snowshoe and cross-country rentals at Rodgers Ski & Sport in Lincoln, NH. Junior packages from $20 a day. First shop off I-93 before Loon.", h, "rentals.html")
 
 # ---------------- Scarborough departments ----------------
@@ -254,7 +245,7 @@ def sca_ski():
     b += (f'<section class="ice"><div class="wrap"><div class="grid g3">{ph("scarborough-ski-rows-alt.jpg","Atomic and Völkl skis on the Scarborough wall","r43")}{ph("scarborough-race-wall.jpg","Race skis under the Atomic sign","r43")}{ph("salomon-lit-sign.jpg","The Salomon sign on the wood wall","r43")}</div>'
           f'<div class="split" style="margin-top:34px"><div><div class="kicker">Race</div><h3 style="font-size:20px">Race skis and race tunes in Maine</h3><p style="margin-top:8px">Race skis under the Atomic sign, a $100 race tune on the menu, and boot work for race boots: shell and liner molding, punches and spot grinds. Full FIS and USSA boot prep is done at the Lincoln Boot Lab.</p></div>'
           f'<div><div class="kicker">Bindings</div>{brands(BINDING_BRANDS)}<div style="margin-top:16px"><a class="btn" href="race.html">Race at Rodgers</a> <a class="btn ghost" href="scarborough-me-services.html">Service menu</a></div></div></div></div></section>')
-    return dept("scarborough-me-ski.html","scarb",SCARB,("Scarborough, ME","scarborough-me.html"),"Ski","Skis, boots and bindings for Southern Maine skiers heading to Sunday River, Sugarloaf, Pleasant Mountain and the Whites.","skiers-snowy-mountain","center 40%",b,
+    return dept("scarborough-me-ski.html","scarb",SCARB,("Scarborough, ME","scarborough-me.html"),"Ski","Skis, boots and bindings for Southern Maine skiers heading to Sunday River, Sugarloaf, Pleasant Mountain and the Whites.","skier-carving-red-jacket","center 40%",b,
                 "Skis, boots and bindings at Rodgers Ski & Sport in Scarborough, ME: Atomic, Salomon, Nordica, Elan, Blizzard, Rossignol, Fischer, Völkl and more.")
 
 def sca_bikes():
@@ -307,7 +298,7 @@ def boot_lab():
           f'<div style="margin-top:20px"><a class="btn" href="race.html">Race at Rodgers</a></div></div></div></section>')
     h += (f'<section class="ice" id="book"><div class="wrap"><div class="grid g2"><div><div class="kicker">Book a fitting</div><h2 class="display" style="font-size:30px">Appointments recommended</h2><p style="margin-top:14px">Plan on 60 to 90 minutes for a full fit; race builds run longer. Appointments are required for custom race work. Bring your current boots, footbeds if you have them, and the socks you ski in.</p>'
           f'<p style="margin-top:14px"><a class="btn accent" href="tel:{LINCOLN["teltag"]}">Lincoln {LINCOLN["tel"]}</a> <a class="btn ghost" href="tel:{SCARB["teltag"]}">Scarborough {SCARB["tel"]}</a></p></div>'
-          f'<div class="card"><h3>Request a fitting</h3><form style="margin-top:14px"><label class="f">Store</label><select class="field"><option>Lincoln, NH</option><option>Scarborough, ME</option></select><label class="f">Name</label><input class="field"><label class="f">Phone or email</label><input class="field"><label class="f">What are we working on?</label><select class="field"><option>New boots</option><option>Fit problem with current boots</option><option>Race prep (FIS / USSA)</option><option>Custom insoles</option></select><button class="btn" type="button">Send request</button><p class="note">Prototype: the production form posts to Payload and emails the store.</p></form></div></div></div></section>')
+          f'<div class="card"><h3>Request a fitting</h3><form style="margin-top:14px"><label class="f">Store</label><select class="field"><option>Lincoln, NH</option><option>Scarborough, ME</option></select><label class="f">Name</label><input class="field"><label class="f">Phone or email</label><input class="field"><label class="f">What are we working on?</label><select class="field"><option>New boots</option><option>Fit problem with current boots</option><option>Race prep (FIS / USSA)</option><option>Custom insoles</option></select><button class="btn" type="button">Send request</button></form></div></div></div></section>')
     h += (f'<section><div class="wrap" style="max-width:820px">{sechead("Before you book")}' + faq([
           ("How long does a fitting take?","Plan on 60 to 90 minutes for a full fit; race builds run longer."),
           ("What should I bring?","Your current boots, footbeds if you have them, and the socks you actually ski in."),
@@ -340,7 +331,7 @@ def staff_picks():
              "snowboarder-orange-pants", kicker="From the shop floor", short=True, pos="center 40%")
     h += crumbs(("Journal","journal.html"),("Staff Picks",""))
     h += (f'<section><div class="wrap"><div class="grid g2">{"".join(pick_card(p) for p in STAFF_PICKS)}</div>'
-          f'<p class="note" style="margin-top:26px">Staff picks are a Payload collection: staff name, store, product, quote, photo and the source post. New picks appear here and on the homepage the day they are posted.</p></div></section>')
+          f'</div></section>')
     h += (f'<section class="ice"><div class="wrap">{sechead("Shop favorites from the reels", "Quick takes from the TikTok and Instagram reels this year.")}<div class="grid g3">'
           '<div class="card"><h3>Rossignol Forza 70</h3><p class="tagline">&ldquo;One of the shop favorites: carve like a mad man, manage ski&rsquo;d off chop like a mad man, and can handle the occasional bump run with ease.&rdquo;</p></div>'
           '<div class="card"><h3>Atomic Maverick 88</h3><p class="tagline">&ldquo;The perfect east coast ski?&rdquo;</p></div>'
@@ -359,7 +350,7 @@ def journal():
     h += (f'<section><div class="wrap"><div class="chips">' + ''.join(f'<a href="#" class="{"on" if c=="All" else ""}">{c}</a>' for c in CATEGORIES) + '</div>'
           f'<div class="feature"><div class="ph"><img src="img/{p["img"]}" alt="{p["alt"]}"></div><div class="body"><span class="pill orange">{p["cat"]}</span><h2>{p["title"]}</h2><p>{p["teaser"]}</p><div class="date" style="font-size:12px;color:var(--steel);margin-top:10px">{p["date"]}</div><div style="margin-top:18px"><a class="btn" href="{p["slug"]}">Read the post</a></div></div></div>'
           f'<div class="grid g3" style="margin-top:22px">{"".join(post_card(x) for x in POSTS[1:])}</div>'
-          f'<p class="note" style="margin-top:26px">Posts are a Payload collection with categories (News, Promotions, Racing, Brands, New arrivals, Services, Local mountains), a featured flag for the homepage teaser, and the store each post applies to. Posts with a placeholder link are titles from Rodgers&rsquo; social channels awaiting full articles.</p></div></section>')
+          f'</div></section>')
     return page("journal","Journal | Rodgers Ski &amp; Sport","News, promotions, racing, brands and local mountain updates from Rodgers Ski & Sport in Lincoln, NH and Scarborough, ME.", h, "journal.html")
 
 def tent_sale_article():
@@ -381,11 +372,11 @@ def partners():
              "south-peak-winter-aerial", kicker="Community", short=True, pos="center 45%")
     h += crumbs(("About","about.html"),("Partners &amp; Teams",""))
     cards = ''.join(f'<a class="card" href="{p["url"]}" target="_blank" rel="noopener"><div class="kicker" style="margin-bottom:6px">{p["kind"]}</div><h3>{p["name"]}</h3><p>{p["blurb"]}</p><span class="go">Website</span></a>' for p in PARTNERS)
-    h += (f'<section><div class="wrap">{sechead("Partners", "Mountains and organizations in the Lincoln area. Each entry is a record in Payload with a name, type, logo, link and a short description, so the shop can add or edit one without a developer.")}<div class="grid g3">{cards}</div></div></section>')
+    h += (f'<section><div class="wrap">{sechead("Partners", "Mountains and organizations in the Lincoln area.")}<div class="grid g3">{cards}</div></div></section>')
     h += (f'<section class="ice"><div class="wrap split"><div><div class="kicker">Schools, clubs &amp; teams</div><h2 class="display" style="font-size:30px">Run a program? Talk to us.</h2>'
           f'<p style="margin-top:14px">Race teams, ski clubs, school programs and bike clubs: whether you&rsquo;re an athlete, coach or parent, we have the equipment and the knowledge you need. Contact the store nearest your program and we&rsquo;ll set gear and bench time aside.</p>'
           f'<p style="margin-top:14px"><a class="btn" href="tel:{LINCOLN["teltag"]}">Lincoln {LINCOLN["tel"]}</a> <a class="btn ghost" href="tel:{SCARB["teltag"]}">Scarborough {SCARB["tel"]}</a></p>'
-          f'<p class="note">Teams and clubs listed here are managed in the same Payload collection as partners, with a &ldquo;Team&rdquo; type. None are listed yet.</p></div><div>{ph("lincoln-race-wall.jpg","The race wall at the Lincoln store","r43")}</div></div></section>')
+          f'<p class="note">Teams and clubs will be listed here as they sign on.</p></div><div>{ph("lincoln-race-wall.jpg","The race wall at the Lincoln store","r43")}</div></div></section>')
     return page("about","Partners, Schools, Clubs &amp; Teams | Rodgers Ski &amp; Sport","Rodgers Ski & Sport partners and programs: South Peak Resort, Loon Mountain, Cannon Mountain, Bretton Woods, the Western White Mountains Chamber of Commerce, and how race teams, clubs and schools can work with the shop.", h, "partners.html")
 
 # =====================================================================================
@@ -444,18 +435,18 @@ def employment():
     h += crumbs(("About","about.html"),("Employment",""))
     jobs = ''.join(f'<div class="job"><div><h3>{j["title"]}</h3><div class="meta">{j["store"]} &middot; {j["type"]}</div></div><p>{j["blurb"]}</p><a class="btn sm" href="#apply">Apply</a></div>' for j in JOBS)
     h += (f'<section><div class="wrap"><p style="max-width:720px;margin-bottom:30px">Rodgers hires for the winter season in Lincoln, New Hampshire and Scarborough, Maine: people who ski, ride or bike and want to help others do the same. Openings are posted here and on Indeed; you can also stop in at either store and fill out an application.</p>{sechead("Open positions")}<div>{jobs}</div>'
-          f'<p class="note" style="margin-top:20px">Openings are a Payload collection (title, store, type, description, active flag), so the shop can post and close a role without a developer.</p></div></section>')
+          f'</div></section>')
     h += (f'<section class="ice" id="apply"><div class="wrap"><div class="grid g2"><div><div class="kicker">Why work here</div><h2 class="display" style="font-size:30px">Same experts, bigger vision</h2>'
           f'<p style="margin-top:14px">A family-run shop since 1974, a Ski Magazine Gold Medal Shop, and the first stop for skiers coming off I-93. You will learn boot fitting from Masterfit and Sidas certified fitters, tuning on Montana machines, and the race business from techs who prep FIS skis. Rodgers Ski &amp; Sport is an equal opportunity employer.</p>'
           f'<p style="margin-top:14px"><a class="btn ghost" href="tel:{LINCOLN["teltag"]}">Lincoln {LINCOLN["tel"]}</a> <a class="btn ghost" href="tel:{SCARB["teltag"]}">Scarborough {SCARB["tel"]}</a></p></div>'
-          f'<div class="card"><h3>Apply</h3><form style="margin-top:14px"><label class="f">Position</label><select class="field"><option>Sales associate</option><option>Ski technician</option><option>Other</option></select><label class="f">Store</label><select class="field"><option>Lincoln, NH</option><option>Scarborough, ME</option><option>Either</option></select><label class="f">Name</label><input class="field"><label class="f">Email</label><input class="field" type="email"><label class="f">Phone</label><input class="field" type="tel"><label class="f">Availability and a few lines about you</label><textarea class="field" rows="4"></textarea><button class="btn" type="button">Send application</button><p class="note">Prototype: the production form posts to Payload and emails the store, with an optional resume upload.</p></form></div></div></div></section>')
+          f'<div class="card"><h3>Apply</h3><form style="margin-top:14px"><label class="f">Position</label><select class="field"><option>Sales associate</option><option>Ski technician</option><option>Other</option></select><label class="f">Store</label><select class="field"><option>Lincoln, NH</option><option>Scarborough, ME</option><option>Either</option></select><label class="f">Name</label><input class="field"><label class="f">Email</label><input class="field" type="email"><label class="f">Phone</label><input class="field" type="tel"><label class="f">Availability and a few lines about you</label><textarea class="field" rows="4"></textarea><button class="btn" type="button">Send application</button></form></div></div></div></section>')
     return page("about","Employment | Rodgers Ski &amp; Sport","Jobs at Rodgers Ski & Sport in Lincoln, NH and Scarborough, ME: sales associates and ski technicians, full-time and part-time. No experience required.", h, "employment.html")
 
 
 # =====================================================================================
 def reserve_rental():
     pk = ''.join(f'<option>{n}</option>' for n in ["Junior ski package","Performance ski package","Advanced ski package","Demo skis","Snowboard package","Cross-country package","Snowshoes","Helmet only"])
-    person = lambda i: (f'<div class="card" style="padding:18px 20px;margin-top:12px"><h4 style="font-size:15px">Person {i}</h4><div class="grid g4" style="gap:12px;margin-top:8px">'
+    person = lambda i: (f'<div class="card" style="padding:18px 20px;margin-top:12px"><h4 style="font-size:15px">Person {i}</h4><div class="grid g2" style="gap:12px;margin-top:8px">'
                         f'<div><label class="f">Package</label><select class="field">{pk}</select></div><div><label class="f">Height</label><input class="field" placeholder="5 ft 9 in"></div>'
                         f'<div><label class="f">Weight</label><input class="field" placeholder="lb"></div><div><label class="f">Shoe size</label><input class="field" placeholder="US 10"></div></div>'
                         f'<label class="f">Ability</label><select class="field"><option>First time</option><option>Beginner: green runs</option><option>Intermediate: blue runs</option><option>Advanced: black runs</option></select></div>')
@@ -466,7 +457,7 @@ def reserve_rental():
           f'<form style="margin-top:14px"><div class="grid g2" style="gap:12px"><div><label class="f">Name</label><input class="field" required></div><div><label class="f">Email</label><input class="field" type="email" required></div>'
           f'<div><label class="f">Phone</label><input class="field" type="tel"></div><div><label class="f">Number of people</label><select class="field"><option>1</option><option>2</option><option>3</option><option>4</option><option>5 or more</option></select></div>'
           f'<div><label class="f">Pick-up date</label><input class="field" type="date"></div><div><label class="f">Return date</label><input class="field" type="date"></div></div>'
-          f'{person(1)}{person(2)}<p class="note">Add a card for each person in your party; the form grows in the production build.</p>'
+          f'{person(1)}{person(2)}<p class="note">Add a person for everyone in your party.</p>'
           f'<label class="f">Notes</label><textarea class="field" rows="3" placeholder="Boot size questions, a helmet for a child, anything else"></textarea>'
           f'<button class="btn accent" type="button">Send reservation request</button></form></div></div>'
           f'<div><div class="card"><h3>Good to know</h3><p style="margin-top:10px">Rentals are a Lincoln, NH program. The Scarborough, ME store does not rent equipment; it offers the <a href="lease.html" style="color:var(--navy);font-weight:700">Junior Seasonal Lease</a> instead.</p>'

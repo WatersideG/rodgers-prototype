@@ -113,6 +113,6 @@ SEARCH_JS = r"""
 sh=('<div class="crumbbar"><div class="wrap"><a href="index.html">Home</a> &nbsp;/&nbsp; Search</div></div>'
     '<section><div class="wrap" style="max-width:820px"><h1 class="display" id="sh" style="font-size:32px">Search the site</h1>'
     '<form class="search" action="search.html" role="search" style="margin-top:18px;height:48px;max-width:520px"><input id="sq" type="search" name="q" placeholder="Skis, boot fitting, rentals, tune prices" aria-label="Search the site" style="width:100%;font-size:15px"><button type="submit" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="18" height="18"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg></button></form>'
-    '<div id="results" style="margin-top:20px"></div><p class="note" style="margin-top:24px">Prototype search runs in the browser over a page index built with the site. Production search runs against Payload content and products.</p></div></section>'
+    '<div id="results" style="margin-top:20px"></div></div></section>'
     f'<script>{SEARCH_JS}</script>')
 write('search.html', shell.page("", "Search | Rodgers Ski &amp; Sport", "Search Rodgers Ski & Sport: products, services, prices and pages.", sh, "search.html"))

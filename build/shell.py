@@ -123,6 +123,10 @@ nav.main .menu a.muted{color:var(--steel);font-weight:500}
 .ph img{width:100%;height:100%;object-fit:cover;display:block}
 .ph.r43,.ph.r32,.ph.r169{aspect-ratio:3/2}.ph.r1{aspect-ratio:1/1}.ph.r34{aspect-ratio:3/4}.ph.r21{aspect-ratio:2/1}
 .prod{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prod.n3{grid-template-columns:repeat(3,1fr)}
+.prod.n5{grid-template-columns:repeat(5,1fr)}
+.prod.n6{grid-template-columns:repeat(3,1fr)}
+@media (max-width:900px){.prod,.prod.n5,.prod.n6{grid-template-columns:repeat(2,1fr)}}
 .prod a,.prod div{background:#fff;border:1px solid var(--line);padding:18px 16px;text-align:center}
 .prod img{width:100%;aspect-ratio:1/1;object-fit:contain;display:block;mix-blend-mode:multiply}
 .prod b{display:block;margin-top:10px;font-size:14px;color:var(--ink);font-weight:600}
@@ -143,10 +147,12 @@ section.tight{padding:44px 0}
 .navy .sechead p{color:#9FB4CE}
 .grid{display:grid;gap:24px}
 .g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g5{grid-template-columns:repeat(5,1fr)}.g6{grid-template-columns:repeat(6,1fr)}
-.split{display:flex;gap:56px;align-items:center}
+.split{display:flex;gap:56px;align-items:flex-start}
 .split>*{flex:1}
 .split.rev{flex-direction:row-reverse}
-.card{background:#fff;border:1px solid var(--line);padding:24px;transition:box-shadow var(--dur) var(--ease),transform var(--dur) var(--ease);display:flex;flex-direction:column;height:100%;box-sizing:border-box}
+.card{background:#fff;border:1px solid var(--line);padding:24px;transition:box-shadow var(--dur) var(--ease),transform var(--dur) var(--ease);display:flex;flex-direction:column;box-sizing:border-box}
+.grid>.card,.grid>a.card{height:100%}
+.card .card{display:block}
 a.card:hover{box-shadow:0 14px 34px rgba(7,27,51,.10);transform:translateY(-2px)}
 .card.img{padding:0;overflow:hidden}
 .card.img .body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
@@ -434,7 +440,7 @@ JS = r"""
     m.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',close);});
     m.addEventListener('click',function(e){ if(e.target===m)close(); });
     document.addEventListener('keydown',function(e){ if(e.key==='Escape')close(); });
-    var f=m.querySelector('form'); if(f){ f.addEventListener('submit',function(e){ e.preventDefault(); m.querySelector('.body').innerHTML='<div class="kicker">You are on the list</div><h2>Check your inbox</h2><p>Your 10%% off code is on its way. Show it at the register in Lincoln or Scarborough.</p><p class="fine">Prototype: no email is sent from this page. In production the form posts to the email platform and the welcome flow delivers the code.</p>'; }); }
+    var f=m.querySelector('form'); if(f){ f.addEventListener('submit',function(e){ e.preventDefault(); m.querySelector('.body').innerHTML='<div class="kicker">You are on the list</div><h2>Check your inbox</h2><p>Your 10%% off code is on its way. Show it at the register in Lincoln or Scarborough.</p>'; }); }
   }
 })();
 """ % __import__("json").dumps(WX_ICONS)
