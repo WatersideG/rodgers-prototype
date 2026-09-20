@@ -36,14 +36,12 @@ def journal_teaser():
 
 # =====================================================================================
 def home():
-    stats = ('<div><b>Since &rsquo;74</b><span>Family-run &middot; two stores</span></div>'
-             '<div><b>2 states</b><span>New Hampshire &middot; Maine</span></div>')
+    wx = f'<div class="wxover">{weather(LINCOLN, mini=True)}{weather(SCARB, mini=True)}</div>'
     h = hero("Skis, boards, bikes and boots.",
              "Two family-run ski and bike shops: Lincoln, New Hampshire, first exit off I-93 before Loon, and Scarborough, Maine, off I-95 on Route 1. Gear, fitting and tuning from people who use what they sell.",
              "skier-powder-gondola", kicker="Lincoln, NH &middot; Scarborough, ME",
-             ctas='<a class="btn accent" href="reserve-rental.html">Reserve a rental</a><a class="btn ondark" href="lincoln-nh.html">Lincoln, NH</a><a class="btn ondark" href="scarborough-me.html">Scarborough, ME</a><a class="btn ghost-d" href="boot-lab.html#book">Book a boot fit</a>',
-             stats=stats, pos="center 45%")
-    h += (f'<section class="tight" style="padding-top:22px;padding-bottom:0"><div class="wrap"><div class="grid g2" style="gap:14px">{weather(LINCOLN, mini=True)}{weather(SCARB, mini=True)}</div></div></section>')
+             ctas='<a class="btn accent" href="lincoln-nh.html">Lincoln, NH</a><a class="btn ondark" href="scarborough-me.html">Scarborough, ME</a>',
+             pos="center 45%", overlay=wx)
     h += '<div style="height:26px"></div>' + journal_teaser()
     # two stores
     h += (f'<section style="padding-top:20px"><div class="wrap">{sechead("Two stores. One standard.", "Each store has its own departments and its own programs. Pick yours; hours and phone numbers stay at the top of every page.")}'

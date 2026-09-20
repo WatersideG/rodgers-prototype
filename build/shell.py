@@ -101,6 +101,15 @@ nav.main .menu a.muted{color:var(--steel);font-weight:500}
 .hero.short .wrap{padding-bottom:56px}
 .hero.short h1{font-size:clamp(32px,4vw,52px)}
 .hero .credit{position:absolute;right:14px;bottom:10px;z-index:3;font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.5px}
+.hero .quick{position:absolute;right:32px;bottom:64px;z-index:3;display:flex;gap:8px}
+.hero.short .quick{bottom:56px}
+.hero .quick .btn{margin:0}
+.hero .wxover{position:absolute;right:32px;top:28px;z-index:3;display:flex;flex-direction:column;gap:8px;width:400px}
+.hero .wxover .wx{background:transparent;border:0;padding:6px 0;color:#fff;justify-content:flex-end;text-align:right}
+.hero .wxover .wx .now{justify-content:flex-end}
+.hero .wxover .wx .now span,.hero .wxover .wx .stat b,.hero .wxover .wx .now b,.hero .wxover .wx .stat i,.hero .wxover .wx .src{color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.hero .wxover .wx .src{opacity:.75;text-align:right}
+.hero .wxover .wx svg{color:#fff}
 .crumbbar{background:var(--ice);border-bottom:1px solid var(--line);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel)}
 .crumbbar .wrap{padding-top:10px;padding-bottom:10px}
 .crumbbar a:hover{color:var(--navy)}
@@ -348,6 +357,12 @@ footer.site .legal{border-top:1px solid #16355C;padding:18px 0;display:flex;just
   .hero{aspect-ratio:4/5;max-height:none}
   .hero .bg{background-image:var(--m,var(--d))}
   .hero .stats{display:none}
+  .hero .quick{position:static;margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .hero .quick .btn{width:100%}
+  .hero .wxover{position:relative;z-index:3;width:auto;padding:14px 16px 0}
+  .hero .wxover .wx{justify-content:flex-start;text-align:left;padding:2px 0}
+  .hero .wxover .wx .now{justify-content:flex-start;min-width:0}
+  .hero .wxover .wx .src{display:none}
   .hero .wrap{padding-bottom:28px}
   .hero.short .wrap{padding-bottom:28px}
   .btn+.btn{margin-left:0;margin-top:8px}
@@ -392,7 +407,8 @@ JS = r"""
     fetch(u).then(function(r){return r.json();}).then(function(j){
       var d=j.daily; var t=1; // index 0 = yesterday
       var today=dl(d.time[t]);
-      var h='<div class="now">'+ICON[pick(d.weather_code[t])]+'<div><b>'+today.dow+' '+today.md+'</b><span>'+label(d.weather_code[t])+'</span></div></div>';
+      var head=el.classList.contains('mini')?el.getAttribute('data-short'):(today.dow+' '+today.md);
+      var h='<div class="now">'+ICON[pick(d.weather_code[t])]+'<div><b>'+head+'</b><span>'+label(d.weather_code[t])+'</span></div></div>';
       h+='<div class="stat"><i>High / Low</i><b>'+Math.round(d.temperature_2m_max[t])+'&deg; / '+Math.round(d.temperature_2m_min[t])+'&deg;</b></div>';
       h+='<div class="stat wind"><i>Wind</i><b>'+Math.round(d.wind_speed_10m_max[t])+' mph</b></div>';
       h+='<div class="stat"><i>Snow 24 hr</i><b>'+(d.snowfall_sum[0]||0).toFixed(1)+'"</b></div>';
@@ -442,7 +458,7 @@ def nav_html(active=""):
             f'<div><a class="top dd{on("journal")}" href="journal.html">Journal</a>{menu(jou)}</div>'
             f'<div><a class="top dd{on("guides")}" href="buyers-guide.html">Guides</a>{menu(gui)}</div>'
             f'<div><a class="top dd{on("about")}" href="about.html">About</a>{menu(abt)}</div>'
-            f'{search_form()}<a class="btn accent sm" href="boot-lab.html#book">Book a Boot Fit</a>')
+            f'{search_form()}')
     def mob(items): return ''.join(f'<a href="{h}">{t}</a>' for h,t in items)
     mobile = (search_form()+f'<details><summary>Lincoln, NH</summary>{mob(lin)}</details>'
               f'<details><summary>Scarborough, ME</summary>{mob(sca)}</details>'
@@ -450,7 +466,7 @@ def nav_html(active=""):
               f'<details><summary>Journal</summary>{mob(jou)}</details>'
               f'<details><summary>Guides</summary>{mob(gui)}</details>'
               f'<details><summary>About</summary>{mob(abt)}</details>'
-              f'<div class="cta"><a class="btn accent" style="display:block;text-align:center" href="boot-lab.html#book">Book a Boot Fit</a></div>')
+              '')
     return desk, mobile
 
 
@@ -508,7 +524,7 @@ def page(active, title, desc, main_html, fname):
 # ---------- reusable fragments ----------
 HERO_SET = set()  # filled by build.py from prototype/img/hero
 
-def hero(h1, sub, img, ctas="", kicker="", stats="", short=False, credit="", pos="center"):
+def hero(h1, sub, img, ctas="", kicker="", stats="", short=False, credit="", pos="center", overlay=""):
     if not credit and img not in HERO_SET:
         for k,v in (('atomic-','Atomic'),('rossignol-','Rossignol'),('fischer-','Fischer'),('vandeer-','Van Deer')):
             if img.startswith(k): credit=f'Photo: {v}'
@@ -519,8 +535,9 @@ def hero(h1, sub, img, ctas="", kicker="", stats="", short=False, credit="", pos
         d,m = f'img/hero/rodgers-{img}-desktop-2400x1000.jpg', f'img/hero/rodgers-{img}-mobile-1080x1350.jpg'
     else:
         d,m = f'img/{img}', f'img/{img}'
-    return (f'<div class="hero{" short" if short else ""}"><div class="bg" style="--d:url({d});--m:url({m});background-position:{pos}"></div><div class="shade"></div>{st}'
-            f'<div class="wrap">{kk}<h1 class="display">{h1}</h1>{"<div class=ctas>"+ctas+"</div>" if ctas else ""}</div>{cr}</div>'
+    quick = '<div class="quick"><a class="btn sm ondark" href="boot-lab.html#book">Book a boot fit</a><a class="btn sm accent" href="reserve-rental.html">Reserve a rental</a></div>'
+    return (f'<div class="hero{" short" if short else ""}"><div class="bg" style="--d:url({d});--m:url({m});background-position:{pos}"></div><div class="shade"></div>{st}{overlay}'
+            f'<div class="wrap">{kk}<h1 class="display">{h1}</h1>{"<div class=ctas>"+ctas+"</div>" if ctas else ""}{quick}</div>{cr}</div>'
             + (f'<!--LEDE--><div class="lede"><div class="wrap"><p>{sub}</p></div></div>' if sub else ''))
 
 def crumbs(*parts):
@@ -532,7 +549,7 @@ def ph(img, alt, ratio="r43", lbl="", extra=""):
     return f'<div class="ph {ratio} {extra}"><img src="img/{img}" alt="{alt}" loading="lazy">{l}</div>'
 
 def weather(store, dark=False, mini=False):
-    return (f'<div class="wx{" dark" if dark else ""}{" mini" if mini else ""}" data-lat="{store["lat"]}" data-lon="{store["lon"]}" data-label="{store["wx_label"]}">'
+    return (f'<div class="wx{" dark" if dark else ""}{" mini" if mini else ""}" data-short="{store["short"]}" data-lat="{store["lat"]}" data-lon="{store["lon"]}" data-label="{store["wx_label"]}">'
             f'<div class="src">{store["wx_label"]} &middot; loading forecast&hellip;</div></div>')
 
 def hours_box(store, rows):

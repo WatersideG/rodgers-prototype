@@ -18,7 +18,8 @@
     fetch(u).then(function(r){return r.json();}).then(function(j){
       var d=j.daily; var t=1; // index 0 = yesterday
       var today=dl(d.time[t]);
-      var h='<div class="now">'+ICON[pick(d.weather_code[t])]+'<div><b>'+today.dow+' '+today.md+'</b><span>'+label(d.weather_code[t])+'</span></div></div>';
+      var head=el.classList.contains('mini')?el.getAttribute('data-short'):(today.dow+' '+today.md);
+      var h='<div class="now">'+ICON[pick(d.weather_code[t])]+'<div><b>'+head+'</b><span>'+label(d.weather_code[t])+'</span></div></div>';
       h+='<div class="stat"><i>High / Low</i><b>'+Math.round(d.temperature_2m_max[t])+'&deg; / '+Math.round(d.temperature_2m_min[t])+'&deg;</b></div>';
       h+='<div class="stat wind"><i>Wind</i><b>'+Math.round(d.wind_speed_10m_max[t])+' mph</b></div>';
       h+='<div class="stat"><i>Snow 24 hr</i><b>'+(d.snowfall_sum[0]||0).toFixed(1)+'"</b></div>';
