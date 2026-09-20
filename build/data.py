@@ -62,6 +62,11 @@ PARTNERS = [
       blurb="Promotes the Lincoln and Woodstock area as a basecamp for the White Mountains: lodging, dining, events and seasonal activities."),
 ]
 
+TEAMS = [
+ dict(name="Franconia Ski Club", kind="Alpine race club &middot; Cannon Mountain, Franconia, NH", url="https://www.franconiaskiclub.com/",
+      blurb="Racing at Cannon since 1933, training on the Mittersill race venue, a U.S. Ski &amp; Snowboard designated training site. NHARA and U.S. Ski &amp; Snowboard junior racing from age 6 through 18, plus Masters. Alumni include Bode Miller and Julia Ford."),
+]
+
 RACE_BRANDS = ["Atomic","Van Deer","Head","Rossignol","Fischer","Dynastar","Salomon"]
 # From the shop's handwritten brand sheet (Sept 2026)
 SKI_BRANDS = ["Rossignol","Dynastar","Head","K&auml;stle","Elan","Atomic","Van Deer","Salomon","Armada","V&ouml;lkl","Fischer","Blizzard"]

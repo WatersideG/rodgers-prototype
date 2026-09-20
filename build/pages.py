@@ -399,8 +399,10 @@ def partners():
     h += (f'<section class="ice"><div class="wrap split"><div><div class="kicker">Schools, clubs &amp; teams</div><h2 class="display" style="font-size:30px">Run a program? Talk to us.</h2>'
           f'<p style="margin-top:14px">Race teams, ski clubs, school programs and bike clubs: whether you&rsquo;re an athlete, coach or parent, we have the equipment and the knowledge you need. Contact the store nearest your program and we&rsquo;ll set gear and bench time aside.</p>'
           f'<p style="margin-top:14px"><a class="btn" href="tel:{LINCOLN["teltag"]}">Lincoln {LINCOLN["tel"]}</a> <a class="btn ghost" href="tel:{SCARB["teltag"]}">Scarborough {SCARB["tel"]}</a></p>'
-          f'<p class="note">Teams and clubs will be listed here as they sign on.</p></div><div>{ph("lincoln-race-wall.jpg","The race wall at the Lincoln store","r43")}</div></div></section>')
-    return page("about","Partners, Schools, Clubs &amp; Teams | Rodgers Ski &amp; Sport","Rodgers Ski & Sport partners and programs: South Peak Resort, Loon Mountain, Cannon Mountain, Bretton Woods, the Western White Mountains Chamber of Commerce, and how race teams, clubs and schools can work with the shop.", h, "partners.html")
+          f'</div><div>{ph("lincoln-race-wall.jpg","The race wall at the Lincoln store","r43")}</div></div></section>')
+    tcards = ''.join(f'<a class="card" href="{t["url"]}" target="_blank" rel="noopener"><div class="kicker" style="margin-bottom:6px">{t["kind"]}</div><h3>{t["name"]}</h3><p>{t["blurb"]}</p><span class="go">Website</span></a>' for t in TEAMS)
+    h += (f'<section><div class="wrap">{sechead("Teams and clubs", "Programs Rodgers works with. Athletes, coaches and parents: call the Lincoln store for team pricing, race prep and bench time.")}<div class="grid g3">{tcards}</div></div></section>')
+    return page("about","Partners, Schools, Clubs &amp; Teams | Rodgers Ski &amp; Sport","Rodgers Ski & Sport partners and programs: South Peak Resort, Loon Mountain, Cannon Mountain, Bretton Woods, the Western White Mountains Chamber of Commerce, Franconia Ski Club, and how race teams, clubs and schools can work with the shop.", h, "partners.html")
 
 # =====================================================================================
 def about():
