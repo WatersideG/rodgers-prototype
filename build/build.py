@@ -7,6 +7,11 @@ import os, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from shell import CSS, JS
+import glob
+import shell
+shell.HERO_SET.update(os.path.basename(f)[len('rodgers-'):-len('-desktop-2400x1000.jpg')] for f in glob.glob(os.path.join(os.path.dirname(HERE),'prototype','img','hero','*-desktop-2400x1000.jpg')))
+for f in glob.glob(os.path.join(os.path.dirname(HERE),'prototype','img','logos','*.png')):
+    b=os.path.basename(f); shell.LOGO_FILES[b[:-4]]=b
 import pages as P
 import guides as G
 
@@ -52,6 +57,7 @@ write('lincoln-nh-services.html', P.lin_services())
 write('lincoln-nh-accessories.html', P.lin_accessories())
 write('lincoln-nh-apparel.html', P.lin_apparel())
 write('rentals.html', P.rentals())
+write('reserve-rental.html', P.reserve_rental())
 write('scarborough-me.html', P.scarborough())
 write('scarborough-me-ski.html', P.sca_ski())
 write('scarborough-me-bikes.html', P.sca_bikes())
@@ -73,3 +79,40 @@ write('contact.html', P.contact())
 write('404.html', P.not_found())
 for fname,(title,body) in LEGAL.items():
     write(fname, P.legal(fname, title, body))
+
+# ---- site search: index every page, then the results page
+import re as _re, json as _json, html as _html
+def _text(h):
+    h=_re.sub(r'<script.*?</script>|<style.*?</style>','',h,flags=_re.S)
+    h=_re.sub(r'<header class="site">.*?</header>|<footer class="site">.*?</footer>|<div class="modal".*?</div></div></div>|<div class="topbar">.*?</div></div>','',h,flags=_re.S)
+    return _re.sub(r'\s+',' ',_html.unescape(_re.sub(r'<[^>]+>',' ',h))).strip()
+index=[]
+for f in sorted(os.listdir(OUT)):
+    if not f.endswith('.html') or f in ('search.html','404.html'): continue
+    h=open(os.path.join(OUT,f)).read()
+    t=_re.search(r'<title>(.*?)</title>',h); d=_re.search(r'name="description" content="(.*?)"',h)
+    heads=' '.join(_re.findall(r'<h[123][^>]*>(.*?)</h[123]>',h,flags=_re.S))
+    index.append({"u":f,"t":_html.unescape(t.group(1)).split(' | ')[0] if t else f,"d":_html.unescape(d.group(1)) if d else '',"h":_text(heads),"b":_text(h)[:6000]})
+write('search-index.json', _json.dumps(index, ensure_ascii=False))
+SEARCH_JS = r"""
+(function(){
+  var q=new URLSearchParams(location.search).get('q')||''; var box=document.getElementById('sq'); var out=document.getElementById('results'); var hd=document.getElementById('sh');
+  if(box)box.value=q;
+  if(!q.trim()){hd.textContent='Search the site';return;}
+  fetch('search-index.json').then(function(r){return r.json();}).then(function(ix){
+    var terms=q.toLowerCase().split(/\s+/).filter(Boolean);
+    var hits=ix.map(function(p){var s=0,lt=p.t.toLowerCase(),lh=p.h.toLowerCase(),lb=p.b.toLowerCase();
+      terms.forEach(function(w){ if(lt.indexOf(w)>-1)s+=8; if(lh.indexOf(w)>-1)s+=4; var m=lb.split(w).length-1; s+=Math.min(m,6); });
+      return [s,p];}).filter(function(x){return x[0]>0;}).sort(function(a,b){return b[0]-a[0];});
+    hd.textContent=hits.length?hits.length+' result'+(hits.length>1?'s':'')+' for \u201c'+q+'\u201d':'No results for \u201c'+q+'\u201d';
+    out.innerHTML=hits.slice(0,30).map(function(x){var p=x[1];var i=p.b.toLowerCase().indexOf(terms[0]);var snip=i>-1?p.b.slice(Math.max(0,i-80),i+160):p.d;
+      return '<div class="result"><a href="'+p.u+'">'+p.t+'</a><p>'+snip.replace(new RegExp('('+terms.map(function(w){return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}).join('|')+')','ig'),'<mark>$1</mark>')+'</p><small>'+p.u+'</small></div>';}).join('');
+  });
+})();
+"""
+sh=('<div class="crumbbar"><div class="wrap"><a href="index.html">Home</a> &nbsp;/&nbsp; Search</div></div>'
+    '<section><div class="wrap" style="max-width:820px"><h1 class="display" id="sh" style="font-size:32px">Search the site</h1>'
+    '<form class="search" action="search.html" role="search" style="margin-top:18px;height:48px;max-width:520px"><input id="sq" type="search" name="q" placeholder="Skis, boot fitting, rentals, tune prices" aria-label="Search the site" style="width:100%;font-size:15px"><button type="submit" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="18" height="18"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg></button></form>'
+    '<div id="results" style="margin-top:20px"></div><p class="note" style="margin-top:24px">Prototype search runs in the browser over a page index built with the site. Production search runs against Payload content and products.</p></div></section>'
+    f'<script>{SEARCH_JS}</script>')
+write('search.html', shell.page("", "Search | Rodgers Ski &amp; Sport", "Search Rodgers Ski & Sport: products, services, prices and pages.", sh, "search.html"))

@@ -27,13 +27,14 @@ CSS = r"""
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:"Source Serif 4",Georgia,"Times New Roman",serif;color:var(--body);background:#fff;font-size:16px;line-height:1.6}
-.ui,.btn,.kicker,.topbar,nav.main,.mobilenav,.mobilebar,.crumbbar,.pill,.lbl,.wx,.chips,.pricelist th,.brands span,footer.site h5,footer.site .legal,.sechead .more,.card .go,.pick .who,.pick .meta,.post .cat,.post .date,.hoursbox h4,.hoursbox .gbp,.note,.credband,label.f,.field,.timeline b,.hero .stats span,.hero .credit,.modal .fine,.modal .radios{font-family:"Inter","Helvetica Neue",Helvetica,"Segoe UI",Roboto,sans-serif}
+body{font-family:"Spectral",Georgia,"Times New Roman",serif;color:var(--body);background:#fff;font-size:16px;line-height:1.6}
+.ui,.btn,.kicker,.topbar,nav.main,.mobilenav,.mobilebar,.crumbbar,.pill,.lbl,.wx,.chips,.pricelist th,.brands span,footer.site h5,footer.site .legal,.sechead .more,.card .go,.pick .who,.pick .meta,.post .cat,.post .date,.hoursbox h4,.hoursbox .gbp,.note,.credband,label.f,.field,.timeline b,.hero .stats span,.hero .credit,.modal .fine,.modal .radios{font-family:"Montserrat","Helvetica Neue",Helvetica,"Segoe UI",Roboto,sans-serif}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 img{max-width:100%}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
 h1,h2,h3,h4{color:var(--ink);line-height:1.15}
+h1,h2,.display{font-family:"Montserrat","Helvetica Neue",Helvetica,sans-serif;font-weight:700;letter-spacing:-.01em}
 .display{font-weight:600;text-transform:none;letter-spacing:-.01em;line-height:1.05}
 .kicker{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--steel);margin-bottom:12px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;white-space:nowrap;box-sizing:border-box;vertical-align:middle;background:var(--navy);color:#fff;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:13px 24px;border-radius:0;border:2px solid var(--navy);transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease);cursor:pointer;line-height:1.2}
@@ -59,6 +60,17 @@ header.site{background:#fff;border-bottom:1px solid var(--line);position:sticky;
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;gap:18px}
 .logo img{height:34px;display:block}
 nav.main{display:flex;align-items:center;gap:15px}
+.search{display:flex;align-items:center;border:1.5px solid var(--line);background:#fff;height:36px;padding:0 8px 0 10px}
+.search input{border:0;outline:0;font:500 12.5px "Montserrat",sans-serif;width:120px;color:var(--ink);background:transparent}
+.search input:focus{width:170px}
+.search button{border:0;background:transparent;cursor:pointer;color:var(--steel);display:flex;padding:0 2px}
+.search svg{width:16px;height:16px}
+.mobilenav .search{margin:12px 0 4px;height:42px}
+.mobilenav .search input{width:100%}
+.result{padding:18px 0;border-bottom:1px solid var(--line)}
+.result a{font-family:"Montserrat",sans-serif;font-weight:700;color:var(--navy);font-size:17px}
+.result p{margin-top:4px;font-size:14.5px}
+.result small{display:block;color:var(--steel);font-size:12px;margin-top:4px}
 nav.main>div{position:relative}
 nav.main a.top{font-size:11px;font-weight:700;letter-spacing:1px;white-space:nowrap;text-transform:uppercase;color:var(--ink);padding:8px 0;display:inline-block}
 nav.main a.top:hover{color:var(--navy)}
@@ -71,9 +83,9 @@ nav.main .menu a:hover{background:var(--ice);color:var(--navy)}
 nav.main .menu a.muted{color:var(--steel);font-weight:500}
 #nt,.burger,.mobilenav,.mobilebar{display:none}
 /* hero */
-.hero{position:relative;color:#fff;overflow:hidden;background:var(--deep)}
-.hero .wrap{position:relative;z-index:2;padding-top:96px;padding-bottom:72px;min-height:520px;display:flex;flex-direction:column;justify-content:flex-end}
-.hero h1{color:#fff;font-size:clamp(36px,4.6vw,60px);max-width:600px;font-family:"Avenir Next","Inter","Helvetica Neue",Helvetica,"Segoe UI",Roboto,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.5px;line-height:.98}
+.hero{position:relative;color:#fff;overflow:hidden;background:var(--deep);aspect-ratio:12/5;max-height:820px}
+.hero .wrap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding-bottom:64px;display:flex;flex-direction:column;justify-content:flex-end}
+.hero h1{color:#fff;font-size:clamp(36px,4.6vw,60px);max-width:760px;font-family:"Montserrat","Helvetica Neue",Helvetica,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.5px;line-height:.98}
 .lede{background:#fff;border-bottom:1px solid var(--line)}
 .lede .wrap{padding-top:26px;padding-bottom:24px}
 .lede p{font-size:18px;line-height:1.55;max-width:760px;color:var(--ink)}
@@ -81,12 +93,12 @@ nav.main .menu a.muted{color:var(--steel);font-weight:500}
 .hero .ctas{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap}
 .hero .ctas .btn+.btn{margin-left:0}
 .hero .stats{position:absolute;right:32px;top:72px;text-align:right;z-index:3}
-.hero .stats b{display:block;font-size:32px;font-weight:800;color:#fff;line-height:1;font-family:"Avenir Next","Inter","Helvetica Neue",Helvetica,sans-serif}
+.hero .stats b{display:block;font-size:32px;font-weight:800;color:#fff;line-height:1;font-family:"Montserrat","Helvetica Neue",Helvetica,sans-serif}
 .hero .stats span{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:#fff;opacity:.9;text-shadow:0 1px 6px rgba(0,0,0,.6)}
 .hero .stats>div{margin-bottom:26px}
-.hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0}
+.hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0;background-image:var(--d)}
 .hero .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,27,51,.82) 0%,rgba(7,27,51,.45) 45%,rgba(7,27,51,.15) 100%);z-index:1}
-.hero.short .wrap{padding-top:72px;padding-bottom:56px;min-height:420px}
+.hero.short .wrap{padding-bottom:56px}
 .hero.short h1{font-size:clamp(32px,4vw,52px)}
 .hero .credit{position:absolute;right:14px;bottom:10px;z-index:3;font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.5px}
 .crumbbar{background:var(--ice);border-bottom:1px solid var(--line);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel)}
@@ -138,10 +150,18 @@ a.card:hover{box-shadow:0 14px 34px rgba(7,27,51,.10);transform:translateY(-2px)
 .pricelist tbody tr:nth-child(odd) td{background:var(--cream)}
 .ice .pricelist tbody tr:nth-child(odd) td{background:#fff}
 .pricelist td.p,.pricelist th.p{text-align:right;font-weight:700;white-space:nowrap;color:var(--navy)}
+.pricelist.rules td.p{white-space:normal;text-align:left;font-weight:600;width:55%}
+.pricelist.rules th.p{text-align:left}
 .pricelist td small{display:block;color:var(--steel);font-size:13px;font-weight:400;margin-top:2px}
 .note{font-size:13px;color:var(--steel);margin-top:12px}
 .brands{display:flex;flex-wrap:wrap;gap:10px}
 .brands span{border:1px solid var(--line);color:var(--ink);font-size:11.5px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;padding:7px 14px;background:#fff}
+.logos{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:12px}
+.logos div{background:#fff;border:1px solid var(--line);height:74px;display:flex;align-items:center;justify-content:center;padding:14px 18px}
+.logos img{max-width:100%;max-height:42px;width:auto;height:auto;object-fit:contain;filter:grayscale(1);opacity:.85;transition:filter var(--dur) var(--ease),opacity var(--dur) var(--ease)}
+.logos div:hover img{filter:none;opacity:1}
+.logos span{font-family:"Montserrat",sans-serif;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink);text-align:center}
+@media (max-width:600px){.logos{grid-template-columns:repeat(3,1fr)}.logos div{height:62px;padding:10px 12px}}
 .navy .brands span{background:transparent;border-color:#2A5182;color:#D7E2F0}
 .credband{background:var(--navy);color:#fff;padding:22px 0}
 .credband .wrap{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;font-size:11.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;align-items:center}
@@ -171,8 +191,8 @@ label.f{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text
 .season .card h3{font-size:15px}
 /* staff picks */
 .pick{display:grid;grid-template-columns:240px 1fr;gap:0;border:1px solid var(--line);background:#fff;overflow:hidden}
-.pick .ph{aspect-ratio:auto;height:100%;min-height:300px}
-.pick .ph img{object-fit:cover;object-position:center bottom}
+.pick .ph{aspect-ratio:4/5;height:auto;min-height:0;align-self:start}
+.pick .ph img{object-fit:cover;object-position:center}
 .pick .body{padding:24px 26px}
 .pick .who{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent2)}
 .pick h3{font-size:21px;font-weight:600;margin:6px 0 10px;letter-spacing:0}
@@ -189,6 +209,15 @@ label.f{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text
 .gpic span{display:block;font-size:12px;color:var(--steel);margin-top:6px}
 .gpic.none{border:0;background:transparent}
 @media (max-width:900px){.grow{grid-template-columns:1fr;gap:14px}.gpic{max-width:220px}}
+.gtypes{margin-top:22px}
+.gtype{padding:28px 0;border-top:1px solid var(--line)}
+.gtype h3{font-family:"Montserrat",sans-serif;font-size:22px;font-weight:700}
+.gtype .who{color:var(--steel);margin-top:4px;font-size:15px}
+.gk-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 36px;margin-top:16px}
+.gk p{margin-top:6px;font-size:15px}
+.chips a{border:1px solid var(--line);background:#fff;color:var(--ink);font-family:"Montserrat",sans-serif;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:7px 12px}
+.chips a:hover{border-color:var(--navy);color:var(--navy)}
+@media (max-width:700px){.gk-grid{grid-template-columns:1fr}}
 /* journal */
 .post .ph{aspect-ratio:16/10}
 .post .cat{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent2)}
@@ -209,6 +238,10 @@ label.f{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text
 /* weather */
 .wx{display:flex;align-items:center;gap:22px;background:#fff;border:1px solid var(--line);padding:14px 20px;font-size:13px;color:var(--ink);flex-wrap:wrap}
 .wx .now{display:flex;align-items:center;gap:12px;min-width:210px}
+.wx.mini .days,.wx.mini .stat.wind{display:none}
+.wx.mini{gap:16px;padding:12px 16px}
+.wx.mini .now{min-width:0}
+.wx.mini .src{flex-basis:100%}
 .wx .now svg{width:38px;height:38px;flex:none}
 .wx .now b{display:block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel);font-weight:700}
 .wx .now span{font-size:20px;font-weight:800;color:var(--navy);line-height:1.1}
@@ -308,14 +341,19 @@ footer.site .legal{border-top:1px solid #16355C;padding:18px 0;display:flex;just
   .wrap{padding:0 16px}
   .g2,.g3,.g4,.g5,.g6,.stagger,.timeline{grid-template-columns:1fr}
   .pick{grid-template-columns:1fr}
-  .pick .ph{min-height:0;aspect-ratio:4/5}
+  .pick .ph{aspect-ratio:4/5}
   footer.site .cols{grid-template-columns:1fr}
   footer.site .band .field,footer.site .band select.field{flex:1 1 100%}
   .hero h1{font-size:32px}
-  .hero .wrap{min-height:0}
+  .hero{aspect-ratio:4/5;max-height:none}
+  .hero .bg{background-image:var(--m,var(--d))}
+  .hero .stats{display:none}
+  .hero .wrap{padding-bottom:28px}
+  .hero.short .wrap{padding-bottom:28px}
   .btn+.btn{margin-left:0;margin-top:8px}
-  .hero .ctas{flex-direction:column;align-items:stretch}
-  .hero .ctas .btn{width:100%;margin-top:0}
+  .hero .ctas{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .hero .ctas .btn{width:100%;margin-top:0;padding:13px 8px;font-size:11px}
+  .hero .ctas .btn:only-child{grid-column:span 2}
   .btn{padding:13px 18px}
   .hero .stats{flex-wrap:wrap;gap:18px}
   .pricelist{font-size:13.5px}
@@ -356,7 +394,7 @@ JS = r"""
       var today=dl(d.time[t]);
       var h='<div class="now">'+ICON[pick(d.weather_code[t])]+'<div><b>'+today.dow+' '+today.md+'</b><span>'+label(d.weather_code[t])+'</span></div></div>';
       h+='<div class="stat"><i>High / Low</i><b>'+Math.round(d.temperature_2m_max[t])+'&deg; / '+Math.round(d.temperature_2m_min[t])+'&deg;</b></div>';
-      h+='<div class="stat"><i>Wind</i><b>'+Math.round(d.wind_speed_10m_max[t])+' mph</b></div>';
+      h+='<div class="stat wind"><i>Wind</i><b>'+Math.round(d.wind_speed_10m_max[t])+' mph</b></div>';
       h+='<div class="stat"><i>Snow 24 hr</i><b>'+(d.snowfall_sum[0]||0).toFixed(1)+'"</b></div>';
       h+='<div class="days">';
       for(var i=t+1;i<t+4&&i<d.time.length;i++){var x=dl(d.time[i]);h+='<div class="day"><i>'+x.dow+'</i>'+ICON[pick(d.weather_code[i])]+'<b>'+Math.round(d.temperature_2m_max[i])+'&deg; <small>'+Math.round(d.temperature_2m_min[i])+'&deg;</small></b></div>';}
@@ -381,6 +419,10 @@ JS = r"""
 """ % __import__("json").dumps(WX_ICONS)
 
 
+def search_form():
+    return ('<form class="search" action="search.html" role="search"><input type="search" name="q" placeholder="Search" aria-label="Search the site">'
+            '<button type="submit" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg></button></form>')
+
 def nav_html(active=""):
     def on(k): return ' on' if active==k else ''
     lin = [("lincoln-nh.html","Overview"),("lincoln-nh-ski.html","Ski"),("lincoln-nh-snowboard.html","Snowboard"),
@@ -400,9 +442,9 @@ def nav_html(active=""):
             f'<div><a class="top dd{on("journal")}" href="journal.html">Journal</a>{menu(jou)}</div>'
             f'<div><a class="top dd{on("guides")}" href="buyers-guide.html">Guides</a>{menu(gui)}</div>'
             f'<div><a class="top dd{on("about")}" href="about.html">About</a>{menu(abt)}</div>'
-            f'<a class="btn accent sm" href="boot-lab.html#book">Book a Boot Fit</a>')
+            f'{search_form()}<a class="btn accent sm" href="boot-lab.html#book">Book a Boot Fit</a>')
     def mob(items): return ''.join(f'<a href="{h}">{t}</a>' for h,t in items)
-    mobile = (f'<details><summary>Lincoln, NH</summary>{mob(lin)}</details>'
+    mobile = (search_form()+f'<details><summary>Lincoln, NH</summary>{mob(lin)}</details>'
               f'<details><summary>Scarborough, ME</summary>{mob(sca)}</details>'
               f'<a href="boot-lab.html">The Boot Lab</a><a href="race.html">Race</a>'
               f'<details><summary>Journal</summary>{mob(jou)}</details>'
@@ -418,7 +460,7 @@ ASSET_V = _hl.md5((CSS+JS).encode()).hexdigest()[:8]
 def head(title, desc, canonical):
     return (f'<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             f'<title>{title}</title><meta name="description" content="{desc}"><link rel="icon" href="img/logo.png">'
-            f'<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">'
+            f'<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Spectral:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">'
             f'<link rel="stylesheet" href="site.css?v={ASSET_V}"></head>')
 
 
@@ -448,8 +490,8 @@ def modal():
 
 def footer():
     return (f'<div class="mobilebar"><a href="tel:{LINCOLN["teltag"]}">&#9742; Lincoln</a><a href="tel:{SCARB["teltag"]}">&#9742; Scarborough</a><a class="res" href="boot-lab.html#book">Boot Fit</a></div>'
-            f'<footer class="site"><div class="wrap"><div class="cols"><div><img src="img/logo.png" alt="Rodgers Ski &amp; Sport">'
-            f'<p>Family-run ski and bike shops in Lincoln, New Hampshire and Scarborough, Maine. We don&rsquo;t just sell gear, we test it.</p>'
+            f'<footer class="site"><div class="wrap"><div class="cols"><div><img src="img/logo-white.png" alt="Rodgers Ski &amp; Sport">'
+            f'<p>Family-run ski and bike shops in Lincoln, New Hampshire and Scarborough, Maine, since 1974.</p>'
             f'<div class="soc"><a href="{SOCIAL["ig"]}" aria-label="Instagram @rodgersski">IG</a><a href="{SOCIAL["fb"]}" aria-label="Facebook RodgersSkiSport">FB</a><a href="{SOCIAL["tt"]}" aria-label="TikTok @rodgersskiandsport">TT</a></div></div>'
             f'<div><h5><a href="lincoln-nh.html">Lincoln, NH &rarr;</a></h5>{LINCOLN["addr"]}<br><a href="tel:{LINCOLN["teltag"]}"><b style="color:#fff">{LINCOLN["tel"]}</b></a><br>{LINCOLN["hours"]}<br>Ski &middot; Snowboard &middot; Bikes &middot; Rentals &middot; Boot Lab<br><a href="{LINCOLN["maps"]}">Directions</a></div>'
             f'<div><h5><a href="scarborough-me.html">Scarborough, ME &rarr;</a></h5>{SCARB["addr"]}<br><a href="tel:{SCARB["teltag"]}"><b style="color:#fff">{SCARB["tel"]}</b></a><br>Mon&ndash;Tue 10&ndash;6 &middot; Wed closed<br>Thu&ndash;Fri 10&ndash;6 &middot; Sat 10&ndash;5 &middot; Sun 11&ndash;5<br>Ski &middot; Bikes &middot; Junior Seasonal Lease<br><a href="{SCARB["maps"]}">Directions</a></div>'
@@ -464,14 +506,20 @@ def page(active, title, desc, main_html, fname):
 
 
 # ---------- reusable fragments ----------
+HERO_SET = set()  # filled by build.py from prototype/img/hero
+
 def hero(h1, sub, img, ctas="", kicker="", stats="", short=False, credit="", pos="center"):
-    if not credit:
+    if not credit and img not in HERO_SET:
         for k,v in (('atomic-','Atomic'),('rossignol-','Rossignol'),('fischer-','Fischer'),('vandeer-','Van Deer')):
             if img.startswith(k): credit=f'Photo: {v}'
     st = f'<div class="stats">{stats}</div>' if stats else ''
     kk = f'<div class="kicker" style="color:#AFC2DA">{kicker}</div>' if kicker else ''
     cr = f'<div class="credit">{credit}</div>' if credit else ''
-    return (f'<div class="hero{" short" if short else ""}"><div class="bg" style="background-image:url(img/{img});background-position:{pos}"></div><div class="shade"></div>{st}'
+    if img in HERO_SET:
+        d,m = f'img/hero/rodgers-{img}-desktop-2400x1000.jpg', f'img/hero/rodgers-{img}-mobile-1080x1350.jpg'
+    else:
+        d,m = f'img/{img}', f'img/{img}'
+    return (f'<div class="hero{" short" if short else ""}"><div class="bg" style="--d:url({d});--m:url({m});background-position:{pos}"></div><div class="shade"></div>{st}'
             f'<div class="wrap">{kk}<h1 class="display">{h1}</h1>{"<div class=ctas>"+ctas+"</div>" if ctas else ""}</div>{cr}</div>'
             + (f'<!--LEDE--><div class="lede"><div class="wrap"><p>{sub}</p></div></div>' if sub else ''))
 
@@ -483,8 +531,8 @@ def ph(img, alt, ratio="r43", lbl="", extra=""):
     l = f'<span class="lbl">{lbl}</span>' if lbl else ''
     return f'<div class="ph {ratio} {extra}"><img src="img/{img}" alt="{alt}" loading="lazy">{l}</div>'
 
-def weather(store, dark=False):
-    return (f'<div class="wx{" dark" if dark else ""}" data-lat="{store["lat"]}" data-lon="{store["lon"]}" data-label="{store["wx_label"]}">'
+def weather(store, dark=False, mini=False):
+    return (f'<div class="wx{" dark" if dark else ""}{" mini" if mini else ""}" data-lat="{store["lat"]}" data-lon="{store["lon"]}" data-label="{store["wx_label"]}">'
             f'<div class="src">{store["wx_label"]} &middot; loading forecast&hellip;</div></div>')
 
 def hours_box(store, rows):
@@ -515,6 +563,20 @@ def sechead(h, p="", more=""):
 def card(href, img, alt, h3, p, go="", ratio="r43"):
     g = f'<span class="go">{go} &rarr;</span>' if go else ''
     return f'<a class="card img" href="{href}">{ph(img, alt, ratio)}<div class="body"><h3>{h3}</h3><p>{p}</p>{g}</div></a>'
+
+LOGO_FILES = {}  # slug -> filename, filled by build.py from prototype/img/logos
+def _slug(b):
+    import html, unicodedata, re
+    t = html.unescape(b); t = unicodedata.normalize('NFKD', t).encode('ascii','ignore').decode()
+    t = re.sub(r"[’']", '', t); t = re.sub(r'[^a-z0-9]+', '-', t.lower()).strip('-')
+    return {'rh':'rh-plus','32':'thirtytwo','look':'look'}.get(t, t)
+
+def brand_wall(lst):
+    out = ''
+    for b in lst:
+        f = LOGO_FILES.get(_slug(b))
+        out += (f'<div title="{b}"><img src="img/logos/{f}" alt="{b}" loading="lazy"></div>' if f else f'<div><span>{b}</span></div>')
+    return f'<div class="logos">{out}</div>'
 
 def credband(items):
     return '<div class="credband"><div class="wrap">' + '<i>&bull;</i>'.join(f'<span>{i}</span>' for i in items) + '</div></div>'

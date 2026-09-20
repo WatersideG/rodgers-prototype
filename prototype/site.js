@@ -20,7 +20,7 @@
       var today=dl(d.time[t]);
       var h='<div class="now">'+ICON[pick(d.weather_code[t])]+'<div><b>'+today.dow+' '+today.md+'</b><span>'+label(d.weather_code[t])+'</span></div></div>';
       h+='<div class="stat"><i>High / Low</i><b>'+Math.round(d.temperature_2m_max[t])+'&deg; / '+Math.round(d.temperature_2m_min[t])+'&deg;</b></div>';
-      h+='<div class="stat"><i>Wind</i><b>'+Math.round(d.wind_speed_10m_max[t])+' mph</b></div>';
+      h+='<div class="stat wind"><i>Wind</i><b>'+Math.round(d.wind_speed_10m_max[t])+' mph</b></div>';
       h+='<div class="stat"><i>Snow 24 hr</i><b>'+(d.snowfall_sum[0]||0).toFixed(1)+'"</b></div>';
       h+='<div class="days">';
       for(var i=t+1;i<t+4&&i<d.time.length;i++){var x=dl(d.time[i]);h+='<div class="day"><i>'+x.dow+'</i>'+ICON[pick(d.weather_code[i])]+'<b>'+Math.round(d.temperature_2m_max[i])+'&deg; <small>'+Math.round(d.temperature_2m_min[i])+'&deg;</small></b></div>';}

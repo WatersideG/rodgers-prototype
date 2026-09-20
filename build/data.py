@@ -68,7 +68,7 @@ RACE_BINDING_BRANDS = ["Marker","Look","Atomic","Head","Fischer","Salomon"]
 RACE_POLE_BRANDS = ["Komperdell","Swix","Leki","Atomic"]
 FREERIDE_BRANDS = ["Rossignol","Armada","Atomic","V&ouml;lkl","Fischer","Elan"]
 BINDING_BRANDS = ["Atomic","Marker","Salomon","Look","Tyrolia"]
-SNOWBOARD_BRANDS = ["Academy","Never Summer","Arbor","Rome","ThirtyTwo","Lib Tech","Nidecker","Yes","Salomon"]
+SNOWBOARD_BRANDS = ["Academy","Never Summer","Arbor","Rome","ThirtyTwo","Lib Tech","GNU","Bataleon","Nidecker","Yes","Salomon"]
 SB_BOOT_BRANDS = ["Nidecker","Salomon","Deeluxe","ThirtyTwo","Bataleon"]
 SB_BINDING_BRANDS = ["Union","Rome","Bataleon","Salomon","Nidecker","Yes","Flow"]
 HELMET_GOGGLE = ["Atomic","Smith","Giro","Oakley","POC","Sweet Protection"]
@@ -138,3 +138,34 @@ JOBS = [dict(title="Sales associate", store="Lincoln, NH and Scarborough, ME", t
              blurb="Help skiers, riders and families find the right gear and get them out the door happy. No experience required; we&rsquo;ll train. A love for outdoor activities is the requirement."),
         dict(title="Ski technician", store="Lincoln, NH and Scarborough, ME", type="Full-time or part-time, seasonal",
              blurb="Tunes, mounts and race prep on the Montana machines, alongside techs who have been doing this for years. No experience required; we&rsquo;ll train.")]
+
+
+# ---- homepage seasonal call-outs (four per season; chosen by build month, a Payload list in production)
+SEASON_OF = {12:"winter",1:"winter",2:"winter",3:"winter",4:"spring",5:"spring",6:"summer",7:"summer",8:"summer",9:"fall",10:"fall",11:"fall"}
+SEASON_TITLE = {"fall":"This fall","winter":"This winter","spring":"This spring","summer":"This summer"}
+SEASON_CARDS = {
+ "fall": [
+  ("journal-fall-tent-sale.html","scarborough-tent-sale.jpg","The Fall Tent Sale in Lincoln","Fall Tent Sale","Skis, snowboards, boots, apparel and helmets under the tent in Lincoln, September 18 to October 12.","Sale details"),
+  ("boot-lab.html","lincoln-boot-lab-room.jpg","The Boot Lab in Lincoln","Boot fitting","Book a fitting before the first cold weekend: shell fit, footbeds, punches and grinds at both stores.","The Boot Lab"),
+  ("lincoln-nh-services.html","lincoln-tune-room-machines.jpg","Montana machines in the Lincoln tune room","Pre-season tune","Bring last winter&rsquo;s skis and boards in now and skip the December line.","Tuning menu"),
+  ("lease.html","scarborough-ski-rows.jpg","Skis at the Scarborough store","Junior Seasonal Lease","Skis, bindings and boots for the season at the Scarborough store; pick-ups start October 1.","Lease details"),
+ ],
+ "winter": [
+  ("rentals.html","lincoln-service-desk.jpg","The rental and service desk in Lincoln","Rentals","Junior, performance, advanced and demo skis, snowboards, cross-country and snowshoes at the Lincoln store.","Rates and reservations"),
+  ("boot-lab.html","lincoln-boot-lab-room.jpg","The Boot Lab in Lincoln","Boot fitting","Cold feet, shin bang and heel lift are fixable; book a fitting.","The Boot Lab"),
+  ("race.html","lincoln-race-wall.jpg","The race wall in Lincoln","Race department","Seven race brands, race day tunes and FIS and USSA prep.","Race gear"),
+  ("lincoln-nh-accessories.html","giro-helmet-wall.jpg","Helmets on the wall","Helmets, goggles and gloves","Warm hands and clear lenses from Hestra, Smith, Giro, Oakley and more.","Accessories"),
+ ],
+ "spring": [
+  ("lincoln-nh-bikes.html","lincoln-bike-service.jpg","Bike service in Lincoln","Bike tunes","Bronze, silver and gold tunes in Lincoln; safety checks and standard tunes in Scarborough.","Bike service"),
+  ("lincoln-nh-bikes.html","bike-jamis-dakar.jpg","A Jamis mountain bike","Bikes","Mountain, road, gravel, hybrid, cruiser, kids&rsquo; and e-bikes from Trek, Jamis, Scott and Electra.","Bikes"),
+  ("lincoln-nh-services.html","tuning-montana.jpg","Skis on the Montana grinder","End-of-season tune","A tune and storage wax now means sharp edges on opening day.","Tuning menu"),
+  ("lincoln-nh-apparel.html","lincoln-apparel-floor.jpg","The apparel floor in Lincoln","Spring apparel","Shells, layers and lifestyle pieces for the shoulder season.","Apparel"),
+ ],
+ "summer": [
+  ("lincoln-nh-bikes.html","bike-mtb-trail.jpg","A mountain biker on a forest trail","Mountain and e-bikes","Trail, road, gravel and e-bikes in both stores.","Bikes"),
+  ("scarborough-me-bikes.html","scarborough-bike-shop.jpg","The bike shop in Scarborough","Bike service","Tunes, safety checks and custom builds, including bikes bought elsewhere.","Bike service"),
+  ("outdoor-guide.html","hero-hiker-ridge.jpg","A hiker on a ridge in the White Mountains","Outdoor guide","Trails, bike networks and mountains within reach of either store.","Outdoor guide"),
+  ("lincoln-nh-apparel.html","lincoln-apparel-floor.jpg","The apparel floor in Lincoln","Summer apparel","Packs, layers and sun-ready pieces.","Apparel"),
+ ],
+}

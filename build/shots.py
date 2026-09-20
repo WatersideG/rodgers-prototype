@@ -15,7 +15,7 @@ with sync_playwright() as p:
     b = p.chromium.launch()
     for vw,tag in ((1440,'d'),(390,'m')):
         ctx = b.new_context(viewport={'width':vw,'height':900}, device_scale_factor=1)
-        pg = ctx.new_page()
+        pg = ctx.new_page(); pg.add_init_script("try{sessionStorage.setItem('rsx','1')}catch(e){}")
         for f in pages:
             pg.goto(f'http://127.0.0.1:{PORT}/{f}', wait_until='networkidle')
             pg.evaluate("try{sessionStorage.setItem('rsx','1')}catch(e){}")
