@@ -160,7 +160,14 @@ def buyers_guide():
     chips = '<div class="chips" style="margin-top:18px">' + ''.join(f'<a href="#t-{t["k"]}">{t["n"]}</a>' for t in SKIER_TYPES) + '</div>'
     h += (f'<section><div class="wrap"><p style="max-width:760px">Start with the rules of thumb, then find the description that sounds like you. Each one says what to look for in a ski, a boot and, where it applies, a snowboard, the mistakes we see most, and the products on our wall that fit. Sizes, this season&rsquo;s stock and the final call happen in the store with a fitter.</p>{chips}</div></section>')
     h += (f'<section class="ice" id="rules"><div class="wrap">{sechead("Rules of thumb", "The charts every fitter starts from. They narrow the field; the bench decides.")}{_rules()}</div></section>')
-    h += (f'<section id="types"><div class="wrap">{sechead("Find your type", "Eleven kinds of skier we fit every week.")}<div class="gtypes">{"".join(_type(t) for t in SKIER_TYPES)}</div></div></section>')
+    sel = ('<div class="typepick"><label for="skiertype" class="kicker">Choose the skier that sounds like you</label>'
+           '<select id="skiertype" class="field">' + ''.join(f'<option value="{t["k"]}">{t["n"]}</option>' for t in SKIER_TYPES) + '</select></div>')
+    h += (f'<section id="types"><div class="wrap">{sechead("Find your type", "Eleven kinds of skier we fit every week.")}{sel}<div class="gtypes picker">{"".join(_type(t) for t in SKIER_TYPES)}</div></div></section>')
+    h += '''<script>(function(){var s=document.getElementById('skiertype');if(!s)return;var all=document.querySelectorAll('.gtypes.picker .gtype');
+function show(k,scroll){var ok=false;all.forEach(function(d){var on=d.id==='t-'+k;d.classList.toggle('on',on);if(on)ok=true;});if(!ok){k=all[0].id.slice(2);all[0].classList.add('on');}s.value=k;if(scroll){document.getElementById('types').scrollIntoView({behavior:'smooth',block:'start'});}}
+function fromHash(scroll){var m=(location.hash||'').match(/^#t-([a-z0-9-]+)$/);show(m?m[1]:s.options[0].value,scroll&&!!m);}
+s.addEventListener('change',function(){history.replaceState(null,'','#t-'+s.value);show(s.value,false);});
+window.addEventListener('hashchange',function(){fromHash(true);});fromHash(false);})();</script>'''
     sb = ''.join(f'<div class="gtype"><h3>{t["n"]}</h3><div class="gk-grid"><div class="gk"><div class="kicker">Board</div><p>{t["skis"]}</p></div><div class="gk"><div class="kicker">Boots and bindings</div><p>{t["boots"]}</p></div><div class="gk"><div class="kicker">On our wall</div><p>{t["examples"]}</p></div></div></div>' for t in SB_TYPES)
     h += (f'<section class="ice" id="snowboards"><div class="wrap">{sechead("Snowboards", "The Mothership, inside the Lincoln store. Scarborough sells skis only.")}{brands(SNOWBOARD_BRANDS)}<div class="gtypes" style="margin-top:22px">{sb}</div></div></section>')
     myths = ''.join(f'<div class="card"><h3 style="font-size:17px">{a}</h3><p>{b}</p></div>' for a,b in MYTHS)

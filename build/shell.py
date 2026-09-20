@@ -228,6 +228,9 @@ label.f{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text
 .gpic.none{border:0;background:transparent}
 @media (max-width:900px){.grow{grid-template-columns:1fr;gap:14px}.gpic{max-width:220px}}
 .gtypes{margin-top:22px}
+[id]{scroll-margin-top:84px}
+.typepick{max-width:460px;margin-top:22px}.typepick .kicker{display:block;margin-bottom:8px}.typepick select.field{margin:0;font-weight:700;font-family:Montserrat,sans-serif;font-size:13px;letter-spacing:.5px;text-transform:uppercase;cursor:pointer}
+.gtypes.picker .gtype{display:none}.gtypes.picker .gtype.on{display:block}.gtypes.picker{margin-top:14px}
 .gtype{padding:28px 0;border-top:1px solid var(--line)}
 .gtype h3{font-family:"Montserrat",sans-serif;font-size:22px;font-weight:700}
 .gtype .who{color:var(--steel);margin-top:4px;font-size:15px}
