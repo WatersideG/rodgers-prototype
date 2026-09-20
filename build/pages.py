@@ -394,13 +394,17 @@ def partners():
     h = hero("Partners and teams", "The mountains, organizations and programs Rodgers works with, and how to reach us if you run a team, club or school program.",
              "south-peak-winter-aerial", kicker="Community", short=True, pos="center 45%")
     h += crumbs(("About","about.html"),("Partners &amp; Teams",""))
-    cards = ''.join(f'<a class="card" href="{p["url"]}" target="_blank" rel="noopener"><div class="kicker" style="margin-bottom:6px">{p["kind"]}</div><h3>{p["name"]}</h3><p>{p["blurb"]}</p><span class="go">Website</span></a>' for p in PARTNERS)
+    def pcard(p):
+        cr = f'<div class="credit">{p["credit"]}</div>' if p.get("credit") else ''
+        return (f'<a class="card img partner" href="{p["url"]}" target="_blank" rel="noopener"><div class="ph"><img src="img/{p["img"]}" alt="{p["alt"]}" loading="lazy">{cr}</div>'
+                f'<div class="body"><div class="kicker" style="margin-bottom:6px">{p["kind"]}</div><h3>{p["name"]}</h3><p>{p["blurb"]}</p><span class="go">Website</span></div></a>')
+    cards = ''.join(pcard(p) for p in PARTNERS)
     h += (f'<section><div class="wrap">{sechead("Partners", "Mountains and organizations in the Lincoln area.")}<div class="grid g3">{cards}</div></div></section>')
     h += (f'<section class="ice"><div class="wrap split"><div><div class="kicker">Schools, clubs &amp; teams</div><h2 class="display" style="font-size:30px">Run a program? Talk to us.</h2>'
           f'<p style="margin-top:14px">Race teams, ski clubs, school programs and bike clubs: whether you&rsquo;re an athlete, coach or parent, we have the equipment and the knowledge you need. Contact the store nearest your program and we&rsquo;ll set gear and bench time aside.</p>'
           f'<p style="margin-top:14px"><a class="btn" href="tel:{LINCOLN["teltag"]}">Lincoln {LINCOLN["tel"]}</a> <a class="btn ghost" href="tel:{SCARB["teltag"]}">Scarborough {SCARB["tel"]}</a></p>'
           f'</div><div>{ph("lincoln-race-wall.jpg","The race wall at the Lincoln store","r43")}</div></div></section>')
-    tcards = ''.join(f'<a class="card" href="{t["url"]}" target="_blank" rel="noopener"><div class="kicker" style="margin-bottom:6px">{t["kind"]}</div><h3>{t["name"]}</h3><p>{t["blurb"]}</p><span class="go">Website</span></a>' for t in TEAMS)
+    tcards = ''.join(pcard(t) for t in TEAMS)
     h += (f'<section><div class="wrap">{sechead("Teams and clubs", "Programs Rodgers works with. Athletes, coaches and parents: call the Lincoln store for team pricing, race prep and bench time.")}<div class="grid g3">{tcards}</div></div></section>')
     return page("about","Partners, Schools, Clubs &amp; Teams | Rodgers Ski &amp; Sport","Rodgers Ski & Sport partners and programs: South Peak Resort, Loon Mountain, Cannon Mountain, Bretton Woods, the Western White Mountains Chamber of Commerce, Franconia Ski Club, and how race teams, clubs and schools can work with the shop.", h, "partners.html")
 

@@ -50,20 +50,20 @@ POSTS = [
 CATEGORIES = ["All","News","Promotions","Racing","Brands","New arrivals","Services","Local mountains"]
 
 PARTNERS = [
- dict(name="South Peak Resort", kind="Resort community &middot; Lincoln, NH", url="https://www.southpeakresort.com/",
+ dict(name="South Peak Resort", kind="Resort community &middot; Lincoln, NH", url="https://www.southpeakresort.com/", img="partner-south-peak.jpg", alt="South Peak and Loon Mountain from the air in winter", credit="",
       blurb="A 360-acre slopeside community on Loon Mountain in Lincoln, with homesites, townhomes, condos and rentals. Rodgers is minutes from the resort on Railroad Street."),
- dict(name="Loon Mountain Resort", kind="Ski area &middot; Lincoln, NH", url="https://www.loonmtn.com/",
+ dict(name="Loon Mountain Resort", kind="Ski area &middot; Lincoln, NH", url="https://www.loonmtn.com/", img="partner-loon.jpg", alt="Loon Mountain trails above Lincoln", credit="",
       blurb="Year-round adventure in New Hampshire&rsquo;s White Mountains. The Lincoln store is right down the street: gear up, rent, or tune before you reach the base lodge."),
- dict(name="Cannon Mountain", kind="Ski area &middot; Franconia, NH", url="https://www.cannonmt.com/",
+ dict(name="Cannon Mountain", kind="Ski area &middot; Franconia, NH", url="https://www.cannonmt.com/", img="partner-cannon.jpg", alt="The Cannon Mountain aerial tramway in rime ice", credit="Photo: Cannon Mountain",
       blurb="The state-run ski area in Franconia Notch State Park, a short drive north of Lincoln on I-93."),
- dict(name="Bretton Woods", kind="Ski area &middot; Bretton Woods, NH", url="https://www.brettonwoods.com/",
+ dict(name="Bretton Woods", kind="Ski area &middot; Bretton Woods, NH", url="https://www.brettonwoods.com/", img="partner-bretton-woods.jpg", alt="A racer on course at Bretton Woods", credit="Photo: Bretton Woods",
       blurb="New Hampshire&rsquo;s largest ski area, with alpine and Nordic skiing at the Omni Mount Washington Resort."),
- dict(name="Western White Mountains Chamber of Commerce", kind="Chamber &middot; Lincoln &amp; Woodstock, NH", url="https://www.westernwhitemtns.com/",
+ dict(name="Western White Mountains Chamber of Commerce", kind="Chamber &middot; Lincoln &amp; Woodstock, NH", url="https://www.westernwhitemtns.com/", img="partner-chamber.jpg", alt="The Pemigewasset valley at Lincoln in summer", credit="",
       blurb="Promotes the Lincoln and Woodstock area as a basecamp for the White Mountains: lodging, dining, events and seasonal activities."),
 ]
 
 TEAMS = [
- dict(name="Franconia Ski Club", kind="Alpine race club &middot; Cannon Mountain, Franconia, NH", url="https://www.franconiaskiclub.com/",
+ dict(name="Franconia Ski Club", kind="Alpine race club &middot; Cannon Mountain, Franconia, NH", url="https://www.franconiaskiclub.com/", img="partner-franconia-ski-club.jpg", alt="A Franconia Ski Club racer in a slalom course at Cannon", credit="Photo: Franconia Ski Club",
       blurb="Racing at Cannon since 1933, training on the Mittersill race venue, a U.S. Ski &amp; Snowboard designated training site. NHARA and U.S. Ski &amp; Snowboard junior racing from age 6 through 18, plus Masters. Alumni include Bode Miller and Julia Ford."),
 ]
 
