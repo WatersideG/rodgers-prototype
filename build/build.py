@@ -25,7 +25,7 @@ LEGAL = {
 <h2>How we use it</h2><p>To answer your request, to send the emails you signed up for (sale dates, new arrivals, service reminders and your 10% code), and to understand which pages are useful. We do not sell your information.</p>
 <h2>Email</h2><p>Every email we send has an unsubscribe link. Unsubscribing removes you from marketing email; we may still reply to a message you sent us.</p>
 <h2>Third parties</h2><p>Our email platform, analytics provider and map provider process data on our behalf under their own policies. Links to Instagram, Facebook, TikTok, partner websites and Google Maps leave this site.</p>
-<h2>Your choices</h2><p>Ask us to see, correct or delete what we hold about you at office@rodgersskiandsport.com or by calling either store.</p>"""),
+<h2>Your choices</h2><p>Ask us to see, correct or delete what we hold about you by emailing the Lincoln store through the Contact page or by calling either store.</p>"""),
  'terms-of-use.html': ("Terms of Use", """
 <p><em>Effective date: at launch. Plain-language draft for counsel review.</em></p>
 <h2>Using this site</h2><p>The site describes our stores, services and prices. Prices, hours and availability can change; the store is the final word on what is in stock and what a service costs today.</p>
@@ -36,7 +36,7 @@ LEGAL = {
 <p><em>Effective date: at launch. Plain-language draft for counsel review.</em></p>
 <h2>Our standard</h2><p>We aim to meet WCAG 2.1 AA: readable contrast, keyboard navigation with visible focus, text alternatives on images, and forms with labels.</p>
 <h2>Known limitations</h2><p>Embedded maps and the Instagram feed are provided by third parties and may not meet the same standard. Some brand photographs are decorative.</p>
-<h2>Tell us</h2><p>If something on the site is hard to use, email office@rodgersskiandsport.com or call the Lincoln store at (603) 745-8347 and we will fix it or help you another way.</p>"""),
+<h2>Tell us</h2><p>If something on the site is hard to use, email the Lincoln store through the Contact page or call the Lincoln store at (603) 745-8347 and we will fix it or help you another way.</p>"""),
 }
 
 import re

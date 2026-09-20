@@ -34,8 +34,8 @@ img{max-width:100%}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
 h1,h2,h3,h4{color:var(--ink);line-height:1.15}
-h1,h2,.display{font-family:"Montserrat","Helvetica Neue",Helvetica,sans-serif;font-weight:700;letter-spacing:-.01em}
-.display{font-weight:600;text-transform:none;letter-spacing:-.01em;line-height:1.05}
+h1,h2,h3,h4,h5,.display,.card h3,.pick h3,.post h3,.gtype h3,.feature h2,.sechead h2,.hoursbox h4,.modal h2,.result a{font-family:"Montserrat","Helvetica Neue",Helvetica,sans-serif;font-weight:700;letter-spacing:-.01em}
+.display{font-weight:700;text-transform:none;letter-spacing:-.01em;line-height:1.05}
 .kicker{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--steel);margin-bottom:12px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;white-space:nowrap;box-sizing:border-box;vertical-align:middle;background:var(--navy);color:#fff;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:13px 24px;border-radius:0;border:2px solid var(--navy);transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease);cursor:pointer;line-height:1.2}
 .btn+.btn{margin-left:10px}
@@ -85,7 +85,7 @@ nav.main .menu a.muted{color:var(--steel);font-weight:500}
 /* hero */
 .hero{position:relative;color:#fff;overflow:hidden;background:var(--deep);aspect-ratio:12/5;max-height:820px}
 .hero .wrap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding-bottom:64px;display:flex;flex-direction:column;justify-content:flex-end}
-.hero h1{color:#fff;font-size:clamp(36px,4.6vw,60px);max-width:760px;font-family:"Montserrat","Helvetica Neue",Helvetica,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.5px;line-height:.98}
+.hero h1{color:#fff;font-size:clamp(36px,4.6vw,60px);max-width:760px;font-family:"Montserrat","Helvetica Neue",Helvetica,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:-.5px;line-height:.98}
 .wxband{background:var(--cream);border-bottom:1px solid var(--line)}
 .wxband .wrap{padding-top:12px;padding-bottom:12px}
 .wxband .grid{gap:12px}
@@ -137,7 +137,7 @@ section.tight{padding:44px 0}
 .navy{background:var(--navy2);color:#C9D6E6}
 .navy h2,.navy h3{color:#fff}
 .sechead{display:flex;gap:40px;align-items:flex-end;margin-bottom:32px}
-.sechead h2{flex:1.3;font-size:clamp(26px,2.8vw,34px);font-weight:600;letter-spacing:-.01em}
+.sechead h2{flex:1.3;font-size:clamp(26px,2.8vw,34px);font-weight:700;letter-spacing:-.01em}
 .sechead p{flex:1;color:var(--body);font-size:15px}
 .sechead .more{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);white-space:nowrap}
 .navy .sechead p{color:#9FB4CE}
@@ -152,7 +152,7 @@ a.card:hover{box-shadow:0 14px 34px rgba(7,27,51,.10);transform:translateY(-2px)
 .card.img .body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
 .navy .card{background:#12315A;border-color:#1D4470;color:#C9D6E6}
 .navy .card h3,.navy .card b{color:#fff}
-.card h3{font-size:19px;font-weight:600;letter-spacing:0}
+.card h3{font-size:19px;font-weight:700;letter-spacing:0}
 .card p{margin-top:8px;font-size:15px}
 .card .go{display:block;margin-top:auto;padding-top:14px;font-weight:700;color:var(--navy);font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase}
 .tagline{font-style:italic}
@@ -209,7 +209,7 @@ label.f{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text
 .pick .ph img{object-fit:cover;object-position:center}
 .pick .body{padding:24px 26px}
 .pick .who{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent2)}
-.pick h3{font-size:21px;font-weight:600;margin:6px 0 10px;letter-spacing:0}
+.pick h3{font-size:21px;font-weight:700;margin:6px 0 10px;letter-spacing:0}
 .pick blockquote{font-style:italic;font-size:15.5px;color:var(--ink);line-height:1.55}
 .pick .meta{font-size:12px;color:var(--steel);margin-top:12px}
 
@@ -240,7 +240,7 @@ label.f{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text
 .feature{display:grid;grid-template-columns:1.1fr 1fr;gap:0;border:1px solid var(--line);background:#fff;overflow:hidden}
 .feature .ph{aspect-ratio:auto;min-height:300px;max-height:460px;height:100%}
 .feature .body{padding:34px 36px;display:flex;flex-direction:column;justify-content:center}
-.feature h2{font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-.01em;margin:10px 0 12px}
+.feature h2{font-size:clamp(22px,2.4vw,30px);font-weight:700;letter-spacing:-.01em;margin:10px 0 12px}
 .article{max-width:760px;margin:0 auto}
 .article p{margin-bottom:18px;font-size:16px;line-height:1.7}
 .article h2{font-size:24px;margin:34px 0 12px}
@@ -291,7 +291,7 @@ label.f{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text
 .modal .box{background:#fff;max-width:760px;width:100%;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.35)}
 .modal .box .ph{aspect-ratio:auto;height:100%;min-height:300px}
 .modal .body{padding:36px 34px}
-.modal h2{font-size:24px;font-weight:600;margin:8px 0 10px;line-height:1.15}
+.modal h2{font-size:24px;font-weight:700;margin:8px 0 10px;line-height:1.15}
 .modal .off{font-size:64px;font-weight:900;color:var(--accent);line-height:.9;letter-spacing:-2px}
 .modal .off small{font-size:14px;font-weight:700;letter-spacing:2px;color:var(--navy);display:block;margin-top:6px}
 .modal .x{position:absolute;right:10px;top:8px;background:none;border:0;font-size:26px;color:var(--steel);cursor:pointer;line-height:1;padding:6px 10px}
@@ -300,7 +300,7 @@ label.f{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text
 /* jobs */
 .job{display:grid;grid-template-columns:1.2fr 2fr auto;gap:24px;align-items:center;padding:22px 0}
 .job+.job{border-top:1px solid var(--line)}
-.job h3{font-size:20px;font-weight:600}
+.job h3{font-size:20px;font-weight:700}
 .job .meta{font-size:12.5px;color:var(--steel);margin-top:4px}
 @media (max-width:700px){.job{grid-template-columns:1fr}}
 /* footer */
@@ -516,7 +516,7 @@ def footer():
             f'<div class="soc"><a href="{SOCIAL["ig"]}" aria-label="Instagram @rodgersski">IG</a><a href="{SOCIAL["fb"]}" aria-label="Facebook RodgersSkiSport">FB</a><a href="{SOCIAL["tt"]}" aria-label="TikTok @rodgersskiandsport">TT</a></div></div>'
             f'<div><h5><a href="lincoln-nh.html">Lincoln, NH &rarr;</a></h5>{LINCOLN["addr"]}<br><a href="tel:{LINCOLN["teltag"]}"><b style="color:#fff">{LINCOLN["tel"]}</b></a><br>{LINCOLN["hours"]}<br>Ski &middot; Snowboard &middot; Bikes &middot; Rentals &middot; Boot Lab<br><a href="{LINCOLN["maps"]}">Directions</a></div>'
             f'<div><h5><a href="scarborough-me.html">Scarborough, ME &rarr;</a></h5>{SCARB["addr"]}<br><a href="tel:{SCARB["teltag"]}"><b style="color:#fff">{SCARB["tel"]}</b></a><br>Mon&ndash;Tue 10&ndash;6 &middot; Wed closed<br>Thu&ndash;Fri 10&ndash;6 &middot; Sat 10&ndash;5 &middot; Sun 11&ndash;5<br>Ski &middot; Bikes &middot; Junior Seasonal Lease<br><a href="{SCARB["maps"]}">Directions</a></div>'
-            f'<div><h5>Shop &amp; Services</h5><a href="boot-lab.html">The Boot Lab</a><br><a href="race.html">Race</a><br><a href="rentals.html">Rentals (Lincoln)</a><br><a href="lease.html">Junior Seasonal Lease (Scarborough)</a><br><a href="gift-cards.html">Gift Cards</a><br><a href="journal.html">Journal</a> &middot; <a href="staff-picks.html">Staff Picks</a><br><a href="buyers-guide.html">Buyer&rsquo;s Guide</a> &middot; <a href="outdoor-guide.html">Outdoor Guide</a><br><a href="partners.html">Partners &amp; Teams</a><br><a href="employment.html">Employment</a><br><a href="about.html">About</a> &middot; <a href="contact.html">Contact</a><br><a href="mailto:{LINCOLN["email"]}">{LINCOLN["email"]}</a></div></div>'
+            f'<div><h5>Shop &amp; Services</h5><a href="boot-lab.html">The Boot Lab</a><br><a href="race.html">Race</a><br><a href="rentals.html">Rentals (Lincoln)</a><br><a href="lease.html">Junior Seasonal Lease (Scarborough)</a><br><a href="gift-cards.html">Gift Cards</a><br><a href="journal.html">Journal</a> &middot; <a href="staff-picks.html">Staff Picks</a><br><a href="buyers-guide.html">Buyer&rsquo;s Guide</a> &middot; <a href="outdoor-guide.html">Outdoor Guide</a><br><a href="partners.html">Partners &amp; Teams</a><br><a href="employment.html">Employment</a><br><a href="about.html">About</a> &middot; <a href="contact.html">Contact</a><br><a href="mailto:{LINCOLN["email"]}">Email us</a></div></div>'
             f'<div class="band"><b>Sale dates, new arrivals and tune reminders. 10% off your next in-store purchase when you join.</b><input class="field" placeholder="Email address"><select class="field"><option>Lincoln, NH</option><option>Scarborough, ME</option><option>Both</option></select><a class="btn ondark sm" href="#">Sign up</a></div>'
             f'<div class="legal"><span>Family-run since 1974 &middot; Ski Magazine Gold Medal Shop &middot; Lincoln, NH &middot; Scarborough, ME</span><span>&copy; 2026 Rodgers Ski &amp; Sport &middot; <a href="privacy-policy.html">Privacy</a> &middot; <a href="terms-of-use.html">Terms</a> &middot; <a href="accessibility.html">Accessibility</a></span></div></div></footer>'
             f'{modal()}<script src="site.js?v={ASSET_V}"></script></body></html>')

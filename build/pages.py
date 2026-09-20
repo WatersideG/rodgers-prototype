@@ -422,8 +422,8 @@ def contact():
     h = hero("Contact", "Two stores, two phone numbers, and a short form that goes to the right one.", "south-peak-winter-mountain", kicker="Lincoln, NH &amp; Scarborough, ME", short=True, pos="center 60%")
     h += crumbs(("Contact",""))
     h += (f'<section><div class="wrap"><div class="grid g2">'
-          f'<div class="stack">{hours_box(LINCOLN, LIN_HOURS)}<div style="margin-top:16px">{map_embed(LINCOLN)}</div><p class="note">Email: <a href="mailto:{LINCOLN["email"]}" style="color:var(--navy);font-weight:700">{LINCOLN["email"]}</a></p></div>'
-          f'<div class="stack">{hours_box(SCARB, SCA_HOURS)}<div style="margin-top:16px">{map_embed(SCARB)}</div><p class="note">Email: <a href="mailto:{SCARB["email"]}" style="color:var(--navy);font-weight:700">{SCARB["email"]}</a></p></div></div>'
+          f'<div class="stack">{hours_box(LINCOLN, LIN_HOURS)}<div style="margin-top:16px">{map_embed(LINCOLN)}</div><p class="note"><a href="mailto:{LINCOLN["email"]}" style="color:var(--navy);font-weight:700">Email the Lincoln store</a></p></div>'
+          f'<div class="stack">{hours_box(SCARB, SCA_HOURS)}<div style="margin-top:16px">{map_embed(SCARB)}</div><p class="note"><a href="mailto:{SCARB["email"]}" style="color:var(--navy);font-weight:700">Email the Scarborough store</a></p></div></div>'
           f'<div class="card" style="max-width:720px;margin:44px auto 0"><h3>Send a message</h3><form style="margin-top:14px"><label class="f">Store</label><select class="field"><option>Lincoln, NH</option><option>Scarborough, ME</option></select><label class="f">Name</label><input class="field"><label class="f">Email</label><input class="field" type="email"><label class="f">Message</label><textarea class="field" rows="4"></textarea><button class="btn" type="button">Send</button></form></div>'
           f'<div style="margin-top:34px">{weather(LINCOLN)}</div><div style="margin-top:12px">{weather(SCARB)}</div></div></section>')
     return page("about","Contact | Rodgers Ski &amp; Sport","Contact Rodgers Ski & Sport: Lincoln, NH (603) 745-8347 and Scarborough, ME (207) 883-3669, with hours, maps and directions.", h, "contact.html")
