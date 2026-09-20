@@ -15,7 +15,7 @@ for f in glob.glob(os.path.join(os.path.dirname(HERE),'prototype','img','logos',
 import pages as P
 import guides as G
 
-OUT = os.path.join(os.path.dirname(HERE), 'prototype')
+OUT = os.environ.get('RSX_OUT') or os.path.join(os.path.dirname(HERE), 'prototype')
 os.makedirs(OUT, exist_ok=True)
 
 LEGAL = {
@@ -52,6 +52,8 @@ def write(name, html):
         attrs = re.sub(r'class="btn[^"]*"', f'class="{cls}"', attrs, 1)
         return f'<{tag}{attrs}>{text}</{tag}>'
     html = re.sub(r'<(a|button)([^>]*class="btn[^"]*"[^>]*)>([^<]*)</\1>', _cls, html)
+    ib = os.environ.get('RSX_IMG_BASE')   # preview builds reuse the main folder's images instead of copying them
+    if ib: html = re.sub(r'([("\'])img/', lambda m: m.group(1)+ib, html)
     with open(os.path.join(OUT, name), 'w') as f: f.write(html)
     print(f'{name:36s} {len(html)//1024:4d} KB')
 
