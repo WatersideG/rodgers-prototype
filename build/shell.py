@@ -472,7 +472,7 @@ def nav_html(active=""):
     sca = [("scarborough-me.html","Overview"),("scarborough-me-ski.html","Ski"),("scarborough-me-bikes.html","Bikes"),
            ("scarborough-me-services.html","Services &amp; Tuning"),("lease.html","Junior Seasonal Lease"),
            ("scarborough-me-accessories.html","Accessories")]
-    jou = [("journal.html","Latest"),("journal-fall-tent-sale.html","Fall Tent Sale"),("staff-picks.html","Staff Picks")]
+    jou = [("journal.html","Latest"),("promos.html","Promos"),("staff-picks.html","Staff Picks")]
     gui = [("buyers-guide.html","Buyer&rsquo;s Guide"),("outdoor-guide.html","Outdoor Guide")]
     abt = [("about.html","Our Story"),("partners.html","Partners &amp; Teams"),("employment.html","Employment"),("gift-cards.html","Gift Cards"),("contact.html","Contact")]
     def menu(items): return '<div class="menu">'+''.join(f'<a href="{h}">{t}</a>' for h,t in items)+'</div>'

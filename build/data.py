@@ -49,6 +49,17 @@ POSTS = [
 
 CATEGORIES = ["All","News","Promotions","Racing","Brands","New arrivals","Services","Local mountains"]
 
+# Promos page: one record per promotion, listed newest first. Dates drive the On now / Upcoming / Ended label.
+# `post` = slug of its article (None = no article page yet).
+PROMOS = [
+ dict(title="Fall Tent Sale", store="Lincoln, NH", start="2026-09-18", end="2026-10-12", post="journal-fall-tent-sale.html",
+      img="lincoln-ski-wall-armada-salomon.jpg", alt="Armada and Salomon skis with sale tags on the Lincoln wall",
+      summary="The annual tent sale on Railroad Street: skis, snowboards, boots, bindings, apparel and helmets at the year&rsquo;s lowest prices, with staff picks and deal reveals through the sale."),
+ dict(title="Tent-Less Tent Sale", store="Scarborough, ME", start="2026-07-24", end="2026-08-09", post=None,
+      img="scarborough-storefront-sunny-wide.jpg", alt="The Scarborough store on Route 1",
+      summary="Scarborough&rsquo;s own summer sale, with the same markdowns as the Lincoln tent sale under an actual roof: skis, boots, bindings, complete junior packages and helmets."),
+]
+
 PARTNERS = [
  dict(name="South Peak Resort", kind="Resort community &middot; Lincoln, NH", url="https://www.southpeakresort.com/", img="partner-south-peak.jpg", alt="South Peak and Loon Mountain from the air in winter", credit="",
       blurb="A 360-acre slopeside community on Loon Mountain in Lincoln, with homesites, townhomes, condos and rentals. Rodgers is minutes from the resort on Railroad Street."),
@@ -166,7 +177,7 @@ SEASON_CARDS = {
  "winter": [
   ("rentals.html","lincoln-service-desk.jpg","The rental and service desk in Lincoln","Rentals","Junior, performance, advanced and demo skis, snowboards, cross-country and snowshoes at the Lincoln store.","Rental rates"),
   ("boot-lab.html","lincoln-boot-lab-room.jpg","The Boot Lab in Lincoln","Boot fitting","Cold feet, shin bang and heel lift are fixable. Stop in or call for a fitting.","The Boot Lab"),
-  ("race.html","lincoln-race-wall.jpg","The race wall in Lincoln","Race department","Seven race brands, race day tunes and FIS and USSA prep.","Race gear"),
+  ("race.html","lincoln-race-wall.jpg","The race wall in Lincoln","Race department","Race skis from every brand we carry, race day tunes, and FIS and USSA prep.","Race gear"),
   ("lincoln-nh-accessories.html","giro-helmet-wall.jpg","Helmets on the wall","Helmets, goggles and gloves","Warm hands and clear lenses from Hestra, Smith, Giro, Oakley and more.","Accessories"),
  ],
  "spring": [

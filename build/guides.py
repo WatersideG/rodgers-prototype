@@ -162,7 +162,7 @@ def buyers_guide():
     h += (f'<section class="ice" id="rules"><div class="wrap">{sechead("Rules of thumb", "The charts every fitter starts from. They narrow the field; the bench decides.")}{_rules()}</div></section>')
     sel = ('<div class="typepick"><label for="skiertype" class="kicker">Choose the skier that sounds like you</label>'
            '<select id="skiertype" class="field">' + ''.join(f'<option value="{t["k"]}">{t["n"]}</option>' for t in SKIER_TYPES) + '</select></div>')
-    h += (f'<section id="types"><div class="wrap">{sechead("Find your type", "Eleven kinds of skier we fit every week.")}{sel}<div class="gtypes picker">{"".join(_type(t) for t in SKIER_TYPES)}</div></div></section>')
+    h += (f'<section id="types"><div class="wrap">{sechead("Find your type", "The kinds of skier we fit every week.")}{sel}<div class="gtypes picker">{"".join(_type(t) for t in SKIER_TYPES)}</div></div></section>')
     h += '''<script>(function(){var s=document.getElementById('skiertype');if(!s)return;var all=document.querySelectorAll('.gtypes.picker .gtype');
 function show(k,scroll){var ok=false;all.forEach(function(d){var on=d.id==='t-'+k;d.classList.toggle('on',on);if(on)ok=true;});if(!ok){k=all[0].id.slice(2);all[0].classList.add('on');}s.value=k;if(scroll){document.getElementById('types').scrollIntoView({behavior:'smooth',block:'start'});}}
 function fromHash(scroll){var m=(location.hash||'').match(/^#t-([a-z0-9-]+)$/);show(m?m[1]:s.options[0].value,scroll&&!!m);}
@@ -171,7 +171,7 @@ window.addEventListener('hashchange',function(){fromHash(true);});fromHash(false
     sb = ''.join(f'<div class="gtype"><h3>{t["n"]}</h3><div class="gk-grid"><div class="gk"><div class="kicker">Board</div><p>{t["skis"]}</p></div><div class="gk"><div class="kicker">Boots and bindings</div><p>{t["boots"]}</p></div><div class="gk"><div class="kicker">On our wall</div><p>{t["examples"]}</p></div></div></div>' for t in SB_TYPES)
     h += (f'<section class="ice" id="snowboards"><div class="wrap">{sechead("Snowboards", "The Mothership, inside the Lincoln store. Scarborough sells skis only.")}{brands(SNOWBOARD_BRANDS)}<div class="gtypes" style="margin-top:22px">{sb}</div></div></section>')
     myths = ''.join(f'<div class="card"><h3 style="font-size:17px">{a}</h3><p>{b}</p></div>' for a,b in MYTHS)
-    h += (f'<section><div class="wrap">{sechead("Eight things worth knowing", "The questions that come up on every forum and at every counter.")}<div class="grid g4">{myths}</div>'
+    h += (f'<section><div class="wrap">{sechead("Worth knowing", "The questions that come up on every forum and at every counter.")}<div class="grid g4">{myths}</div>'
           f'<div style="margin-top:32px"><a class="btn" href="boot-lab.html">The Boot Lab</a> <a class="btn ghost" href="rentals.html">Rental rates</a> <a class="btn ghost" href="lease.html">Junior Seasonal Lease</a></div></div></section>')
     h += (f'<section class="ice"><div class="wrap">{sechead("The brands", "Skis, boots and snowboards on the walls in Lincoln and Scarborough.")}<div class="kicker">Skis</div>{brands(SKI_BRANDS)}<div class="kicker" style="margin-top:22px">Ski boots</div>{brands(BOOT_BRANDS)}</div></section>')
     h += (f'<section><div class="wrap"><p class="note">Guidance paraphrased from evo, REI, Powder7, Switchback Travel, Tactics and The Ski Monster buying guides, brand fit pages, Bootfitters.com, Wayfinder, SkiTalk, US Ski &amp; Snowboard equipment rules and The Pro Ski &amp; Ride junior racing guide, as of September 2026.</p></div></section>')
@@ -362,7 +362,7 @@ def outdoor_guide():
     h += crumbs(("Guides","buyers-guide.html"), ("Outdoor Guide",""))
     nearest = ''.join(f'<tr><td><a href="{u}" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700">{n}</a><small>{t} &middot; {s}</small></td><td class="p">{d}</td></tr>' for n,t,d,s,u in NEAREST_ALPINE_SCA)
     h += (f'<section id="lincoln"><div class="wrap">{sechead("Lincoln, New Hampshire", "50-mile radius from 5 Railroad Street.")}'
-          + _mapblock("map-lin", LIN, POINTS_LIN, "Thirteen alpine areas, six Nordic centers, twenty-six hikes, eight mountain-bike networks and the notch bike path. Filter by type; click a pin for the numbers and a link to the official site. Trail mixes and vertical are as published by each area.")
+          + _mapblock("map-lin", LIN, POINTS_LIN, "Alpine areas, Nordic centers, hikes, mountain-bike networks and the notch bike path. Filter by type; click a pin for the numbers and a link to the official site. Trail mixes and vertical are as published by each area.")
           + '</div></section>')
     h += (f'<section class="ice" id="scarborough"><div class="wrap">{sechead("Scarborough, Maine", "15-mile radius from 332 US Route 1.")}'
           + _mapblock("map-sca", SCA, POINTS_SCA, "Coastal walking and hiking preserves, the Eastern Trail, Blackstrap Hill for mountain biking and Harris Farm for groomed cross-country. There is no alpine ski area inside 15 miles; the nearest are listed below the map.")
