@@ -138,43 +138,64 @@ MYTHS = [
  ("A women&rsquo;s boot is not just a softer men&rsquo;s boot.", "Cuff height, flare and heel pocket are real. Warmer liners are marketing."),
 ]
 
+TYPE_IMG = {"first":("hero-skier-shoulder.jpg","A skier carrying skis on a snowy summit"),"cruise":("hero-skier-groomer.jpg","A skier on a freshly groomed run"),
+            "older":("hero-chairlift.jpg","Skiers riding a chairlift above the trees"),"prog":("hero-skier-red.jpg","A skier in a red suit making a parallel turn"),
+            "adv":("hero-ski-carving.jpg","A skier carving through soft snow"),"pow":("loon-black-ridge-trees.jpg","A skier in the trees at Loon Mountain"),
+            "carve":("hero-ski-maine.jpg","Two skiers carving on a groomed slope"),"kids":("hero-lincoln-family.jpg","A family skiing at the base of Loon"),
+            "team":("partner-franconia-ski-club.jpg","A junior racer in a slalom course"),"women":("hero-scarborough-skiers.jpg","Two skiers on a groomed trail")}
+SB_IMG = [("hero-snowboard-green.jpg","A snowboarder in a green and purple suit"),("hero-snowboard.jpg","A snowboarder carving on a groomed trail"),
+          ("hero-snowboard-loon.jpg","A snowboarder in fresh snow among the trees"),("hero-snowboarder-poses.jpg","A snowboarder holding a board on a ridge")]
+
 def _rules():
     out=''
     for h,cols,rows,note in RULES:
-        t = pricelist(rows, cols, note).replace('class="pricelist"','class="pricelist rules"',1)
+        t = pricelist(rows, cols, note).replace('class="pricelist"','class="pricelist rules strong"',1)
         out += f'<div><div class="kicker">{h}</div>{t}</div>'
     return f'<div class="grid g2" style="gap:28px 40px">{out}</div>'
 
 def _type(t):
     parts = [("Skis", t["skis"]), ("Boots", t["boots"])]
     if t.get("board"): parts.append(("Snowboard", t["board"]))
-    parts += [("Common mistakes", t["mistakes"]), ("On our wall", t["examples"])]
+    parts += [("Common mistakes", t["mistakes"])]
     body = ''.join(f'<div class="gk"><div class="kicker">{k}</div><p>{v}</p></div>' for k,v in parts)
-    return f'<div class="gtype" id="t-{t["k"]}"><h3>{t["n"]}</h3><p class="who">{t["who"]}</p><div class="gk-grid">{body}</div></div>'
+    body += f'<div class="gk wall"><div class="kicker">On our wall</div><p>{t["examples"]}</p></div>'
+    img, alt = TYPE_IMG.get(t["k"], ("hero-ski-carving.jpg","A skier"))
+    return (f'<div class="gtype wph" id="t-{t["k"]}"><div><div class="gph"><img src="img/{img}" alt="{alt}" loading="lazy"></div></div>'
+            f'<div><h3>{t["n"]}</h3><p class="who">{t["who"]}</p><div class="gk-grid">{body}</div></div></div>')
 
 def buyers_guide():
-    h = hero("Buyer&rsquo;s guide", "How to choose skis, boots and snowboards for the way you actually ski or ride: the rules of thumb, what to look for at each stage, and where the wall in Lincoln and Scarborough fits in. Boots come first at every level.",
+    h = hero("Buyer&rsquo;s guide", "How to choose skis, boots and snowboards for the way you actually ski or ride: what to look for at each stage, the rules of thumb fitters start from, and where the wall in Lincoln and Scarborough fits in.",
              "skier-carving-red-jacket", kicker="Skis &middot; Boots &middot; Snowboards", short=True, pos="center 40%",
-             ctas='<a class="btn accent" href="#rules">Rules of thumb</a><a class="btn ghost-d" href="#types">Find your type</a><a class="btn ghost-d" href="#snowboards">Snowboards</a>')
+             ctas='<a class="btn accent" href="#types">Find your type</a><a class="btn ghost-d" href="#rules">Rules of thumb</a><a class="btn ghost-d" href="#snowboards">Snowboards</a>')
     h += crumbs(("Guides","buyers-guide.html"), ("Buyer&rsquo;s Guide",""))
-    chips = '<div class="chips" style="margin-top:18px">' + ''.join(f'<a href="#t-{t["k"]}">{t["n"]}</a>' for t in SKIER_TYPES) + '</div>'
-    h += (f'<section><div class="wrap"><p style="max-width:760px">Start with the rules of thumb, then find the description that sounds like you. Each one says what to look for in a ski, a boot and, where it applies, a snowboard, the mistakes we see most, and the products on our wall that fit. Sizes, this season&rsquo;s stock and the final call happen in the store with a fitter.</p>{chips}</div></section>')
-    h += (f'<section class="ice" id="rules"><div class="wrap">{sechead("Rules of thumb", "The charts every fitter starts from. They narrow the field; the bench decides.")}{_rules()}</div></section>')
-    sel = ('<div class="typepick"><label for="skiertype" class="kicker">Choose the skier that sounds like you</label>'
+    h += (f'<section><div class="wrap split"><div><div class="kicker">Start here</div><h2 class="display" style="font-size:32px">Boots first, at every level</h2>'
+          f'<p style="margin-top:16px">Find the description that sounds like you. Each one says what to look for in a ski, a boot and, where it applies, a snowboard, the mistakes we see most, and the products on our wall that fit.</p>'
+          f'<p style="margin-top:10px">The charts below narrow the field. Sizes, this season&rsquo;s stock and the final call happen in the store with a fitter.</p>'
+          f'<div style="margin-top:22px"><a class="btn" href="boot-lab.html">The Boot Lab</a></div></div>'
+          f'<div>{ph("lincoln-boot-wall.jpg","The boot wall at the Lincoln store","r43","Lincoln boot wall")}</div></div></section>')
+    tiles = ''.join(f'<a href="#t-{t["k"]}"><img src="img/{TYPE_IMG[t["k"]][0]}" alt="" loading="lazy"><span>{t["n"]}</span></a>' for t in SKIER_TYPES if t["k"] in TYPE_IMG)
+    sel = ('<div class="typepick"><label for="skiertype" class="kicker">Or choose from the list</label>'
            '<select id="skiertype" class="field">' + ''.join(f'<option value="{t["k"]}">{t["n"]}</option>' for t in SKIER_TYPES) + '</select></div>')
-    h += (f'<section id="types"><div class="wrap">{sechead("Find your type", "The kinds of skier we fit every week.")}{sel}<div class="gtypes picker">{"".join(_type(t) for t in SKIER_TYPES)}</div></div></section>')
+    h += (f'<section class="ice" id="types"><div class="wrap">{sechead("Find your type", "The kinds of skier we fit every week. Pick the one closest to you.")}<div class="tiles">{tiles}</div>{sel}<div class="gtypes picker">{"".join(_type(t) for t in SKIER_TYPES)}</div></div></section>')
     h += '''<script>(function(){var s=document.getElementById('skiertype');if(!s)return;var all=document.querySelectorAll('.gtypes.picker .gtype');
-function show(k,scroll){var ok=false;all.forEach(function(d){var on=d.id==='t-'+k;d.classList.toggle('on',on);if(on)ok=true;});if(!ok){k=all[0].id.slice(2);all[0].classList.add('on');}s.value=k;if(scroll){document.getElementById('types').scrollIntoView({behavior:'smooth',block:'start'});}}
+function show(k,scroll){var ok=false;all.forEach(function(d){var on=d.id==='t-'+k;d.classList.toggle('on',on);if(on)ok=true;});if(!ok){k=all[0].id.slice(2);all[0].classList.add('on');}s.value=k;if(scroll){s.scrollIntoView({behavior:'smooth',block:'start'});}}
 function fromHash(scroll){var m=(location.hash||'').match(/^#t-([a-z0-9-]+)$/);show(m?m[1]:s.options[0].value,scroll&&!!m);}
 s.addEventListener('change',function(){history.replaceState(null,'','#t-'+s.value);show(s.value,false);});
 window.addEventListener('hashchange',function(){fromHash(true);});fromHash(false);})();</script>'''
-    sb = ''.join(f'<div class="gtype"><h3>{t["n"]}</h3><div class="gk-grid"><div class="gk"><div class="kicker">Board</div><p>{t["skis"]}</p></div><div class="gk"><div class="kicker">Boots and bindings</div><p>{t["boots"]}</p></div><div class="gk"><div class="kicker">On our wall</div><p>{t["examples"]}</p></div></div></div>' for t in SB_TYPES)
-    h += (f'<section class="ice" id="snowboards"><div class="wrap">{sechead("Snowboards", "The Mothership, inside the Lincoln store. Scarborough sells skis only.")}{brands(SNOWBOARD_BRANDS)}<div class="gtypes" style="margin-top:22px">{sb}</div></div></section>')
+    h += (f'<section id="rules"><div class="wrap">{sechead("Rules of thumb", "The charts every fitter starts from. They narrow the field; the bench decides.")}{_rules()}</div></section>')
+    sb = ''
+    for i,t in enumerate(SB_TYPES):
+        img, alt = SB_IMG[i % len(SB_IMG)]
+        sb += (f'<div class="card"><div class="ph r169"><img src="img/{img}" alt="{alt}" loading="lazy"></div><div class="body"><h3>{t["n"]}</h3>'
+               f'<div class="gk"><div class="kicker">Board</div><p>{t["skis"]}</p></div><div class="gk"><div class="kicker">Boots and bindings</div><p>{t["boots"]}</p></div>'
+               f'<div class="gk wall"><div class="kicker">On our wall</div><p>{t["examples"]}</p></div></div></div>')
+    h += (f'<section class="ice" id="snowboards"><div class="wrap">{sechead("Snowboards", "The Mothership, inside the Lincoln store.")}<div class="sbgrid">{sb}</div>'
+          f'<div style="margin-top:30px"><div class="kicker">Board brands on the Mothership wall</div>{brands(SNOWBOARD_BRANDS)}</div></div></section>')
     myths = ''.join(f'<div class="card"><h3 style="font-size:17px">{a}</h3><p>{b}</p></div>' for a,b in MYTHS)
-    h += (f'<section><div class="wrap">{sechead("Worth knowing", "The questions that come up on every forum and at every counter.")}<div class="grid g4">{myths}</div>'
+    h += (f'<section class="navy onnavy"><div class="wrap">{sechead("Worth knowing", "The questions that come up on every forum and at every counter.")}<div class="grid g4">{myths}</div>'
           f'<div style="margin-top:32px"><a class="btn" href="boot-lab.html">The Boot Lab</a> <a class="btn ghost" href="rentals.html">Rental rates</a> <a class="btn ghost" href="lease.html">Junior Seasonal Lease</a></div></div></section>')
-    h += (f'<section class="ice"><div class="wrap">{sechead("The brands", "Skis, boots and snowboards on the walls in Lincoln and Scarborough.")}<div class="kicker">Skis</div>{brands(SKI_BRANDS)}<div class="kicker" style="margin-top:22px">Ski boots</div>{brands(BOOT_BRANDS)}</div></section>')
-    h += (f'<section><div class="wrap"><p class="note">Guidance paraphrased from evo, REI, Powder7, Switchback Travel, Tactics and The Ski Monster buying guides, brand fit pages, Bootfitters.com, Wayfinder, SkiTalk, US Ski &amp; Snowboard equipment rules and The Pro Ski &amp; Ride junior racing guide, as of September 2026.</p></div></section>')
+    h += (f'<section><div class="wrap">{sechead("The brands", "Skis and ski boots on the walls in Lincoln and Scarborough.")}<div class="kicker">Skis</div>{brands(SKI_BRANDS)}<div class="kicker" style="margin-top:22px">Ski boots</div>{brands(BOOT_BRANDS)}</div></section>')
+    h += (f'<section class="tight" style="padding-top:0"><div class="wrap"><p class="note">Guidance paraphrased from evo, REI, Powder7, Switchback Travel, Tactics and The Ski Monster buying guides, brand fit pages, Bootfitters.com, Wayfinder, SkiTalk, US Ski &amp; Snowboard equipment rules and The Pro Ski &amp; Ride junior racing guide, as of September 2026.</p></div></section>')
     return page("guides", "Buyer&rsquo;s Guide | Rodgers Ski &amp; Sport", "How to choose skis, ski boots and snowboards by ability, style and skier type, from first-timers and leisurely skiers to junior racers and freeriders, with the rules of thumb fitters use.", h, "buyers-guide.html")
 
 # ---------------------------------------------------------------- Outdoor Guide
@@ -285,9 +306,10 @@ MAP_CSS = r"""
 .plist{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
 .plist .card{padding:18px 20px}
 .plist .card b.n{font-size:16px;display:block;color:var(--ink)}
-.plist .card .lv{display:inline-block;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:#fff;padding:3px 8px;margin:8px 0 6px}
+.plist .card .lv{align-self:flex-start;display:inline-block;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:#fff;padding:3px 8px;margin:8px 0 6px}
 .plist .card p{font-size:14px;margin-top:6px}
 .plist .card small{display:block;color:var(--steel);font-size:12.5px;margin-top:6px}
+.plist .card .links{display:flex;gap:18px;margin-top:auto;padding-top:14px}.plist .card .links .go{margin:0;padding:0}
 .leaflet-popup-content{font-family:"Source Serif 4",Georgia,serif;font-size:14px;line-height:1.45}
 .leaflet-popup-content b{display:block;font-size:15px;color:#012D5D}
 .gm-style .gm-style-iw-d{font-family:"Source Serif 4",Georgia,serif}
@@ -326,7 +348,7 @@ MAP_JS = r"""
       b.addEventListener('click',function(){
         document.querySelectorAll('[data-map="'+id+'"] .filters button').forEach(function(x){x.classList.remove('on');});
         b.classList.add('on'); var t=b.getAttribute('data-t'); api.show(t);
-        document.querySelectorAll('[data-map="'+id+'"] .plist .card').forEach(function(c){c.style.display=(t==='all'||c.getAttribute('data-t')===t)?'':'none';});
+        document.querySelectorAll('[data-map="'+id+'"] .pgroup').forEach(function(g){g.style.display=(t==='all'||g.getAttribute('data-t')===t)?'':'none';});
       });
     });
   }
@@ -335,16 +357,21 @@ MAP_JS = r"""
 })();
 """
 
+GROUP_NAME = {"alpine":"Alpine ski areas","nordic":"Nordic centers","hike":"Hiking","mtb":"Mountain biking","path":"Multi-use paths"}
 def _plist(pts, mapid):
     out=''
-    for p in pts:
-        col = dict((l[0],l[2]) for l in LEVELS)[p["lv"]]
-        nm = dict((l[0],l[1]) for l in LEVELS)[p["lv"]]
-        ty = dict(TYPES)[p["t"]]
-        out += (f'<div class="card" data-t="{p["t"]}"><b class="n">{p["n"]}</b><small>{ty} &middot; {p["town"]}</small>'
-                f'<span class="lv" style="background:{col}">{nm}</span><p>{p["d"]}</p><small>{p["s"]}</small>'
-                f'<a class="go" href="{p["u"]}" target="_blank" rel="noopener">Website &rarr;</a>' + (f'<a class="go" style="margin-top:6px" href="{p["a"]}" target="_blank" rel="noopener">AllTrails &rarr;</a>' if p.get("a") else '') + '</div>')
-    return f'<div class="plist">{out}</div>'
+    for tk,_ in TYPES:
+        grp=[p for p in pts if p["t"]==tk]
+        if not grp: continue
+        cards=''
+        for p in grp:
+            col = dict((l[0],l[2]) for l in LEVELS)[p["lv"]]
+            nm = dict((l[0],l[1]) for l in LEVELS)[p["lv"]]
+            links = f'<a class="go" href="{p["u"]}" target="_blank" rel="noopener">Website &rarr;</a>' + (f'<a class="go" href="{p["a"]}" target="_blank" rel="noopener">AllTrails &rarr;</a>' if p.get("a") else '')
+            cards += (f'<div class="card" data-t="{p["t"]}"><b class="n">{p["n"]}</b><small>{p["town"]}</small>'
+                      f'<span class="lv" style="background:{col}">{nm}</span><p>{p["d"]}</p><small>{p["s"]}</small><div class="links">{links}</div></div>')
+        out += f'<div class="pgroup" data-t="{tk}"><h3>{GROUP_NAME[tk]}</h3><div class="plist">{cards}</div></div>'
+    return out
 
 def _mapblock(mapid, cfg, pts, intro):
     filt = '<div class="filters"><button class="on" data-t="all">All</button>' + ''.join(f'<button data-t="{k}">{v}</button>' for k,v in TYPES) + '</div>'
@@ -360,13 +387,19 @@ def outdoor_guide():
              "hiker-autumn-foliage", kicker="Mountains &middot; Trails &middot; Bike parks", short=True, pos="center 45%",
              ctas='<a class="btn accent" href="#lincoln">Lincoln, NH</a><a class="btn ghost-d" href="#scarborough">Scarborough, ME</a>')
     h += crumbs(("Guides","buyers-guide.html"), ("Outdoor Guide",""))
-    nearest = ''.join(f'<tr><td><a href="{u}" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700">{n}</a><small>{t} &middot; {s}</small></td><td class="p">{d}</td></tr>' for n,t,d,s,u in NEAREST_ALPINE_SCA)
+    nearest = ''.join(f'<a href="{u}" target="_blank" rel="noopener"><b>{n}</b><small>{t}</small><span class="d">{d}</span><small>{s}</small></a>' for n,t,d,s,u in NEAREST_ALPINE_SCA)
+    tiles = (f'<section class="tight"><div class="wrap"><div class="grid g2 storetiles">'
+             f'{card("#lincoln","hero-loon-aerial.jpg","Loon Mountain from the air in winter","Lincoln, New Hampshire","Ski areas, Nordic centers, hikes and bike networks within 50 miles of 5 Railroad Street, from Loon and Cannon to Franconia Notch.","See the Lincoln map","r21")}'
+             f'{card("#scarborough","hero-maine-lighthouse.jpg","Portland Head Light on the Maine coast in winter","Scarborough, Maine","Coastal preserves, the Eastern Trail and Blackstrap Hill within 15 miles of 332 US Route 1, plus the nearest alpine skiing.","See the Scarborough map","r21")}'
+             f'</div></div></section>')
+    h += tiles
     h += (f'<section id="lincoln"><div class="wrap">{sechead("Lincoln, New Hampshire", "50-mile radius from 5 Railroad Street.")}'
           + _mapblock("map-lin", LIN, POINTS_LIN, "Alpine areas, Nordic centers, hikes, mountain-bike networks and the notch bike path. Filter by type; click a pin for the numbers and a link to the official site. Trail mixes and vertical are as published by each area.")
           + '</div></section>')
     h += (f'<section class="ice" id="scarborough"><div class="wrap">{sechead("Scarborough, Maine", "15-mile radius from 332 US Route 1.")}'
-          + _mapblock("map-sca", SCA, POINTS_SCA, "Coastal walking and hiking preserves, the Eastern Trail, Blackstrap Hill for mountain biking and Harris Farm for groomed cross-country. There is no alpine ski area inside 15 miles; the nearest are listed below the map.")
-          + f'<div style="margin-top:28px;max-width:640px"><div class="kicker">Nearest alpine skiing from Scarborough</div><table class="pricelist" style="margin-top:10px"><tbody>{nearest}</tbody></table></div></div></section>')
+          f'<div style="margin-bottom:30px"><div class="kicker">Nearest alpine skiing from Scarborough</div><div class="nearest">{nearest}</div></div>'
+          + _mapblock("map-sca", SCA, POINTS_SCA, "Coastal walking and hiking preserves, the Eastern Trail, Blackstrap Hill for mountain biking and Harris Farm for groomed cross-country. There is no alpine ski area inside 15 miles; the nearest are listed above the map.")
+          + '</div></section>')
     h += (f'<section><div class="wrap"><p class="note">Distances are straight-line from each store. Ski-area figures are from the resorts; hike lengths and gains from the US Forest Service, NH State Parks, AMC and Cannon Mountain hiker pages; bike networks from NEMBA chapters and Trailforks; Maine trails from Maine Trail Finder, Portland Trails, Saco Bay Trails and the land trusts. AllTrails links go to the community page for each trail. Lincoln Woods Trail is closed for restoration through November 2026.</p></div></section>')
     h += f'<style>{MAP_CSS}</style>' + loader + f'<script>{js}</script>'
     return page("guides", "Outdoor Guide | Rodgers Ski &amp; Sport", "Ski areas, Nordic centers, hiking trails and mountain-bike networks within 50 miles of Lincoln, NH and 15 miles of Scarborough, ME, mapped and color-coded by difficulty.", h, "outdoor-guide.html")

@@ -286,28 +286,33 @@ def lease():
 
 # =====================================================================================
 def boot_lab():
+    strong = lambda t: t.replace('class="pricelist"','class="pricelist strong"',1)
     h = hero("The Boot Lab", "Custom fitting and race prep from Masterfit and Sidas certified fitters. Full fitting and FIS and USSA prep in Lincoln; heat molding, punches and grinds at both stores.",
              "boot-lab-bench", kicker="Lincoln, NH &amp; Scarborough, ME", short=True, pos="center 50%",
              ctas=f'<a class="btn ondark" href="tel:{LINCOLN["teltag"]}">Call Lincoln {LINCOLN["tel"]}</a><a class="btn ghost-d" href="#menu">Service menu</a>')
     h += crumbs(("The Boot Lab",""))
     steps = [("Assess","Feet, stance, and how you actually ski."),("Select","Shell fit first, from Atomic, Nordica, Salomon, Dalbello, Fischer, Head, Tecnica and Lange."),("Build","Footbeds, heat molding, punches, canting, lifters."),("Prove","Ski it. Come back and we adjust until it&rsquo;s right.")]
-    h += (f'<section><div class="wrap">{sechead("Why fit is everything", "A boot that fits is the difference between a good day and a great one. Here is how a fitting runs.")}<div class="grid g4">' +
+    h += (f'<section class="navy"><div class="wrap">{sechead("Why fit is everything", "A boot that fits is the difference between a good day and a great one. Here is how a fitting runs.")}<div class="grid g4 steps">' +
           ''.join(f'<div class="card"><div class="tick">{i+1}</div><h3>{t}</h3><p>{d}</p></div>' for i,(t,d) in enumerate(steps)) + '</div></div></section>')
+    h += (f'<div class="photostrip">{ph("lincoln-boot-lab-room.jpg","The Boot Lab fitting room in Lincoln, with the boot wall and fitting bench","r43","Lincoln Boot Lab")}'
+          f'{ph("boot-lab.jpg","The Boot Lab entrance and fitting benches in Lincoln","r43")}{ph("lincoln-boot-wall.jpg","The boot wall at the Lincoln store","r43")}</div>')
     incl = [("Certified boot fitters","Masterfit and Sidas certified fitters do the work."),("No sales tax","New Hampshire has no sales tax on purchases at the Lincoln store."),
             ("Binding check, no charge","Certified binding adjustment and an electronically torque-tested release check. If your bindings need a compatibility change for the new boot sole, it is done on the spot while you wait."),
             ("We stand behind the fit","Adjustments and modifications to liners and shells at no charge, for comfort and performance, for up to two years after the sale.")]
-    h += (f'<section id="included"><div class="wrap">{sechead("Included when you buy boots at Rodgers", "These come with every boot purchase. Race boots are not included.")}<div class="grid g4">' +
-          ''.join(f'<div class="card"><div class="tick">{i+1}</div><h3>{t}</h3><p>{d}</p></div>' for i,(t,d) in enumerate(incl)) + '</div></div></section>')
-    h += (f'<section class="ice" id="menu"><div class="wrap"><div class="grid g2"><div>{sechead("Lincoln Boot Lab")}{pricelist(LIN_BOOTLAB, note="Race boot purchase does not include service.")}</div><div>{sechead("Scarborough boot work")}{pricelist(SCA_BOOTLAB, note="Full FIS and USSA race boot prep is done in Lincoln.")}'
-          f'<div style="margin-top:26px">{ph("boot-lab-red.jpg","Red race boots on the Boot Lab bench","r32","Lincoln Boot Lab")}</div></div></div>'
-          f'<div style="margin-top:40px">{sechead("Race boot service", "Prices for boots bought at Rodgers, and for boots bought elsewhere.")}{pricelist(RACE_BOOT, cols=("Service","Rodgers boot","Outside boot"))}</div></div></section>')
+    h += (f'<section class="ice" id="included"><div class="wrap">{sechead("Included when you buy boots at Rodgers", "These come with every boot purchase. Race boots are not included.")}<div class="grid g4 incl">' +
+          ''.join(f'<div class="card"><div class="tick solid">{i+1}</div><h3>{t}</h3><p>{d}</p></div>' for i,(t,d) in enumerate(incl)) + '</div></div></section>')
+    h += (f'<section id="menu"><div class="wrap"><div class="grid g2" style="gap:48px"><div>{sechead("Lincoln Boot Lab")}{strong(pricelist(LIN_BOOTLAB, note="Race boot purchase does not include service."))}</div>'
+          f'<div>{sechead("Scarborough boot work")}{strong(pricelist(SCA_BOOTLAB, note="Full FIS and USSA race boot prep is done in Lincoln."))}'
+          f'<div style="margin-top:26px">{ph("scarborough-atomic-boot-bench.jpg","A boot on the bench under the Atomic sign in Scarborough","r32","Scarborough bench")}</div></div></div></div></section>')
+    h += (f'<section class="ice"><div class="wrap split"><div style="flex:1.6">{sechead("Race boot service", "Prices for boots bought at Rodgers, and for boots bought elsewhere.")}{strong(pricelist(RACE_BOOT, cols=("Service","Rodgers boot","Outside boot")))}</div>'
+          f'<div style="flex:1">{ph("boot-lab-red.jpg","A race boot on the Boot Lab bench","r34","Race boots")}</div></div></section>')
     h += (f'<section><div class="wrap split"><div>{ph("staffpick-denis-atomic-redster-130.jpg","Denis holding the Atomic Redster 130 race boot outside the Lincoln store","r34")}</div><div><div class="kicker">Race corner</div><h2 class="display" style="font-size:30px">Race boots, fitted by people who race</h2>'
           f'<p style="margin-top:14px">FIS boot prep, USSA boot prep, canting, stance and alignment and lifters, on race boots from every brand we carry. Denis&rsquo;s pick this fall: the Atomic Redster 130 World Cup. &ldquo;A race-focused shell and narrow World Cup fit that delivers exceptional power, precision, and edge control for aggressive skiing.&rdquo;</p>'
           f'<div style="margin-top:20px"><a class="btn" href="race.html">Race at Rodgers</a></div></div></div></section>')
-    h += (f'<section class="ice" id="call"><div class="wrap" style="max-width:820px"><div class="kicker">Fittings</div><h2 class="display" style="font-size:30px">Call the Ski department</h2><p style="margin-top:14px">The fastest way to set up a fitting is a phone call: ask for the Ski department and a fitter will talk through what you need. Plan on 60 to 90 minutes for a full fit; race builds run longer, so call ahead for custom race work. Bring your current boots, footbeds if you have them, and the socks you ski in.</p>'
-          f'<p style="margin-top:14px">Scarborough customers: boot lifters and other work done in Lincoln can be dropped off and picked up at the Scarborough store, back in about two weeks.</p>'
-          f'<p style="margin-top:18px"><a class="btn" href="tel:{LINCOLN["teltag"]}">Lincoln {LINCOLN["tel"]}</a> <a class="btn ghost" href="tel:{SCARB["teltag"]}">Scarborough {SCARB["tel"]}</a></p></div></section>')
-    h += (f'<section><div class="wrap" style="max-width:820px">{sechead("Before you book")}' + faq([
+    h += (f'<section class="navy onnavy callband" id="call"><div class="wrap"><div><div class="kicker">Fittings</div><h2 class="display" style="font-size:34px">Call the Ski department</h2><p style="margin-top:14px">The fastest way to set up a fitting is a phone call: ask for the Ski department and a fitter will talk through what you need. Plan on 60 to 90 minutes for a full fit; race builds run longer, so call ahead for custom race work. Bring your current boots, footbeds if you have them, and the socks you ski in.</p>'
+          f'<p style="margin-top:14px">Scarborough customers: boot lifters and other work done in Lincoln can be dropped off and picked up at the Scarborough store, back in about two weeks.</p></div>'
+          f'<div class="phones"><a href="tel:{LINCOLN["teltag"]}"><small>Lincoln, NH</small>{LINCOLN["tel"]}</a><a href="tel:{SCARB["teltag"]}"><small>Scarborough, ME</small>{SCARB["tel"]}</a></div></div></section>')
+    h += (f'<section><div class="wrap" style="max-width:820px">{sechead("Before you come in")}' + faq([
           ("How long does a fitting take?","Plan on 60 to 90 minutes for a full fit; race builds run longer. Call ahead and ask for the Ski department."),
           ("What should I bring?","Your current boots, footbeds if you have them, and the socks you actually ski in."),
           ("Do race boots include service?","No. Race boot purchase does not include service; the race-prep menu above covers the work. Outside boots add $100 to FIS or USSA prep."),

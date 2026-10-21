@@ -395,6 +395,56 @@ footer.site .legal{border-top:1px solid #16355C;padding:18px 0;display:flex;just
   .pricelist{font-size:13.5px}
   .modal .off{font-size:48px}
 }
+/* ---- contrast and editorial components (Oct 2026 pass) */
+.navy .kicker{color:#9FB4CE}
+.navy .tick{background:var(--accent);color:#fff}
+.navy .card p{color:#C9D6E6}
+.onnavy .btn.ghost{background:transparent;border-color:#fff;color:#fff}
+.onnavy .btn.ghost:hover{background:#fff;color:var(--navy)}
+.tick.solid{background:var(--navy);color:#fff}
+.steps .card{padding:30px 26px}
+.steps .card h3{font-size:21px}
+.incl .card{border:0;border-top:4px solid var(--navy);background:#fff;box-shadow:0 1px 0 var(--line)}
+.ice .incl .card{background:#fff}
+.photostrip{display:grid;grid-template-columns:2fr 1fr 1fr;gap:6px}
+.photostrip .ph{aspect-ratio:auto;height:380px}
+.pricelist.strong thead th{background:var(--navy2);color:#fff;padding:11px 12px}
+.pricelist.strong thead th.p{color:#fff}
+.callband .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:center}
+.callband p{color:#C9D6E6}
+.callband .phones a{display:block;border-top:1px solid #2A4A73;padding:18px 0;color:#fff;font-family:"Montserrat",sans-serif;font-weight:700;font-size:22px;letter-spacing:.3px}
+.callband .phones a small{display:block;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#9FB4CE;font-weight:700;margin-bottom:4px}
+.callband .phones a:last-child{border-bottom:1px solid #2A4A73}
+.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.tiles a{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:var(--deep)}
+.tiles img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--dur) var(--ease)}
+.tiles a:hover img{transform:scale(1.04)}
+.tiles span{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 14px;background:linear-gradient(to top,rgba(7,27,51,.92),rgba(7,27,51,0));color:#fff;font-family:"Montserrat",sans-serif;font-weight:700;font-size:13px;line-height:1.25}
+.gtypes.picker .gtype.on{display:grid}
+.gtype.wph{grid-template-columns:5fr 7fr;gap:44px;align-items:start;border-top:0;padding:34px 0 0}
+.gtype .gph{aspect-ratio:4/5;overflow:hidden;background:var(--ice2)}
+.gtype .gph img{width:100%;height:100%;object-fit:cover;display:block}
+.gtype.wph .gk-grid{gap:14px}
+.gtype.wph .gk{background:#fff;border:1px solid var(--line);padding:18px 20px}
+.gtype.wph .gk.wall{grid-column:1/-1;background:var(--navy2);border-color:var(--navy2)}
+.gtype.wph .gk.wall .kicker{color:#9FB4CE}.gtype.wph .gk.wall p{color:#fff}
+.gtype.wph h3{font-size:28px}
+.sbgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.sbgrid .card{padding:0;overflow:hidden}
+.sbgrid .card .body{padding:22px 24px 24px}
+.sbgrid .gk{margin-top:12px}.sbgrid .gk p{font-size:14.5px;margin-top:4px}
+.sbgrid .gk.wall{background:var(--ice);padding:12px 14px}
+.storetiles .card .body p{font-size:15px}
+.pgroup{margin-top:38px}
+.pgroup>h3{font-family:"Montserrat",sans-serif;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy)}
+.nearest{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.nearest a{display:block;background:var(--navy2);color:#C9D6E6;padding:18px 20px}
+.nearest a b{display:block;color:#fff;font-family:"Montserrat",sans-serif;font-size:16px}
+.nearest a .d{display:block;font-family:"Montserrat",sans-serif;font-weight:800;color:#fff;font-size:24px;margin-top:10px}
+.nearest a small{display:block;font-size:13px;margin-top:4px}
+@media (max-width:900px){.photostrip{grid-template-columns:1fr 1fr}.photostrip .ph:first-child{grid-column:1/-1}.photostrip .ph{height:260px}
+  .tiles{grid-template-columns:repeat(3,1fr)}.gtype.wph,.callband .wrap{grid-template-columns:1fr;gap:26px}.gtype .gph{aspect-ratio:3/2}.nearest{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.tiles{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;margin:0 -16px 0 0;padding:0 16px 6px 0}.tiles a{flex:0 0 44%;scroll-snap-align:start}.sbgrid{grid-template-columns:1fr}.photostrip .ph{height:200px}}
 """
 CSS = CSS.replace("BODYFONTSTACK", BODY_FONT[0])
 
