@@ -476,18 +476,18 @@ def nav_html(active=""):
     gui = [("buyers-guide.html","Buyer&rsquo;s Guide"),("outdoor-guide.html","Outdoor Guide")]
     abt = [("about.html","Our Story"),("partners.html","Partners &amp; Teams"),("employment.html","Employment"),("gift-cards.html","Gift Cards"),("contact.html","Contact")]
     def menu(items): return '<div class="menu">'+''.join(f'<a href="{h}">{t}</a>' for h,t in items)+'</div>'
-    desk = (f'<div><a class="top dd{on("lincoln")}" href="lincoln-nh.html">Lincoln, NH</a>{menu(lin)}</div>'
-            f'<div><a class="top dd{on("scarb")}" href="scarborough-me.html">Scarborough, ME</a>{menu(sca)}</div>'
-            f'<div><a class="top{on("boot")}" href="boot-lab.html">The Boot Lab</a></div>'
+    desk = (f'<div><a class="top dd{on("lincoln")}" href="lincoln-nh.html">Lincoln</a>{menu(lin)}</div>'
+            f'<div><a class="top dd{on("scarb")}" href="scarborough-me.html">Scarborough</a>{menu(sca)}</div>'
+            f'<div><a class="top{on("boot")}" href="boot-lab.html">Boot Lab</a></div>'
             f'<div><a class="top{on("race")}" href="race.html">Race</a></div>'
             f'<div><a class="top dd{on("journal")}" href="journal.html">Journal</a>{menu(jou)}</div>'
             f'<div><a class="top dd{on("guides")}" href="buyers-guide.html">Guides</a>{menu(gui)}</div>'
             f'<div><a class="top dd{on("about")}" href="about.html">About</a>{menu(abt)}</div>'
             f'{search_form()}')
     def mob(items): return ''.join(f'<a href="{h}">{t}</a>' for h,t in items)
-    mobile = (search_form()+f'<details><summary>Lincoln, NH</summary>{mob(lin)}</details>'
-              f'<details><summary>Scarborough, ME</summary>{mob(sca)}</details>'
-              f'<a href="boot-lab.html">The Boot Lab</a><a href="race.html">Race</a>'
+    mobile = (search_form()+f'<details><summary>Lincoln</summary>{mob(lin)}</details>'
+              f'<details><summary>Scarborough</summary>{mob(sca)}</details>'
+              f'<a href="boot-lab.html">Boot Lab</a><a href="race.html">Race</a>'
               f'<details><summary>Journal</summary>{mob(jou)}</details>'
               f'<details><summary>Guides</summary>{mob(gui)}</details>'
               f'<details><summary>About</summary>{mob(abt)}</details>'
