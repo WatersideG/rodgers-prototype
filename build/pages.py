@@ -51,7 +51,7 @@ def home():
           f'<a class="card img" href="lincoln-nh.html">{ph("lincoln-roadside-sign.jpg","The Lincoln, NH store on Railroad Street, with the I-93 sign","r169","Lincoln, NH")}<div class="body"><h3>Lincoln, New Hampshire</h3>'
           f'<p>First shop off I-93, minutes from Loon. Skis, snowboards (the Mothership), bikes, rentals, the Boot Lab and the tune room. Open every day 8:30&ndash;5 &middot; {LINCOLN["tel"]}</p><span class="go">Visit the Lincoln store</span></div></a>'
           f'<a class="card img" href="scarborough-me.html">{ph("scarborough-storefront-sunny-wide.jpg","The Scarborough, ME store on Route 1","r169","Scarborough, ME")}<div class="body"><h3>Scarborough, Maine</h3>'
-          f'<p>Southern Maine&rsquo;s ski and bike shop since 1986, off I-95 on Route 1. Skis, boots, bikes, tuning, boot work and the Junior Seasonal Lease. No rentals or snowboards at this store. Mon&ndash;Tue and Thu&ndash;Fri 10&ndash;6, Sat 10&ndash;5, Sun 11&ndash;5, closed Wednesday &middot; {SCARB["tel"]}</p><span class="go">Visit the Scarborough store</span></div></a>'
+          f'<p>Southern Maine&rsquo;s ski and bike shop since 1986, off I-95 on Route 1. Skis, boots, bikes, tuning, boot work and the Junior Seasonal Lease. Mon&ndash;Tue and Thu&ndash;Fri 10&ndash;6, Sat 10&ndash;5, Sun 11&ndash;5, closed Wednesday &middot; {SCARB["tel"]}</p><span class="go">Visit the Scarborough store</span></div></a>'
           f'</div></div></section>')
     h += credband(["Family-run since 1974","Ski Magazine Gold Medal Shop","Seven race brands under one roof","Masterfit and Sidas certified boot fitters"])
     # seasonal cards
@@ -84,46 +84,46 @@ def home():
 
 # =====================================================================================
 def lincoln():
-    h = hero("Lincoln, New Hampshire", "5 Railroad St, first exit off I-93, minutes from Loon. Skis, the Mothership snowboard shop, bikes, rentals, the Boot Lab and the tune room. Open every day 8:30&ndash;5.",
-             "skier-carving-red-jacket", kicker="Rodgers Ski &amp; Sport &middot; Lincoln", short=True, pos="center 40%",
+    h = hero('Rodgers Ski &amp; Sport<span class="loc">Lincoln, New Hampshire</span>', "5 Railroad St, first exit off I-93, minutes from Loon. Skis, the Mothership snowboard shop, bikes, rentals, the Boot Lab and the tune room. Open every day 8:30&ndash;5.",
+             "skier-carving-red-jacket", short=True, pos="center 40%",
              ctas=f'<a class="btn accent" href="{LINCOLN["maps"]}">Directions</a><a class="btn ghost-d" href="tel:{LINCOLN["teltag"]}">Call {LINCOLN["tel"]}</a>')
     h = h.replace('<!--LEDE-->', f'<div class="wxband"><div class="wrap">{weather(LINCOLN)}</div></div><!--LEDE-->', 1)   # weather directly under the hero
     h += crumbs(("Lincoln, NH",""))
     h += (f'<section style="padding-top:10px"><div class="wrap split"><div><div class="kicker">The location advantage</div><h2 class="display" style="font-size:32px">First shop skiers reach off I-93</h2>'
           f'<p style="margin-top:16px">Heading to Loon, Cannon or anywhere in the Whites: stop here first, gear up, and skip the base-area lines. New Hampshire has no sales tax, and our staff spends its days off on the same hills you&rsquo;re driving to.</p>'
-          f'<p style="margin-top:10px">This is the store for rentals, snowboards and full race prep. Scarborough, our Maine store, runs a different program: no rentals or snowboards there, but the Junior Seasonal Lease and a full ski and bike shop.</p>'
-          f'<div style="margin-top:22px"><a class="btn" href="rentals.html">Rental rates</a><a class="btn ghost" style="margin-left:10px" href="boot-lab.html#book">Book a boot fit</a></div></div>'
+          f'<p style="margin-top:10px">This is the store for skis, snowboards, rentals and full race prep, with the Boot Lab and the tune room under the same roof.</p>'
+          f'<div style="margin-top:22px"><a class="btn" href="rentals.html">Rental rates</a><a class="btn ghost" style="margin-left:10px" href="boot-lab.html">The Boot Lab</a></div></div>'
           f'<div>{ph("lincoln-service-desk.jpg","The Lincoln service desk with the tuning menu boards","r43","Service desk")}</div></div></section>')
-    deps = [("lincoln-nh-ski.html","lincoln-ski-wall-armada-salomon.jpg","Armada and Salomon skis on the Lincoln wall","Ski","Skis, boots and bindings from thirteen brands, staffed by people who ski Loon and Cannon weekly."),
-            ("lincoln-nh-snowboard.html","mothership-snowboard-wall.jpg","Snowboards on the Mothership wall","Snowboard","The Mothership: riding east since &rsquo;88. Boards, boots and bindings."),
-            ("lincoln-nh-bikes.html","hero-mtb-pan.jpg","A mountain biker on a forest trail","Bikes","Mountain, road, hybrid, e-bikes and kids&rsquo; bikes, with tunes from $50."),
-            ("lincoln-nh-services.html","tuning-montana.jpg","Skis on the Montana grinder","Services &amp; Tuning","Tunes from $40 to the Full Monty, mounting, race day tunes."),
-            ("rentals.html","hero-lincoln-family.jpg","A family on skis at the base of Loon","Rentals","Junior packages from $20 a day, demo skis, snowboards, snowshoes and cross-country."),
-            ("lincoln-nh-accessories.html","accessories-flatlay.jpg","Gloves, goggles, beanie and socks laid out on a bench","Accessories","Helmets, goggles, gloves, heated gear, hats, bags. Forgot something on the way up? We&rsquo;re the first exit."),
-            ("lincoln-nh-apparel.html","lincoln-apparel-floor.jpg","The apparel floor at the Lincoln store","Apparel","Outerwear from twenty-two brands, layers, and sweaters for East Coast conditions."),
-            ("boot-lab.html","boot-lab-bench.jpg","Race boots on the Boot Lab bench","The Boot Lab","Custom fitting, insoles, canting, stance and alignment, and FIS and USSA race prep.")]
+    deps = [("lincoln-nh-ski.html","lincoln-ski-wall-armada-salomon.jpg","Armada and Salomon skis on the Lincoln wall","Ski","Thirteen ski brands on one wall, from groomer carvers to race stock, picked by people who ski Loon and Cannon every week."),
+            ("lincoln-nh-snowboard.html","mothership-snowboard-wall.jpg","Snowboards on the Mothership wall","Snowboard","The Mothership has lived inside this store since 1996: boards, boots and bindings from small American makers and the big names."),
+            ("lincoln-nh-bikes.html","hero-mtb-pan.jpg","A mountain biker on a forest trail","Bikes","Trail bikes for Loon&rsquo;s bike park and Franconia Notch, plus road, hybrid, e-bikes and kids&rsquo; bikes, serviced on site all summer."),
+            ("lincoln-nh-services.html","tuning-montana.jpg","Skis on the Montana grinder","Services &amp; Tuning","Montana stone grinders and hand finishing in the tune room, from a quick weekend tune to full race prep."),
+            ("rentals.html","hero-lincoln-family.jpg","A family on skis at the base of Loon","Rentals","Junior, performance, demo and snowboard packages by the day, fitted at the counter before you drive the last mile to Loon."),
+            ("lincoln-nh-accessories.html","smith-goggle-case.jpg","Smith goggles in the lit display case","Accessories","Helmets, goggles, gloves and heated gear. Left your gloves at home? This is the first exit off I-93."),
+            ("lincoln-nh-apparel.html","lincoln-apparel-floor.jpg","The apparel floor at the Lincoln store","Apparel","Shells, insulated jackets, bibs, base layers and wool sweaters from Arc&rsquo;teryx, Norr&oslash;na, Kjus, Bogner and more."),
+            ("boot-lab.html","boot-lab-bench.jpg","Race boots on the Boot Lab bench","The Boot Lab","Masterfit and Sidas certified fitters, custom footbeds, canting, and FIS and USSA race boot prep.")]
     h += (f'<section class="ice"><div class="wrap">{sechead("Departments", "Everything in the Lincoln store, each on its own page.")}<div class="grid g4 season">' + ''.join(card(*d, go="") for d in deps) + '</div></div></section>')
     h += (f'<section><div class="wrap">{sechead("Staff picks from Lincoln", "", ("All staff picks","staff-picks.html"))}<div class="grid g2">{pick_card(STAFF_PICKS[2])}{pick_card(STAFF_PICKS[3])}</div></div></section>')
     h += find_store(LINCOLN, LIN_HOURS, "lincoln-roadside-sign.jpg", "The Rodgers Ski & Sport sign on Railroad Street in Lincoln, with the I-93 sign")
     return page("lincoln", "Lincoln, NH | Rodgers Ski &amp; Sport", "Rodgers Ski & Sport in Lincoln, NH: skis, snowboards, bikes, rentals, the Boot Lab and tuning, first exit off I-93 before Loon. Open every day 8:30–5.", h, "lincoln-nh.html")
 
 def scarborough():
-    h = hero("Scarborough, Maine", "332 US Route 1, off I-95. Southern Maine&rsquo;s ski and bike shop since 1986: skis, boots, bikes, tuning, boot work and the Junior Seasonal Lease.",
-             "mountain-bikers-ridge-view", kicker="Rodgers Ski &amp; Sport &middot; Scarborough", short=True, pos="center 40%",
+    h = hero('Rodgers Ski &amp; Sport<span class="loc">Scarborough, Maine</span>', "",
+             "mountain-bikers-ridge-view", short=True, pos="center 40%",
              ctas=f'<a class="btn accent" href="{SCARB["maps"]}">Directions</a><a class="btn ghost-d" href="tel:{SCARB["teltag"]}">Call {SCARB["tel"]}</a>')
-    h = h.replace('<!--LEDE-->', f'<div class="wxband"><div class="wrap">{weather(SCARB)}</div></div><!--LEDE-->', 1)   # weather directly under the hero
+    h += f'<div class="wxband"><div class="wrap">{weather(SCARB)}</div></div>'   # weather directly under the hero; no lede sentence below it (staff feedback, Oct 2026)
     h += crumbs(("Scarborough, ME",""))
-    h += (f'<section style="padding-top:10px"><div class="wrap split"><div><div class="kicker">Southern Maine</div><h2 class="display" style="font-size:32px">The area ski and bike shop</h2>'
-          f'<p style="margin-top:16px">Serving Portland-area skiers, riders and cyclists since 1986. Day-tripping to Sunday River, Sugarloaf or Pleasant Mountain, or driving to the Whites: stop on Route 1 first.</p>'
-          f'<p style="margin-top:10px">What&rsquo;s different here: Scarborough sells skis, not snowboards, and does not rent equipment. Families use the Junior Seasonal Lease instead, and the bike shop runs year-round. Rentals and snowboards are at the Lincoln, NH store.</p>'
+    h += (f'<section style="padding-top:10px"><div class="wrap split"><div><div class="kicker">332 US Route 1</div><h2 class="display" style="font-size:32px">Scarborough&rsquo;s ski and bike shop since 1986</h2>'
+          f'<p style="margin-top:16px">Skiers from Scarborough, Portland and up and down the coast buy their skis, boots and bindings here and drive north to Sunday River and Sugarloaf. We set up gear for those mountains and the snow they get.</p>'
+          f'<p style="margin-top:10px">Kids grow out of gear every winter, so families sign up for the Junior Seasonal Lease each fall. When the snow melts, the same shop turns into a full bike shop for the trails and coast roads around town.</p>'
           f'<div style="margin-top:22px"><a class="btn" href="lease.html">Junior Seasonal Lease</a><a class="btn ghost" style="margin-left:10px" href="scarborough-me-services.html">Service menu</a></div></div>'
           f'<div>{ph("scarborough-atomic-ski-wall.jpg","The ski wall under the lit Atomic and Salomon signs in Scarborough","r43","Scarborough ski wall")}</div></div></section>')
-    deps = [("scarborough-me-ski.html","scarborough-ski-rows.jpg","Skis on the Scarborough wall","Ski","Skis, boots and bindings for Maine day-trips and weekends in the Whites."),
+    deps = [("scarborough-me-ski.html","scarborough-ski-rows.jpg","Skis on the Scarborough wall","Ski","Skis, boots and bindings set up for Sunday River and Sugarloaf."),
             ("scarborough-me-bikes.html","hero-road-coast.jpg","A cyclist on the Maine coast road","Bikes","Mountain, cruisers, gravel, hybrids, e-bikes and kids&rsquo; bikes, with service and builds."),
-            ("scarborough-me-services.html","scarborough-atomic-boot-bench.jpg","A race boot on the bench in Scarborough","Services &amp; Tuning","Ski and board tunes, stone grinding, race tunes, mounting and boot work."),
+            ("scarborough-me-services.html","scarborough-atomic-boot-bench.jpg","A race boot on the bench in Scarborough","Services &amp; Tuning","Ski and board tunes, stone grinding, mounting and boot work, plus drop-off for work done in Lincoln."),
             ("lease.html","hero-lincoln-family.jpg","Kids on skis","Junior Seasonal Lease","Skis, bindings and boots for the season, $159, pick-ups from October 1."),
             ("scarborough-me-accessories.html","accessories-flatlay.jpg","Gloves, goggles, beanie and socks laid out on a bench","Accessories","Helmets, goggles, gloves, heated gear, hats and bags, stocked for Maine winters."),
-            ("boot-lab.html","scarborough-race-wall.jpg","Race skis under the Atomic sign in Scarborough","Boot work","Shell and liner heat molding, punches, spot grinds and heel lifts at the Maine store.")]
+            ("boot-lab.html","scarborough-ski-rows-alt.jpg","Atomic and V&ouml;lkl skis on the Scarborough wall","Boot work","Shell and liner heat molding, punches, spot grinds and heel lifts at the Maine store.")]
     h += (f'<section class="ice"><div class="wrap">{sechead("Departments", "Everything in the Scarborough store, each on its own page.")}<div class="grid g3 season">' + ''.join(card(*d, go="") for d in deps) + '</div></div></section>')
     h += (f'<section><div class="wrap split rev"><div>{ph("rodgers-ski-outlet-sign.jpg","The original Rodgers Ski Outlet sign inside the Scarborough store","r43","Since 1986")}</div>'
           f'<div><div class="kicker">Community</div><h2 class="display" style="font-size:30px">Group rides and the trails out back</h2>'
@@ -134,8 +134,8 @@ def scarborough():
     return page("scarb", "Scarborough, ME | Rodgers Ski &amp; Sport", "Rodgers Ski & Sport in Scarborough, ME: skis, boots, bikes, tuning, boot work and the Junior Seasonal Lease on Route 1 since 1986. Closed Wednesdays.", h, "scarborough-me.html")
 
 # =====================================================================================
-def dept(fname, active, store, crumb_store, title, sub, img, pos, body, meta):
-    h = hero(title, sub, img, kicker=f'Rodgers Ski &amp; Sport &middot; {store["short"]}', short=True, pos=pos)
+def dept(fname, active, store, crumb_store, title, sub, img, pos, body, meta, credit=""):
+    h = hero(title, sub, img, kicker=f'Rodgers Ski &amp; Sport &middot; {store["short"]}', short=True, pos=pos, credit=credit)
     h += crumbs((crumb_store[0], crumb_store[1]), (title, ""))
     h += body
     return page(active, f'{title} &middot; {store["name"]} | Rodgers Ski &amp; Sport', meta, h, fname)
@@ -143,12 +143,12 @@ def dept(fname, active, store, crumb_store, title, sub, img, pos, body, meta):
 def lin_ski():
     b = (f'<section><div class="wrap">{sechead("Skis", "We can&rsquo;t list them all, but we&rsquo;ve skied them all. Stop by and talk gear with a staff that spends its time off on snow.")}'
          f'<div class="split"><div>{ph("lincoln-ski-wall-armada-salomon.jpg","Armada and Salomon skis on the Lincoln wall","r43")}</div><div>'
-         f'<h3 style="font-size:20px;margin-bottom:10px">Twelve ski brands, one wall</h3><p>Rossignol, Dynastar, Head, K&auml;stle, Elan, Atomic, Van Deer, Salomon, Armada, V&ouml;lkl, Fischer and Blizzard. The full 2027 Atomic lineup, skis, bindings, boots and race skis, arrived in late August; 2026/27 demos and pre-mounted skis from nine of these brands are on the floor for the Fall Tent Sale.</p>'
+         f'<h3 style="font-size:20px;margin-bottom:10px">Thirteen ski brands, one wall</h3><p>Rossignol, Dynastar, Head, K&auml;stle, Elan, Atomic, Van Deer, Salomon, Armada, V&ouml;lkl, Fischer, Blizzard and Nordica. The full 2027 Atomic lineup, skis, bindings, boots and race skis, arrived in late August; 2026/27 demos and pre-mounted skis from nine of these brands are on the floor for the Fall Tent Sale.</p>'
          f'<div style="margin-top:14px">{brands(SKI_BRANDS)}</div></div></div>'
          f'<div style="margin-top:40px"><div class="kicker">Top sellers</div>{prod([("p-salomon-qst","Salomon QST","All-mountain freeride"),("p-nordica-unleashed","Nordica Unleashed","Freestyle, all-mountain"),("p-atomic-maverick","Atomic Maverick","All-mountain"),("p-elan-ripstick","Elan Ripstick","Lightweight all-mountain")])}<p class="note">Also on the wall: the Atomic Bent freeride line.</p></div></div></section>')
     b += (f'<section class="ice"><div class="wrap split rev"><div>{ph("lincoln-boot-wall.jpg","The boot wall at the Lincoln store","r43","Boot wall")}</div><div><div class="kicker">Boots</div><h2 class="display" style="font-size:30px">Boots, fitted by the Boot Lab</h2>'
-          f'<p style="margin-top:14px">Eleven boot brands, from Lange, Atomic and Nordica race boots to the Atomic Hawx and Salomon hybrid lines. Masterfit and Sidas certified boot fitters are on staff every day, and buying boots here includes the fitting behind them.</p>'
-          f'<div style="margin:18px 0">{brands(BOOT_BRANDS)}</div><div class="kicker">Bindings</div>{brands(BINDING_BRANDS)}<div style="margin-top:22px"><a class="btn" href="boot-lab.html#book">Book a boot fit</a></div></div></div>'
+          f'<p style="margin-top:14px">Eleven boot brands, from Lange, Atomic and Nordica race boots to the Atomic Hawx and Salomon hybrid lines. Masterfit and Sidas certified boot fitters are on staff every day, and boots bought here come with fit adjustments at no charge for up to two years.</p>'
+          f'<div style="margin:18px 0">{brands(BOOT_BRANDS)}</div><div class="kicker">Bindings</div>{brands(BINDING_BRANDS)}<div style="margin-top:22px"><a class="btn" href="boot-lab.html#included">What comes with your boots</a></div></div></div>'
           f'<div class="wrap" style="margin-top:40px"><div class="kicker">Top-selling boots</div>{prod([("p-atomic-hawx","Atomic Hawx","All-mountain"),("p-nordica-unlimited","Nordica Unlimited","All-mountain"),("p-nordica-machine","Nordica Machine","Resort"),("p-atomic-hawx-xtd","Atomic Hawx XTD","Hybrid"),("p-salomon-spro","Salomon S/Pro","Resort"),("p-salomon-shift","Salomon Shift","Hybrid"),("p-rossignol-boot","Rossignol Hero World Cup","All-mountain")])}</div></section>')
     b += (f'<section><div class="wrap split"><div>{ph("lincoln-race-wall.jpg","Race skis on the Lincoln wall","r43","Race corner")}</div><div><div class="kicker">Race corner</div><h2 class="display" style="font-size:30px">Seven race brands, all in one spot</h2>'
           f'<p style="margin-top:14px">Atomic, Van Deer, Head, Rossignol, Fischer, Dynastar and Salomon race skis, with FIS and USSA boot prep, canting, stance and alignment in the Boot Lab. Whether you&rsquo;re gate training or chasing PRs, we have the setup to match your program.</p>'
@@ -157,13 +157,13 @@ def lin_ski():
     b += (f'<section><div class="wrap" style="max-width:820px">{sechead("Questions we hear")}' + faq([
           ("Do you mount bindings?","Yes. Mount and test is $75, free with the purchase of a ski and binding; adjustment and test is $40. Mounting is not included with race skis."),
           ("Do you carry race skis?","Yes: Atomic, Van Deer, Head, Rossignol, Fischer, Dynastar and Salomon. Race prep and boot work run through the Boot Lab."),
-          ("Can I rent before I buy?","Yes. Demo skis (pro) rent from $60 a day at the Lincoln store, and we&rsquo;ll talk you through what you liked afterward.")]) + '</div></section>')
-    return dept("lincoln-nh-ski.html","lincoln",LINCOLN,("Lincoln, NH","lincoln-nh.html"),"Ski","Skis, boots and bindings from twelve brands, staffed by people who ski Loon and Cannon weekly, with the Boot Lab down the hall.","atomic-ski-display","center",b,
+          ("Can I rent before I buy?","Yes. Demo skis rent from $75 a day at the Lincoln store, and we&rsquo;ll talk you through what you liked afterward.")]) + '</div></section>')
+    return dept("lincoln-nh-ski.html","lincoln",LINCOLN,("Lincoln, NH","lincoln-nh.html"),"Ski","Skis, boots and bindings from thirteen brands, staffed by people who ski Loon and Cannon weekly, with the Boot Lab down the hall.","atomic-ski-display","center",b,
                 "Skis, boots and bindings at Rodgers Ski & Sport in Lincoln, NH: Atomic, Salomon, Nordica, Elan, Blizzard, Rossignol, Fischer, Völkl, Dynastar, Armada, Kästle, Head and Van Deer.")
 
 def lin_snowboard():
     b = (f'<section><div class="wrap split"><div><div class="kicker">The Mothership</div><h2 class="display" style="font-size:30px">Riding east since &rsquo;88</h2>'
-         f'<p style="margin-top:14px">Rodgers brought the &ldquo;snowboarding fad&rdquo; to the East in 1988 and opened the Mothership Snowboard Shop in 1996, focused on small, American-made brands. It lives inside the Lincoln store, with its own wall of boards, boots and bindings. Snowboards are a Lincoln-only department; the Scarborough store does not carry them.</p>'
+         f'<p style="margin-top:14px">Rodgers brought the &ldquo;snowboarding fad&rdquo; to the East in 1988 and opened the Mothership Snowboard Shop in 1996, focused on small, American-made brands. It lives inside the Lincoln store, with its own wall of boards, boots and bindings.</p>'
          f'<h3 style="font-size:18px;margin:22px 0 10px">Boards</h3>{brands(SNOWBOARD_BRANDS)}<h3 style="font-size:18px;margin:18px 0 10px">Boots</h3>{brands(SB_BOOT_BRANDS)}<h3 style="font-size:18px;margin:18px 0 10px">Bindings</h3>{brands(SB_BINDING_BRANDS)}</div>'
          f'<div>{ph("mothership-snowboard-wall.jpg","Snowboards on the Mothership wall","r43","Mothership")}</div></div></div></section>')
     b += (f'<section class="ice"><div class="wrap"><div class="grid g2">{ph("snowboard-boot-wall.jpg","Snowboard boots from ThirtyTwo, Salomon, Deeluxe and Nidecker","r32","Boots")}{ph("mothership-counter.jpg","The Mothership counter","r32","The counter")}</div>'
@@ -189,66 +189,64 @@ def lin_services():
     b += (f'<section class="ice"><div class="wrap split"><div>{ph("lincoln-tune-room-machines.jpg","The tuning machines and race ski rack in the Lincoln tune room","r43","Tune room")}</div>'
           f'<div><div class="kicker">The tune room</div><h2 class="display" style="font-size:30px">Montana machines, race-room standards</h2><p style="margin-top:14px">Every tune is done by hand on the machines you can see from the service desk. Race day tunes get their own line on the menu, and post-season race prep is a specialty: quick turnarounds so you are ready for race day.</p>'
           f'<p style="margin-top:10px">Turnaround depends on the season. Holiday weeks run longer, and we say so at drop-off.</p></div></div></section>')
-    b += (f'<section><div class="wrap split rev"><div>{ph("boot-lab-bench.jpg","Race boots on the Boot Lab bench","r43","Boot Lab")}</div><div>{sechead("Race department")}{pricelist(RACE_SKI[1:], cols=("Service","Rodgers ski","Outside ski"))}<p class="note">Full race ski, boot and binding menus, including the Podium Club season tuning, are on the <a href="race.html" style="color:var(--navy);font-weight:700">Race page</a>. Boot Lab menu on the <a href="boot-lab.html" style="color:var(--navy);font-weight:700">Boot Lab page</a>.</p></div></div></section>')
+    b += (f'<section><div class="wrap split rev"><div>{ph("boot-lab-bench.jpg","Race boots on the Boot Lab bench","r43","Boot Lab")}</div><div>{sechead("Race department")}{pricelist([r for r in RACE_SKI[1:] if not r[0].startswith("USSA")], cols=("Service","Rodgers ski","Outside ski"))}<p class="note">Full race ski, boot and binding menus, including the Podium Club season tuning, are on the <a href="race.html" style="color:var(--navy);font-weight:700">Race page</a>. Boot Lab menu on the <a href="boot-lab.html" style="color:var(--navy);font-weight:700">Boot Lab page</a>.</p></div></div></section>')
     b += (f'<section class="ice"><div class="wrap" style="max-width:820px">{sechead("Drop-off questions")}' + faq([
           ("How long does a tune take?","It depends on the season. We state current turnaround at drop-off. Holiday weeks run longer, and day-of race tunes need an appointment."),
           ("Do you tune snowboards?","Yes. Board tunes run through the same tune room. Ask at the desk for the board rate."),
           ("Do you service bikes?","Yes, all summer. Bronze, Silver and Gold bike tunes are on the <a href=\"lincoln-nh-bikes.html\">Bikes page</a>.")]) + '</div></section>')
-    return dept("lincoln-nh-services.html","lincoln",LINCOLN,("Lincoln, NH","lincoln-nh.html"),"Services &amp; Tuning","Tunes from $40 to the Full Monty, binding mounting, race prep and the Boot Lab menu, with prices in the open.","atomic-blanchard-5590.jpg","center 22%",b,
+    return dept("lincoln-nh-services.html","lincoln",LINCOLN,("Lincoln, NH","lincoln-nh.html"),"Services &amp; Tuning","","atomic-blanchard-5590.jpg","center 22%",b,
                 "Ski and snowboard tuning, binding mounting and Boot Lab services at Rodgers Ski & Sport in Lincoln, NH, with prices.")
 
 def lin_accessories(store=LINCOLN, fname="lincoln-nh-accessories.html", active="lincoln", crumb=("Lincoln, NH","lincoln-nh.html")):
-    sets = [("Helmets &amp; goggles",HELMET_GOGGLE,"goggle-display.jpg","The goggle display"),("Gloves &amp; mittens",GLOVES,"accessories-flatlay.jpg","Gloves, goggles, beanie and socks"),
-            ("Heated accessories",HEATED,"smith-goggle-case.jpg","Smith goggle display"),("Hats &amp; neckwear",HATS,"giro-helmet-wall.jpg","Giro helmets on the wall"),("Bags &amp; backpacks",BAGS,"atomic-bag-wall.jpg","Atomic bags on the wall")]
+    sets = [("Helmets &amp; goggles",HELMET_GOGGLE,"smith-goggle-case.jpg","Smith goggles in the lit display case"),("Gloves &amp; mittens",GLOVES,"accessories-flatlay.jpg","Gloves, goggles, beanie and socks"),
+            ("Heated accessories",HEATED,"p-hestra-heater.jpg","Hestra Heater Gauntlet heated gloves"),("Hats &amp; neckwear",HATS,"giro-helmet-wall.jpg","Giro helmets on the wall"),("Bags &amp; backpacks",BAGS,"atomic-bag-wall.jpg","Atomic bags on the wall")]
     cards = ''
     for t,bl,img,alt in sets:
         cards += f'<div class="card">{(ph(img,alt,"r32")+"<div style=height:16px></div>") if img else ""}<h3>{t}</h3><div style="margin-top:12px">{brands(bl)}</div></div>'
     intro = ("Forgot something on the way up? We&rsquo;re the first exit." if store is LINCOLN else "Stocked for Maine winters, minutes off I-95.")
     b = (f'<section><div class="wrap">{sechead("Accessories", intro)}<div class="grid g3">{cards}</div>'
-         f'<div style="margin-top:40px"><div class="kicker">On the shelf</div>{prod([("p-atomic-helmet","Atomic helmet",""),("p-giro","Giro helmet",""),("p-atomic-goggles","Atomic goggles",""),("p-hestra","Hestra gloves",""),("p-swany","Swany gloves",""),("p-hotronics","Hotronic heated socks",""),("p-lenz","Lenz heated socks",""),("p-eisbar","Eisb&auml;r hat",""),("p-turtle-fur","Turtle Fur",""),("p-blackstrap","Blackstrap",""),("p-athalon","Athalon boot bag",""),("p-mammut","Mammut pack","")])}</div></div></section>')
+         f'<div style="margin-top:40px"><div class="kicker">On the shelf</div>{prod([("p-atomic-helmet","Atomic helmet",""),("p-giro","Giro helmet",""),("p-smith-goggles","Smith 4D MAG S goggles",""),("p-hestra","Hestra gloves",""),("p-swany","Swany gloves",""),("p-hestra-heater","Hestra heated gloves",""),("p-lenz","Lenz heated socks",""),("p-eisbar","Eisb&auml;r hat",""),("p-turtle-fur","Turtle Fur",""),("p-blackstrap","Blackstrap",""),("p-athalon","Athalon boot bag",""),("p-mammut","Mammut pack","")])}</div></div></section>')
     return dept(fname,active,store,crumb,"Accessories","Helmets, goggles, gloves and mittens, heated accessories, hats and neckwear, bags and backpacks.","ski-poles-display","center",b,
                 f"Ski accessories at Rodgers Ski & Sport, {store['name']}: helmets and goggles from Smith, Giro, POC and Oakley, gloves from Hestra and Swany, heated gear, hats and bags.")
 
 def lin_apparel():
-    b = (f'<section><div class="wrap split"><div>{ph("lincoln-apparel-floor.jpg","The apparel floor at the Lincoln store","r43","Apparel floor")}</div><div><div class="kicker">Outerwear</div><h2 class="display" style="font-size:30px">Jackets and pants for East Coast conditions</h2>'
-         f'<p style="margin-top:14px">Men&rsquo;s, women&rsquo;s and kids&rsquo; outerwear from race-team shells to town jackets, plus layers and sweaters.</p>'
-         f'<h3 style="font-size:17px;margin:18px 0 8px">Men</h3>{brands(MENS_OUTERWEAR)}<h3 style="font-size:17px;margin:18px 0 8px">Women</h3>{brands(WOMENS_OUTERWEAR)}<h3 style="font-size:17px;margin:18px 0 8px">Kids</h3>{brands(KIDS_OUTERWEAR)}</div></div></div></section>')
-    b += (f'<section class="ice"><div class="wrap"><div class="grid g2"><div class="card"><h3>Layers</h3><p>Fleeces, base layers and insulators.</p><div style="margin-top:12px">{brands(LAYERS)}</div></div><div class="card"><h3>Sweaters &amp; lifestyle</h3><p>Wool for the lodge and the drive home.</p><div style="margin-top:12px">{brands(SWEATERS)}</div></div></div>'
-          f'<div style="margin-top:34px"><div class="kicker">On the floor</div>{prod([("p-arcteryx","Arc&rsquo;teryx shell",""),("p-helly-hansen","Helly Hansen jacket",""),("p-snowpants","Bib pants",""),("p-dale","Dale of Norway",""),("p-sweater","Ski sweater",""),("p-hot-chillys","Hot Chillys base layer",""),("p-uyn","UYN base layer","")])}</div></div></section>')
-    return dept("lincoln-nh-apparel.html","lincoln",LINCOLN,("Lincoln, NH","lincoln-nh.html"),"Apparel","Men&rsquo;s, women&rsquo;s and kids&rsquo; outerwear, layers and sweaters at the Lincoln store.","snowboarder-mountain-portrait","center 40%",b,
-                "Ski apparel at Rodgers Ski & Sport in Lincoln, NH: outerwear from Arc'teryx, Norrøna, Helly Hansen, Bogner, Kjus, Descente and more; layers from Smartwool and Kari Traa.")
+    b = (f'<section><div class="wrap split"><div>{ph("arcteryx-matching-kit.jpg","A skier in a matching blue Arc&rsquo;teryx jacket and pants","r34","Arc&rsquo;teryx")}</div><div><div class="kicker">Outerwear</div><h2 class="display" style="font-size:30px">Jackets and pants for East Coast conditions</h2>'
+         f'<p style="margin-top:14px">Shells, insulated jackets, pants and bibs for every age, from race-team kits to town jackets. Most of our brands make the jacket and pants as a matched set, and we stock both pieces.</p>'
+         f'<div style="margin-top:18px">{brands(OUTERWEAR)}</div></div></div></div></section>')
+    b += (f'<section class="ice"><div class="wrap"><div class="grid g2"><div class="card"><h3>Base layers</h3><p>Merino and synthetic base layers, fleeces and insulators.</p><div style="margin-top:12px">{brands(LAYERS)}</div></div><div class="card"><h3>Sweaters &amp; lifestyle</h3><p>Wool for the lodge and the drive home.</p><div style="margin-top:12px">{brands(SWEATERS)}</div></div></div>'
+          f'<div style="margin-top:34px"><div class="kicker">On the floor</div>{prod([("p-arcteryx","Arc&rsquo;teryx shell",""),("p-helly-hansen","Helly Hansen jacket",""),("p-snowpants","Bib pants",""),("p-dale","Dale of Norway",""),("p-sweater","Ski sweater",""),("p-kari-traa","Kari Traa base layer",""),("p-uyn","UYN base layer","")])}</div></div></section>')
+    return dept("lincoln-nh-apparel.html","lincoln",LINCOLN,("Lincoln, NH","lincoln-nh.html"),"Apparel","Outerwear for every age, base layers and sweaters at the Lincoln store.","apparel-matching-kit","center 30%",b,
+                "Ski apparel at Rodgers Ski & Sport in Lincoln, NH: outerwear from Arc'teryx, Norrøna, Helly Hansen, Bogner, Kjus, Descente, Goldbergh, Spyder and more; base layers from Smartwool and Kari Traa.", credit="Photo: Goldbergh")
 
 def rentals():
     rows = [tuple(r) for r in LIN_RENTALS]
-    form = ('<section class="ice tight"><div class="wrap"><div class="card" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap"><div style="flex:2;min-width:280px"><h3>Reserve ahead or walk in</h3>'
-            '<p>Send a reservation request with your dates, package and sizes and the Lincoln rental counter stages the gear before you arrive. Walk-ins are welcome every day the store is open.</p></div>'
-            f'<a class="btn accent" href="reserve-rental.html">Reserve a rental</a><a class="btn ghost" href="tel:{LINCOLN["teltag"]}">Call {LINCOLN["tel"]}</a></div></div></section>')
-    h = hero("Rentals in Lincoln", "Junior packages from $20 a day, performance and advanced skis, demos, snowboards, snowshoes, cross-country and helmets. Rentals are a Lincoln, NH program; the Scarborough store does not rent equipment.",
+    form = ('<section class="ice tight"><div class="wrap"><div class="card" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap"><div style="flex:2;min-width:280px"><h3>Walk in or call</h3>'
+            '<p>Walk-ins are welcome every day the store is open. Questions about packages or sizes for a group: call the Lincoln store before you drive up.</p></div>'
+            f'<a class="btn" href="tel:{LINCOLN["teltag"]}">Call {LINCOLN["tel"]}</a></div></div></section>')
+    h = hero("Rentals in Lincoln", "Junior packages from $20 a day, performance and advanced skis, demos, snowboards, snowshoes, cross-country and helmets, at the Lincoln store on Railroad Street.",
              "snowboarder-green-purple", kicker="Lincoln, NH &middot; Rentals", short=True, pos="center 45%")
     h += crumbs(("Lincoln, NH","lincoln-nh.html"),("Rentals",""))
     h += form
     h += (f'<section><div class="wrap">{sechead("Rental rates", "Rates are valid with consecutive daily use. Damage waiver available at $2 a day.")}{pricelist(rows, cols=("Package","1 day","2 days","3 days","4 days","5 days"))}</div></section>')
     h += (f'<section class="ice"><div class="wrap split"><div>{ph("hero-lincoln-family.jpg","A family on skis at the base of Loon","r43")}</div><div><div class="kicker">Why rent here</div><h2 class="display" style="font-size:30px">Skip the line at the base</h2>'
-          f'<p style="margin-top:14px">Lincoln is the first shop off I-93 and minutes from Loon. Rent here on the way up and you walk past the base-lodge rental counter. Bring your own boots if you have them; the package price stays the same.</p>'
-          f'<p style="margin-top:10px">Looking for the season-long option for kids? That&rsquo;s the <a href="lease.html" style="color:var(--navy);font-weight:700">Junior Seasonal Lease</a> at our Scarborough, Maine store.</p></div></div></section>')
+          f'<p style="margin-top:14px">Lincoln is the first shop off I-93 and minutes from Loon. Rent here on the way up and you walk past the base-lodge rental counter. Bring your own boots if you have them; the package price stays the same.</p></div></div></section>')
     h += (f'<section><div class="wrap" style="max-width:820px">{sechead("Rental questions")}' + faq([
           ("What&rsquo;s included in a package?","Skis or board, boots and poles. Helmets rent separately at $10 a day."),
           ("How does sizing work?","Height, weight, shoe size and skier type. The counter sets bindings and tests them before you leave."),
           ("What is the damage waiver?","$2 a day; it covers normal rental damage."),
-          ("Do multi-day rates require consecutive days?","Yes. Rates are only valid with consecutive daily use."),
-          ("Can I reserve online?","Yes. Send a reservation request with your dates, packages and sizes and the counter confirms by email or phone and stages the gear before you arrive. Nothing is charged online.")]) + '</div></section>')
+          ("Do multi-day rates require consecutive days?","Yes. Rates are only valid with consecutive daily use.")]) + '</div></section>')
     return page("lincoln","Rentals &middot; Lincoln, NH | Rodgers Ski &amp; Sport","Ski, snowboard, snowshoe and cross-country rentals at Rodgers Ski & Sport in Lincoln, NH. Junior packages from $20 a day. First shop off I-93 before Loon.", h, "rentals.html")
 
 # ---------------- Scarborough departments ----------------
 def sca_ski():
     b = (f'<section><div class="wrap split"><div>{ph("scarborough-atomic-ski-wall.jpg","The ski wall under the lit Atomic and Salomon signs","r43","Scarborough")}</div><div>{sechead("Skis, boots and bindings")}'
-         f'<p>Alpine skis for Maine day-trips and weekends in the Whites, from all-mountain to race. Top sellers include the Salomon QST, Nordica Unleashed, Atomic Maverick, Elan Ripstick and Atomic Bent. Boots from Atomic, Nordica, Salomon, Dalbello, Tecnica and Lange, fitted at the bench in the back.</p>'
-         f'<p style="margin-top:10px">Scarborough is a ski store: no snowboards and no rentals here. For growing kids there is the <a href="lease.html" style="color:var(--navy);font-weight:700">Junior Seasonal Lease</a>.</p><div style="margin-top:16px">{brands(SKI_BRANDS)}</div></div></div></section>')
-    b += (f'<section class="ice"><div class="wrap"><div class="grid g3">{ph("scarborough-ski-rows-alt.jpg","Atomic and Völkl skis on the Scarborough wall","r43")}{ph("scarborough-race-wall.jpg","Race skis under the Atomic sign","r43")}{ph("salomon-lit-sign.jpg","The Salomon sign on the wood wall","r43")}</div>'
-          f'<div class="split" style="margin-top:34px"><div><div class="kicker">Race</div><h3 style="font-size:20px">Race skis and race tunes in Maine</h3><p style="margin-top:8px">Race skis under the Atomic sign, a $100 race tune on the menu, and boot work for race boots: shell and liner molding, punches and spot grinds. Full FIS and USSA boot prep is done at the Lincoln Boot Lab.</p></div>'
-          f'<div><div class="kicker">Bindings</div>{brands(BINDING_BRANDS)}<div style="margin-top:16px"><a class="btn" href="race.html">Race at Rodgers</a> <a class="btn ghost" href="scarborough-me-services.html">Service menu</a></div></div></div></div></section>')
-    return dept("scarborough-me-ski.html","scarb",SCARB,("Scarborough, ME","scarborough-me.html"),"Ski","Skis, boots and bindings for Southern Maine skiers heading to Sunday River, Sugarloaf, Pleasant Mountain and the Whites.","skier-carving-red-jacket","center 40%",b,
-                "Skis, boots and bindings at Rodgers Ski & Sport in Scarborough, ME: Atomic, Salomon, Nordica, Elan, Blizzard, Rossignol, Fischer, Völkl and more.")
+         f'<p>Alpine skis for Sunday River and Sugarloaf, from beginner to expert all-mountain. Top sellers include the Salomon QST, Nordica Unleashed, Atomic Maverick, Elan Ripstick and Atomic Bent. Boots from Dalbello, Tecnica, Atomic, Nordica, Salomon and Lange, fitted at the bench in the back.</p>'
+         f'<p style="margin-top:10px">For growing kids there is the <a href="lease.html" style="color:var(--navy);font-weight:700">Junior Seasonal Lease</a>.</p><div style="margin-top:16px">{brands(SCA_SKI_BRANDS)}</div></div></div></section>')
+    b += (f'<section class="ice"><div class="wrap"><div class="grid g3">{ph("scarborough-ski-rows-alt.jpg","Atomic and Völkl skis on the Scarborough wall","r43")}{ph("scarborough-atomic-boot-bench.jpg","A boot on the binding bench in Scarborough","r43")}{ph("salomon-lit-sign.jpg","The Salomon sign on the wood wall","r43")}</div>'
+          f'<div class="split" style="margin-top:34px"><div><div class="kicker">Boots</div><h3 style="font-size:20px">Boots fitted in Scarborough</h3><p style="margin-top:8px">Shell and liner heat molding, punches, spot grinds and heel lifts at the bench in the back.</p><div style="margin-top:14px">{brands(SCA_BOOT_BRANDS)}</div></div>'
+          f'<div><div class="kicker">Bindings</div>{brands(BINDING_BRANDS)}<div style="margin-top:16px"><a class="btn" href="scarborough-me-services.html">Service menu</a></div></div></div></div></section>')
+    return dept("scarborough-me-ski.html","scarb",SCARB,("Scarborough, ME","scarborough-me.html"),"Ski","Skis, boots and bindings for coastal Maine skiers heading to Sunday River and Sugarloaf.","skier-carving-red-jacket","center 40%",b,
+                "Skis, boots and bindings at Rodgers Ski & Sport in Scarborough, ME: Atomic, Salomon, Nordica, Elan, Blizzard, Rossignol, Fischer, Völkl, Dalbello and Tecnica.")
 
 def sca_bikes():
     rows = [(f'{n}<small>{d}</small>', p) for n,p,d in SCA_BIKE]
@@ -260,11 +258,14 @@ def sca_bikes():
                 "The Scarborough, ME bike shop at Rodgers Ski & Sport: mountain, gravel, cruiser, hybrid and e-bikes, safety checks from $50, builds and group rides.")
 
 def sca_services():
-    b = (f'<section><div class="wrap"><div class="grid g2"><div>{sechead("Ski &amp; board tuning")}{pricelist(SCA_TUNES)}</div><div>{sechead("Mount &amp; test")}{pricelist(SCA_MOUNT)}<div style="margin-top:30px">{sechead("Boot work")}{pricelist(SCA_BOOTLAB, note="Full FIS and USSA race boot prep is done at the Lincoln Boot Lab.")}</div></div></div></div></section>')
+    b = (f'<section><div class="wrap"><div class="grid g2"><div>{sechead("Ski &amp; board tuning")}{pricelist(SCA_TUNES)}</div><div>{sechead("Mount &amp; test")}{pricelist(SCA_MOUNT)}<div style="margin-top:30px">{sechead("Boot work")}{pricelist(SCA_BOOTLAB)}</div></div></div></div></section>')
     b += (f'<section class="ice"><div class="wrap split"><div>{ph("scarborough-atomic-boot-bench.jpg","A race boot on the bench under the Atomic sign","r43","Mount &amp; test")}</div><div><div class="kicker">Binding mounting and testing</div><h2 class="display" style="font-size:30px">Mounted, adjusted, tested</h2>'
           f'<p style="margin-top:14px">Every pair is checked before it leaves our hands. Mounting is free with the purchase of two of the three (ski, boot, binding) and half price with one of the three.</p></div></div></section>')
-    return dept("scarborough-me-services.html","scarb",SCARB,("Scarborough, ME","scarborough-me.html"),"Services &amp; Tuning","Ski and board tunes, stone grinding, race tunes, mounting and boot work at the Maine store, with prices in the open.","snowy-ski-trail","center",b,
-                "Ski and snowboard tuning, stone grinding, race tunes, binding mounting and boot work at Rodgers Ski & Sport in Scarborough, ME, with prices.")
+    b += (f'<section><div class="wrap" style="max-width:820px">{sechead("Work done in Lincoln, picked up in Scarborough", "Some services are done at the Lincoln shop. Drop your gear at the Scarborough store and it comes back to Scarborough in about two weeks.")}'
+          f'<div class="grid g3"><div class="card"><h3>Ski tuning</h3><p>Stone grinds and full tunes on the Lincoln tune room machines.</p></div><div class="card"><h3>Boot lifters</h3><p>Lifters fitted and routed in the Lincoln Boot Lab.</p></div><div class="card"><h3>Specific modifications</h3><p>Boot and binding work that needs the Lincoln bench. Ask at the counter.</p></div></div>'
+          f'<p style="margin-top:22px"><a class="btn" href="tel:{SCARB["teltag"]}">Call {SCARB["tel"]}</a></p></div></section>')
+    return dept("scarborough-me-services.html","scarb",SCARB,("Scarborough, ME","scarborough-me.html"),"Services &amp; Tuning","Ski and board tunes, stone grinding, mounting and boot work at the Maine store, with prices in the open.","snowy-ski-trail","center",b,
+                "Ski and snowboard tuning, stone grinding, binding mounting and boot work at Rodgers Ski & Sport in Scarborough, ME, with prices.")
 
 def sca_accessories():
     return lin_accessories(SCARB, "scarborough-me-accessories.html", "scarb", ("Scarborough, ME","scarborough-me.html"))
@@ -275,57 +276,62 @@ def lease():
     h += crumbs(("Scarborough, ME","scarborough-me.html"),("Junior Seasonal Lease",""))
     h += (f'<section><div class="wrap"><div class="grid g3"><div class="card"><div class="tick">$</div><h3>Cost</h3><p><b style="font-size:28px;color:var(--navy)">{LEASE["price"]}</b><br>for the season. Includes {LEASE["includes"].lower()}.</p></div>'
           f'<div class="card"><div class="tick">1</div><h3>Pick-up</h3><p>{LEASE["pickup"]}</p></div><div class="card"><div class="tick">2</div><h3>Return</h3><p>{LEASE["end"]}</p></div></div>'
-          f'<div class="split" style="margin-top:44px"><div>{ph("scarborough-ski-rows.jpg","Skis on the Scarborough wall","r43")}</div><div><div class="kicker">Who it fits</div><h2 class="display" style="font-size:28px">Kids grow. Leases fit.</h2><p style="margin-top:14px">{LEASE["fit"]}</p>'
-          f'<p style="margin-top:10px">The lease is a Scarborough program. The Lincoln, NH store sells junior packages and rents by the day instead.</p><div style="margin-top:20px"><a class="btn accent" href="mailto:{SCARB["email"]}">Inquire by email</a> <a class="btn ghost" href="tel:{SCARB["teltag"]}">Call {SCARB["tel"]}</a></div></div></div></div></section>')
+          f'<div class="split" style="margin-top:44px"><div>{ph("scarborough-atomic-boot-bench.jpg","Setting up skis and boots on the bench at the Scarborough store","r43")}</div><div><div class="kicker">Who it fits</div><h2 class="display" style="font-size:28px">Kids grow. Leases fit.</h2><p style="margin-top:14px">{LEASE["fit"]}</p>'
+          f'<div style="margin-top:20px"><a class="btn" href="tel:{SCARB["teltag"]}">Call {SCARB["tel"]}</a></div></div></div></div></section>')
     h += (f'<section class="ice"><div class="wrap" style="max-width:820px">{sechead("Lease questions")}' + faq([
           ("Do I need an appointment?","No. Walk in from October 1 and one of our staff will get your skier outfitted."),
           ("What if we&rsquo;re still skiing in May?","Call and let us know so you avoid late fees. Drop-offs after the month of May are subject to a $159 charge."),
-          ("Can I reserve the lease online?","Not this season. Online lease sign-up is planned for next year; for now, email or call the Scarborough store.")]) + '</div></section>')
+          ("How do I sign up?","Walk in at the Scarborough store from October 1, or call (207) 883-3669 with questions first.")]) + '</div></section>')
     return page("scarb","Junior Seasonal Lease &middot; Scarborough, ME | Rodgers Ski &amp; Sport","Junior seasonal ski lease at Rodgers Ski & Sport in Scarborough, ME: skis, bindings and boots for $159, ages 2 to 13, pick-ups from October 1.", h, "lease.html")
 
 # =====================================================================================
 def boot_lab():
     h = hero("The Boot Lab", "Custom fitting and race prep from Masterfit and Sidas certified fitters. Full fitting and FIS and USSA prep in Lincoln; heat molding, punches and grinds at both stores.",
              "boot-lab-bench", kicker="Lincoln, NH &amp; Scarborough, ME", short=True, pos="center 50%",
-             ctas='<a class="btn accent" href="#book">Book a fitting</a><a class="btn ghost-d" href="#menu">Service menu</a>')
+             ctas=f'<a class="btn ondark" href="tel:{LINCOLN["teltag"]}">Call Lincoln {LINCOLN["tel"]}</a><a class="btn ghost-d" href="#menu">Service menu</a>')
     h += crumbs(("The Boot Lab",""))
     steps = [("Assess","Feet, stance, and how you actually ski."),("Select","Shell fit first, from Atomic, Nordica, Salomon, Dalbello, Fischer, Head, Tecnica and Lange."),("Build","Footbeds, heat molding, punches, canting, lifters."),("Prove","Ski it. Come back and we adjust until it&rsquo;s right.")]
     h += (f'<section><div class="wrap">{sechead("Why fit is everything", "A boot that fits is the difference between a good day and a great one. Here is how a fitting runs.")}<div class="grid g4">' +
           ''.join(f'<div class="card"><div class="tick">{i+1}</div><h3>{t}</h3><p>{d}</p></div>' for i,(t,d) in enumerate(steps)) + '</div></div></section>')
+    incl = [("Certified boot fitters","Masterfit and Sidas certified fitters do the work."),("No sales tax","New Hampshire has no sales tax on purchases at the Lincoln store."),
+            ("Binding check, no charge","Certified binding adjustment and an electronically torque-tested release check. If your bindings need a compatibility change for the new boot sole, it is done on the spot while you wait."),
+            ("We stand behind the fit","Adjustments and modifications to liners and shells at no charge, for comfort and performance, for up to two years after the sale.")]
+    h += (f'<section id="included"><div class="wrap">{sechead("Included when you buy boots at Rodgers", "These come with every boot purchase. Race boots are not included.")}<div class="grid g4">' +
+          ''.join(f'<div class="card"><div class="tick">{i+1}</div><h3>{t}</h3><p>{d}</p></div>' for i,(t,d) in enumerate(incl)) + '</div></div></section>')
     h += (f'<section class="ice" id="menu"><div class="wrap"><div class="grid g2"><div>{sechead("Lincoln Boot Lab")}{pricelist(LIN_BOOTLAB, note="Race boot purchase does not include service.")}</div><div>{sechead("Scarborough boot work")}{pricelist(SCA_BOOTLAB, note="Full FIS and USSA race boot prep is done in Lincoln.")}'
           f'<div style="margin-top:26px">{ph("boot-lab-red.jpg","Red race boots on the Boot Lab bench","r32","Lincoln Boot Lab")}</div></div></div>'
           f'<div style="margin-top:40px">{sechead("Race boot service", "Prices for boots bought at Rodgers, and for boots bought elsewhere.")}{pricelist(RACE_BOOT, cols=("Service","Rodgers boot","Outside boot"))}</div></div></section>')
     h += (f'<section><div class="wrap split"><div>{ph("staffpick-denis-atomic-redster-130.jpg","Denis holding the Atomic Redster 130 race boot outside the Lincoln store","r34")}</div><div><div class="kicker">Race corner</div><h2 class="display" style="font-size:30px">Race boots, fitted by people who race</h2>'
           f'<p style="margin-top:14px">FIS boot prep, USSA boot prep, canting, stance and alignment and lifters, on race boots from every brand we carry. Denis&rsquo;s pick this fall: the Atomic Redster 130 World Cup. &ldquo;A race-focused shell and narrow World Cup fit that delivers exceptional power, precision, and edge control for aggressive skiing.&rdquo;</p>'
           f'<div style="margin-top:20px"><a class="btn" href="race.html">Race at Rodgers</a></div></div></div></section>')
-    h += (f'<section class="ice" id="book"><div class="wrap"><div class="grid g2"><div><div class="kicker">Book a fitting</div><h2 class="display" style="font-size:30px">Appointments recommended</h2><p style="margin-top:14px">Plan on 60 to 90 minutes for a full fit; race builds run longer. Appointments are required for custom race work. Bring your current boots, footbeds if you have them, and the socks you ski in.</p>'
-          f'<p style="margin-top:14px"><a class="btn accent" href="tel:{LINCOLN["teltag"]}">Lincoln {LINCOLN["tel"]}</a> <a class="btn ghost" href="tel:{SCARB["teltag"]}">Scarborough {SCARB["tel"]}</a></p></div>'
-          f'<div class="card"><h3>Request a fitting</h3><form style="margin-top:14px"><label class="f">Store</label><select class="field"><option>Lincoln, NH</option><option>Scarborough, ME</option></select><label class="f">Name</label><input class="field"><label class="f">Phone or email</label><input class="field"><label class="f">What are we working on?</label><select class="field"><option>New boots</option><option>Fit problem with current boots</option><option>Race prep (FIS / USSA)</option><option>Custom insoles</option></select><button class="btn" type="button">Send request</button></form></div></div></div></section>')
+    h += (f'<section class="ice" id="call"><div class="wrap" style="max-width:820px"><div class="kicker">Fittings</div><h2 class="display" style="font-size:30px">Call the Ski department</h2><p style="margin-top:14px">The fastest way to set up a fitting is a phone call: ask for the Ski department and a fitter will talk through what you need. Plan on 60 to 90 minutes for a full fit; race builds run longer, so call ahead for custom race work. Bring your current boots, footbeds if you have them, and the socks you ski in.</p>'
+          f'<p style="margin-top:14px">Scarborough customers: boot lifters and other work done in Lincoln can be dropped off and picked up at the Scarborough store, back in about two weeks.</p>'
+          f'<p style="margin-top:18px"><a class="btn" href="tel:{LINCOLN["teltag"]}">Lincoln {LINCOLN["tel"]}</a> <a class="btn ghost" href="tel:{SCARB["teltag"]}">Scarborough {SCARB["tel"]}</a></p></div></section>')
     h += (f'<section><div class="wrap" style="max-width:820px">{sechead("Before you book")}' + faq([
-          ("How long does a fitting take?","Plan on 60 to 90 minutes for a full fit; race builds run longer."),
+          ("How long does a fitting take?","Plan on 60 to 90 minutes for a full fit; race builds run longer. Call ahead and ask for the Ski department."),
           ("What should I bring?","Your current boots, footbeds if you have them, and the socks you actually ski in."),
           ("Do race boots include service?","No. Race boot purchase does not include service; the race-prep menu above covers the work. Outside boots add $100 to FIS or USSA prep."),
-          ("Which store for what?","Lincoln: full fitting, custom insoles, canting, stance and alignment, FIS and USSA prep. Scarborough: shell and liner heat molding, punches, spot grinds and heel lifts.")]) + '</div></section>')
+          ("Which store for what?","Lincoln: full fitting, custom insoles, canting, stance and alignment, FIS and USSA prep. Scarborough: shell and liner heat molding, punches, spot grinds and heel lifts, plus drop-off for lifters and other work done in Lincoln, back in about two weeks.")]) + '</div></section>')
     return page("boot","The Boot Lab | Rodgers Ski &amp; Sport","Custom boot fitting and race boot prep at Rodgers Ski & Sport: Masterfit and Sidas certified fitters, custom insoles, canting, FIS and USSA prep in Lincoln, NH; heat molding and punches in Scarborough, ME.", h, "boot-lab.html")
 
 def race():
-    h = hero("Race at Rodgers", "Seven race brands under one roof: Atomic, Van Deer, Head, Rossignol, Fischer, Dynastar and Salomon. Race skis, boots, bindings and full FIS and USSA prep, whether you&rsquo;re gate training or chasing PRs.",
-             "atomic-mika-blanchard-9944.jpg", kicker="Race skis &middot; boots &middot; prep", short=False, pos="65% 12%", credit="Photo: Atomic",
-             ctas='<a class="btn accent" href="boot-lab.html#book">Book race boot prep</a><a class="btn ghost-d" href="lincoln-nh-services.html">Race day tunes</a>')
+    h = hero("Race at Rodgers", "Seven race brands under one roof in Lincoln: Atomic, Van Deer, Head, Rossignol, Fischer, Dynastar and Salomon. Race skis, boots, bindings and full FIS and USSA prep, whether you&rsquo;re gate training or chasing PRs.",
+             "alpine-slalom-racer", kicker="Race skis &middot; boots &middot; prep", short=False, pos="60% 45%", credit="Photo: Van Deer&ndash;Red Bull Sports",
+             ctas=f'<a class="btn ondark" href="tel:{LINCOLN["teltag"]}">Call the race department</a><a class="btn ghost-d" href="#service">Race service prices</a>')
     h += crumbs(("Race",""))
-    h += (f'<section><div class="wrap">{sechead("The race wall", "Every race brand we carry, in one spot at the Lincoln store, with race skis and race tunes in Scarborough too.")}'
+    h += (f'<section><div class="wrap">{sechead("The race wall", "Every race brand we carry, in one spot at the Lincoln store.")}'
           f'<div class="split"><div>{ph("lincoln-race-wall.jpg","Fischer, Rossignol, Head and Dynastar race skis on the Lincoln wall","r43","Lincoln race wall")}</div>'
           f'<div>{brands(RACE_BRANDS)}<p style="margin-top:18px">Slalom, GS, speed and junior race skis from all seven brands, with race bindings and plates. Salomon&rsquo;s race line returned to the U.S. market in 2026 and Rodgers is, in the shop&rsquo;s words, the only East Coast dealer. Van Deer, the Red Bull ski brand, is on the wall in Lincoln.</p>'
           f'<div style="margin-top:14px"><div class="kicker">Race boots</div>{brands(RACE_BOOT_BRANDS)}</div><div style="margin-top:14px"><div class="kicker">Race bindings</div>{brands(RACE_BINDING_BRANDS)}</div><div style="margin-top:14px"><div class="kicker">Race poles</div>{brands(RACE_POLE_BRANDS)}</div></div></div></div></section>')
-    h += (f'<section class="ice"><div class="wrap"><p style="max-width:720px;margin-bottom:34px">The race department in Lincoln preps skis on a Montana Crystal Rock robot that makes the ski flat before applying a race-specific structure used by World Cup athletes, and waxes with the Wax Future for base saturation without the heat of a hot box. Two prices on every line: one for gear bought at Rodgers, one for gear bought elsewhere.</p>'
-          f'<div class="grid g2"><div>{sechead("Race ski service")}{pricelist(RACE_SKI, cols=("Service","Rodgers ski","Outside ski"))}</div><div>{sechead("Race binding service")}{pricelist(RACE_BINDING, cols=("Service","Rodgers","Outside"))}<div style="margin-top:26px">{sechead("Scarborough")}{pricelist([("Race tune","$100"),("Shell heat mold","$50"),("Liner heat mold","$40"),("Punch out","$25 each"),("Spot grind","$15 each")], note="Full FIS and USSA prep is done in Lincoln.")}</div></div></div>'
+    h += (f'<section class="ice" id="service"><div class="wrap"><p style="max-width:720px;margin-bottom:34px">The race department in Lincoln preps skis on a Montana Crystal Rock robot that makes the ski flat before applying a race-specific structure used by World Cup athletes, and waxes with the Wax Future for base saturation without the heat of a hot box. Two prices on every line: one for gear bought at Rodgers, one for gear bought elsewhere.</p>'
+          f'<div class="grid g2"><div>{sechead("Race ski service")}{pricelist(RACE_SKI, cols=("Service","Rodgers ski","Outside ski"))}</div><div>{sechead("Race binding service")}{pricelist(RACE_BINDING, cols=("Service","Rodgers","Outside"))}</div></div>'
           f'<p class="note" style="margin-top:18px">Race boot service, from the FIS setup to lifters and heaters, is on the <a href="boot-lab.html#menu" style="color:var(--navy);font-weight:700">Boot Lab page</a>. Race boot purchase does not include service. Mounting is not included with race skis.</p></div></section>')
     h += (f'<section><div class="wrap">{sechead("Race staff picks", "", ("All staff picks","staff-picks.html"))}<div class="grid g2">{pick_card(STAFF_PICKS[1])}{pick_card(STAFF_PICKS[2])}</div></div></section>')
     h += (f'<section class="ice"><div class="wrap"><div class="grid g3">{ph("fischer-noize-stage.jpg","A racer in the start gate on Fischer RC4 Noize skis","r32","Fischer")}{ph("rossignol-hero-2.jpg","A racer on Rossignol Hero skis","r32","Rossignol")}{ph("atomic-24A1498.jpg","Two skiers on Atomic race skis","r32","Atomic")}</div>'
           f'<p class="note">Brand imagery courtesy of Atomic, Fischer and Rossignol.</p></div></section>')
     h += (f'<section><div class="wrap split"><div><div class="kicker">Teams, clubs and schools</div><h2 class="display" style="font-size:30px">Coaches, parents, athletes</h2><p style="margin-top:14px">Whether you&rsquo;re an athlete, coach, parent or recreational skier, we have the equipment and the knowledge you need to enjoy your day and perform your best. Race teams, ski clubs and school programs: talk to the Lincoln store directly and we&rsquo;ll set gear and bench time aside.</p>'
           f'<div style="margin-top:20px"><a class="btn" href="partners.html">Partners &amp; teams</a> <a class="btn ghost" href="tel:{LINCOLN["teltag"]}">Call Lincoln</a></div></div><div>{ph("lincoln-race-wall-alt.jpg","Race boots and race skis on the Lincoln wall","r43")}</div></div></section>')
-    return page("race","Race | Rodgers Ski &amp; Sport","Race skis, race boots, race tunes and FIS/USSA boot prep at Rodgers Ski & Sport: Atomic, Van Deer, Head, Rossignol, Fischer, Dynastar and Salomon, in Lincoln, NH and Scarborough, ME.", h, "race.html")
+    return page("race","Race | Rodgers Ski &amp; Sport","Race skis, race boots, race tunes and FIS/USSA boot prep at Rodgers Ski & Sport: Atomic, Van Deer, Head, Rossignol, Fischer, Dynastar and Salomon, at the Lincoln, NH store.", h, "race.html")
 
 # =====================================================================================
 def staff_picks():
@@ -383,10 +389,10 @@ def black_ridge_article():
           '<p><strong>Boots.</strong> A 1.25-mile traverse is where a walk mode pays off. The Atomic Hawx Ultra XTD, Salomon Shift Alpha and Nordica Unlimited keep a 98 to 99 mm downhill fit and open up for the flats. Fit matters more than flex; the Boot Lab in Lincoln handles both.</p>'
           '<p><strong>Snowboards.</strong> A stiffer directional board with a setback stance floats best in untracked snow and holds a line through gullies. Never Summer, Lib Tech, Arbor and Nidecker are all on the wall.</p>'
           '<p><strong>Poles, head and hands.</strong> Powder baskets from Leki, Swix or Komperdell. A helmet is not optional in trees: Smith, Giro, POC and Sweet Protection, with a low-light goggle lens for the shade under softwoods. Hestra gloves with a long cuff keep snow out.</p>'
-          '<p><strong>A small pack.</strong> Water, a spare layer and a strap for a lost ski. Db, Dakine and POC packs sized for a lift day are in both stores. Ski with a partner; the patrol response time is Loon&rsquo;s own warning.</p>'
+          '<p><strong>A small pack.</strong> Water, a spare layer and a strap for a lost ski. Dakine and POC packs sized for a lift day are in both stores. Ski with a partner; the patrol response time is Loon&rsquo;s own warning.</p>'
           '<p><strong>Tuning.</strong> Natural snow over rock and stumps means base repair. The Lincoln tune room handles p-tex, edges and stone grinding all winter.</p>'
           '<p>Black Ridge is more than a year out. The gear above is in the stores now, and the tent sale in Lincoln runs through October 12.</p>'
-          '<p style="margin-top:26px"><a class="btn" href="https://www.loonmtn.com/black-ridge" target="_blank" rel="noopener">Read Loon&rsquo;s announcement</a> <a class="btn" href="buyers-guide.html">Buyer&rsquo;s Guide</a> <a class="btn" href="boot-lab.html#book">Book a boot fit</a></p></div></section>')
+          '<p style="margin-top:26px"><a class="btn" href="https://www.loonmtn.com/black-ridge" target="_blank" rel="noopener">Read Loon&rsquo;s announcement</a> <a class="btn" href="buyers-guide.html">Buyer&rsquo;s Guide</a> <a class="btn" href="boot-lab.html">The Boot Lab</a></p></div></section>')
     h += (f'<section class="ice"><div class="wrap">{sechead("More from the journal")}<div class="grid g3">{"".join(post_card(x) for x in POSTS[1:4])}</div></div></section>')
     return page("journal","Loon&rsquo;s Black Ridge expansion and the gear for it | Rodgers Ski &amp; Sport","Loon Mountain's Black Ridge adds 272 acres of expert-only tree skiing for winter 2027-28. What was announced and the skis, boots, boards and accessories that suit it, from Rodgers Ski & Sport.", h, "journal-loon-black-ridge.html")
 
@@ -424,7 +430,7 @@ def about():
           ''.join(f'<a class="card img" href="staff-picks.html">{ph(p["img"], p["who"], "r34", "", "pos-top")}<div class="body"><h3>{p["who"]}</h3><p>{p["store"]} &middot; {p["product"]}</p></div></a>' for p in STAFF_PICKS) + '</div></div></section>')
     h += credband(["Family-run since 1974","Ski Magazine Gold Medal Shop","Scarborough since 1986","SEDCO Legacy Business Award 2024"])
     h += (f'<section class="ice"><div class="wrap split"><div>{ph("scarborough-storefront-sunny-portrait.jpg","The Scarborough store","r34")}</div><div><div class="kicker">Two stores</div><h2 class="display" style="font-size:30px">Lincoln and Scarborough</h2>'
-          f'<p style="margin-top:14px">The Lincoln, New Hampshire flagship carries skis, the Mothership snowboard shop, bikes, rentals, the Boot Lab and the tune room. The Scarborough, Maine store is a ski and bike shop with tuning, boot work and the Junior Seasonal Lease; it does not rent equipment or sell snowboards.</p>'
+          f'<p style="margin-top:14px">The Lincoln, New Hampshire flagship carries skis, the Mothership snowboard shop, bikes, rentals, the Boot Lab and the tune room. The Scarborough, Maine store is a ski and bike shop with tuning, boot work and the Junior Seasonal Lease.</p>'
           f'<div style="margin-top:20px"><a class="btn" href="lincoln-nh.html">Lincoln, NH</a> <a class="btn ghost" href="scarborough-me.html">Scarborough, ME</a></div></div></div></section>')
     return page("about","About | Rodgers Ski &amp; Sport","The story of Rodgers Ski & Sport: from skis sold out of a Datsun pickup at Plymouth State in 1974 to the Ski Magazine Gold Medal Shop in Lincoln, NH and the Scarborough, ME store since 1986.", h, "about.html")
 
@@ -439,7 +445,7 @@ def gift_cards():
     return page("about","Gift Cards | Rodgers Ski &amp; Sport","Rodgers Ski & Sport gift cards, good at the Lincoln, NH and Scarborough, ME stores for gear, tuning and boot fitting.", h, "gift-cards.html")
 
 def contact():
-    h = hero("Contact", "Two stores, two phone numbers, and a short form that goes to the right one.", "south-peak-winter-mountain", kicker="Lincoln, NH &amp; Scarborough, ME", short=True, pos="center 60%")
+    h = hero("Contact", "Calling is the fastest way to reach us. For skis, boots and fittings, ask for the Ski department.", "south-peak-winter-mountain", kicker="Lincoln, NH &amp; Scarborough, ME", short=True, pos="center 60%")
     h += crumbs(("Contact",""))
     h += (f'<section><div class="wrap"><div class="grid g2">'
           f'<div class="stack">{hours_box(LINCOLN, LIN_HOURS)}<div style="margin-top:16px">{map_embed(LINCOLN)}</div><p class="note"><a href="mailto:{LINCOLN["email"]}" style="color:var(--navy);font-weight:700">Email the Lincoln store</a></p></div>'

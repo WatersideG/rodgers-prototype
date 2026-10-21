@@ -33,7 +33,9 @@ h1,h2,h3,h4,h5,.display,.card h3,.pick h3,.post h3,.gtype h3,.feature h2,.sechea
 /* header */
 header.site{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;gap:18px}
-.logo img{height:34px;display:block}
+.logo img{height:50px;display:block}
+@media (max-width:900px){.logo img{height:42px}}
+.hero h1 .loc{display:block;font-size:.46em;letter-spacing:2px;line-height:1.2;margin-top:12px;font-weight:600;color:#E4ECF5}
 nav.main{display:flex;align-items:center;gap:15px}
 .search{display:flex;align-items:center;border:1.5px solid var(--line);background:#fff;height:36px;padding:0 8px 0 10px}
 .search input{border:0;outline:0;font:500 12.5px "Montserrat",sans-serif;width:120px;color:var(--ink);background:transparent}

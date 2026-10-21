@@ -63,7 +63,9 @@ h1,h2,h3,h4,h5,.display,.card h3,.pick h3,.post h3,.gtype h3,.feature h2,.sechea
 /* header */
 header.site{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;gap:18px}
-.logo img{height:34px;display:block}
+.logo img{height:50px;display:block}
+@media (max-width:900px){.logo img{height:42px}}
+.hero h1 .loc{display:block;font-size:.46em;letter-spacing:2px;line-height:1.2;margin-top:12px;font-weight:600;color:#E4ECF5}
 nav.main{display:flex;align-items:center;gap:15px}
 .search{display:flex;align-items:center;border:1.5px solid var(--line);background:#fff;height:36px;padding:0 8px 0 10px}
 .search input{border:0;outline:0;font:500 12.5px "Montserrat",sans-serif;width:120px;color:var(--ink);background:transparent}
@@ -528,13 +530,13 @@ def modal():
 
 
 def footer():
-    return (f'<div class="mobilebar"><a href="tel:{LINCOLN["teltag"]}">&#9742; Lincoln</a><a href="tel:{SCARB["teltag"]}">&#9742; Scarborough</a><a class="res" href="boot-lab.html#book">Boot Fit</a></div>'
+    return (f'<div class="mobilebar"><a href="tel:{LINCOLN["teltag"]}">&#9742; Lincoln</a><a href="tel:{SCARB["teltag"]}">&#9742; Scarborough</a></div>'
             f'<footer class="site"><div class="wrap"><div class="cols"><div><img src="img/logo-white.png" alt="Rodgers Ski &amp; Sport">'
             f'<p>Family-run ski and bike shops in Lincoln, New Hampshire and Scarborough, Maine, since 1974.</p>'
             f'<div class="soc"><a href="{SOCIAL["ig"]}" aria-label="Instagram @rodgersski">IG</a><a href="{SOCIAL["fb"]}" aria-label="Facebook RodgersSkiSport">FB</a><a href="{SOCIAL["tt"]}" aria-label="TikTok @rodgersskiandsport">TT</a></div></div>'
             f'<div><h5><a href="lincoln-nh.html">Lincoln, NH &rarr;</a></h5>{LINCOLN["addr"]}<br><a href="tel:{LINCOLN["teltag"]}"><b style="color:#fff">{LINCOLN["tel"]}</b></a><br>{LINCOLN["hours"]}<br>Ski &middot; Snowboard &middot; Bikes &middot; Rentals &middot; Boot Lab<br><a href="{LINCOLN["maps"]}">Directions</a></div>'
             f'<div><h5><a href="scarborough-me.html">Scarborough, ME &rarr;</a></h5>{SCARB["addr"]}<br><a href="tel:{SCARB["teltag"]}"><b style="color:#fff">{SCARB["tel"]}</b></a><br>Mon&ndash;Tue 10&ndash;6 &middot; Wed closed<br>Thu&ndash;Fri 10&ndash;6 &middot; Sat 10&ndash;5 &middot; Sun 11&ndash;5<br>Ski &middot; Bikes &middot; Junior Seasonal Lease<br><a href="{SCARB["maps"]}">Directions</a></div>'
-            f'<div><h5>Shop &amp; Services</h5><a href="boot-lab.html">The Boot Lab</a><br><a href="race.html">Race</a><br><a href="rentals.html">Rentals (Lincoln)</a><br><a href="lease.html">Junior Seasonal Lease (Scarborough)</a><br><a href="gift-cards.html">Gift Cards</a><br><a href="journal.html">Journal</a> &middot; <a href="staff-picks.html">Staff Picks</a><br><a href="buyers-guide.html">Buyer&rsquo;s Guide</a> &middot; <a href="outdoor-guide.html">Outdoor Guide</a><br><a href="partners.html">Partners &amp; Teams</a><br><a href="employment.html">Employment</a><br><a href="about.html">About</a> &middot; <a href="contact.html">Contact</a><br><a href="mailto:{LINCOLN["email"]}">Email us</a></div></div>'
+            f'<div><h5>Shop &amp; Services</h5><a href="boot-lab.html">The Boot Lab</a><br><a href="race.html">Race</a><br><a href="rentals.html">Rentals (Lincoln)</a><br><a href="lease.html">Junior Seasonal Lease (Scarborough)</a><br><a href="gift-cards.html">Gift Cards</a><br><a href="journal.html">Journal</a> &middot; <a href="staff-picks.html">Staff Picks</a><br><a href="buyers-guide.html">Buyer&rsquo;s Guide</a> &middot; <a href="outdoor-guide.html">Outdoor Guide</a><br><a href="partners.html">Partners &amp; Teams</a><br><a href="employment.html">Employment</a><br><a href="about.html">About</a> &middot; <a href="contact.html">Contact</a></div></div>'
             f'<div class="band"><b>Sale dates, new arrivals and tune reminders. 10% off your next in-store purchase when you join.</b><input class="field" placeholder="Email address"><select class="field"><option>Lincoln, NH</option><option>Scarborough, ME</option><option>Both</option></select><a class="btn ondark sm" href="#">Sign up</a></div>'
             f'<div class="legal"><span>Family-run since 1974 &middot; Ski Magazine Gold Medal Shop &middot; Lincoln, NH &middot; Scarborough, ME</span><span>&copy; 2026 Rodgers Ski &amp; Sport &middot; <a href="privacy-policy.html">Privacy</a> &middot; <a href="terms-of-use.html">Terms</a> &middot; <a href="accessibility.html">Accessibility</a></span></div></div></footer>'
             f'{modal()}<script src="site.js?v={ASSET_V}"></script></body></html>')
@@ -558,7 +560,7 @@ def hero(h1, sub, img, ctas="", kicker="", stats="", short=False, credit="", pos
         d,m = f'img/hero/rodgers-{img}-desktop-2400x1000.jpg', f'img/hero/rodgers-{img}-mobile-1080x1350.jpg'
     else:
         d,m = f'img/{img}', f'img/{img}'
-    quick = '<div class="quick"><a class="btn sm ondark" href="boot-lab.html#book">Book a boot fit</a><a class="btn sm accent" href="reserve-rental.html">Reserve a rental</a></div>'
+    quick = ''   # booking shortcuts removed (ownership, Oct 2026): no online booking for rentals or boot fittings
     return (f'<div class="hero{" short" if short else ""}"><div class="bg" style="--d:url({d});--m:url({m});background-position:{pos}"></div><div class="shade"></div>{st}{overlay}'
             f'<div class="wrap">{kk}<h1 class="display">{h1}</h1>{"<div class=ctas>"+ctas+"</div>" if ctas else ""}{quick}</div>{cr}</div>'
             + (f'<!--LEDE--><div class="lede"><div class="wrap"><p>{sub}</p></div></div>' if sub else ''))

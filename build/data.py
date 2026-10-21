@@ -69,7 +69,10 @@ TEAMS = [
 
 RACE_BRANDS = ["Atomic","Van Deer","Head","Rossignol","Fischer","Dynastar","Salomon"]
 # From the shop's handwritten brand sheet (Sept 2026)
-SKI_BRANDS = ["Rossignol","Dynastar","Head","K&auml;stle","Elan","Atomic","Van Deer","Salomon","Armada","V&ouml;lkl","Fischer","Blizzard"]
+SKI_BRANDS = ["Rossignol","Dynastar","Head","K&auml;stle","Elan","Atomic","Van Deer","Salomon","Armada","V&ouml;lkl","Fischer","Blizzard","Nordica"]
+# Scarborough carries neither Van Deer, K&auml;stle nor Armada (staff feedback, Oct 2026)
+SCA_SKI_BRANDS = [b for b in SKI_BRANDS if b not in ("Van Deer","K&auml;stle","Armada")]
+SCA_BOOT_BRANDS = ["Dalbello","Tecnica","Atomic","Nordica","Salomon","Lange"]
 BOOT_BRANDS = ["Lange","Salomon","Atomic","Rossignol","Head","Van Deer","Tecnica","Nordica","Fischer","Dalbello","Armada"]
 RACE_BOOT_BRANDS = ["Rossignol","Lange","Atomic","Nordica","Head","Fischer","Salomon"]
 RACE_BINDING_BRANDS = ["Marker","Look","Atomic","Head","Fischer","Salomon"]
@@ -80,15 +83,17 @@ SNOWBOARD_BRANDS = ["Academy","Never Summer","Arbor","Rome","ThirtyTwo","Lib Tec
 SB_BOOT_BRANDS = ["Nidecker","Salomon","Deeluxe","ThirtyTwo","Bataleon"]
 SB_BINDING_BRANDS = ["Union","Rome","Bataleon","Salomon","Nidecker","Yes","Flow"]
 HELMET_GOGGLE = ["Atomic","Smith","Giro","Oakley","POC","Sweet Protection"]
-GLOVES = ["Hestra","Swany","Gordini","Dakine"]
+GLOVES = ["Hestra","Swany","Gordini","Dakine","Level","Reusch","Leki"]
 HEATED = ["Hestra","Lenz","Hotronic"]
 HATS = ["Seirus","Turtle Fur","Coal","Starling","Eisb&auml;r"]
-BAGS = ["POC","Atomic","Energiapura","Rossignol","Db","Athalon","Kulkea","Cotopaxi","Mammut","Dakine"]
+BAGS = ["POC","Atomic","Energiapura","Rossignol","Athalon","Kulkea","Cotopaxi","Mammut","Dakine"]
 MENS_OUTERWEAR = ["Arc&rsquo;teryx","Descente","Karbon","Mammut","Salomon","Scott","Norr&oslash;na","Kjus","Flylow","Quiksilver","RH+","686","Helly Hansen","Picture","Armada"]
 WOMENS_OUTERWEAR = ["Arc&rsquo;teryx","Toni Sailer","Karbon","Mammut","Scott","Norr&oslash;na","Goldbergh","Flylow","Roxy","Jorde","686","Bogner","Fera","Picture"]
-KIDS_OUTERWEAR = ["Helly Hansen","Karbon","Flylow"]
+KIDS_OUTERWEAR = ["Helly Hansen","Karbon","Flylow","Spyder"]
+# One outerwear wall for everyone (staff feedback, Oct 2026): men, women and kids combined, no duplicates
+OUTERWEAR = list(dict.fromkeys(MENS_OUTERWEAR + WOMENS_OUTERWEAR + KIDS_OUTERWEAR))
 LAYERS = ["Kari Traa","Smartwool","Hot Chillys","Krimson Klover","UYN"]
-SWEATERS = ["Dale of Norway","Meister","Krimson Klover","Almgwand"]
+SWEATERS = ["Dale of Norway","Meister","Krimson Klover"]
 BIKE_BRANDS = ["Trek","Electra","Jamis","Scott"]
 
 # Lincoln tune board (photographed Sept 2026)
@@ -103,11 +108,11 @@ LIN_MOUNT_RACE = [("Race mount with purchase","$25"),("Race binding transfer","$
 RACE_SKI = [("Podium Club<small>Season ski tuning, one ski, unlimited, includes prep</small>","$350/pair","n/a"),
             ("FIS race ski prep<small>Shaped sidewalls, World Cup structure, Trione edges, race wax</small>","$200","$250"),
             ("USSA race ski prep<small>Sidewall pull, World Cup structure, belt edge and base, race wax</small>","ask","$200"),
-            ("Junior race ski prep (U10/U12)<small>Stone grind flat, belt edge angles, one wax cycle</small>","$60","$75"),
+            ("Junior race ski prep (U10/U12)<small>Stone grind flat, belt edge angles, one wax cycle</small>","$89","$89"),
             ("Race ski grind only<small>Flat ski, World Cup structure, no edge bevels</small>","$85","n/a"),
             ("Race day tune<small>Trione edges, race wax; sidewall must be cut to qualify, no grind</small>","$65","$75")]
 RACE_BOOT = [("FIS race boot setup<small>Custom footbeds, grind, alignment, plane, cant, lift, router</small>","$300","$400"),
-             ("USSA race boot setup<small>Sidas drop-in footbed, alignment, plane, cant, lift, router</small>","$150","$250"),
+             ("USSA race boot setup<small>Sidas drop-in footbed, alignment, plane, cant, lift, router</small>","$200","$250"),
              ("Custom footbed<small>Build and install</small>","$175","$200"),
              ("Cant analysis<small>Laser alignment with cuff adjustment</small>","$50","$100"),
              ("Boot sole plane<small>0 to 5 degrees in quarter-degree increments, one pair</small>","$75","$150"),
@@ -154,13 +159,13 @@ SEASON_TITLE = {"fall":"This fall","winter":"This winter","spring":"This spring"
 SEASON_CARDS = {
  "fall": [
   ("journal-fall-tent-sale.html","scarborough-tent-sale.jpg","The Fall Tent Sale in Lincoln","Fall Tent Sale","Skis, snowboards, boots, apparel and helmets under the tent in Lincoln, September 18 to October 12.","Sale details"),
-  ("boot-lab.html","lincoln-boot-lab-room.jpg","The Boot Lab in Lincoln","Boot fitting","Book a fitting before the first cold weekend: shell fit, footbeds, punches and grinds at both stores.","The Boot Lab"),
+  ("boot-lab.html","lincoln-boot-lab-room.jpg","The Boot Lab in Lincoln","Boot fitting","Come in for a fitting before the first cold weekend: shell fit, footbeds, punches and grinds at both stores.","The Boot Lab"),
   ("lincoln-nh-services.html","lincoln-tune-room-machines.jpg","Montana machines in the Lincoln tune room","Pre-season tune","Bring last winter&rsquo;s skis and boards in now and skip the December line.","Tuning menu"),
   ("lease.html","scarborough-ski-rows.jpg","Skis at the Scarborough store","Junior Seasonal Lease","Skis, bindings and boots for the season at the Scarborough store; pick-ups start October 1.","Lease details"),
  ],
  "winter": [
-  ("rentals.html","lincoln-service-desk.jpg","The rental and service desk in Lincoln","Rentals","Junior, performance, advanced and demo skis, snowboards, cross-country and snowshoes at the Lincoln store.","Rates and reservations"),
-  ("boot-lab.html","lincoln-boot-lab-room.jpg","The Boot Lab in Lincoln","Boot fitting","Cold feet, shin bang and heel lift are fixable; book a fitting.","The Boot Lab"),
+  ("rentals.html","lincoln-service-desk.jpg","The rental and service desk in Lincoln","Rentals","Junior, performance, advanced and demo skis, snowboards, cross-country and snowshoes at the Lincoln store.","Rental rates"),
+  ("boot-lab.html","lincoln-boot-lab-room.jpg","The Boot Lab in Lincoln","Boot fitting","Cold feet, shin bang and heel lift are fixable. Stop in or call for a fitting.","The Boot Lab"),
   ("race.html","lincoln-race-wall.jpg","The race wall in Lincoln","Race department","Seven race brands, race day tunes and FIS and USSA prep.","Race gear"),
   ("lincoln-nh-accessories.html","giro-helmet-wall.jpg","Helmets on the wall","Helmets, goggles and gloves","Warm hands and clear lenses from Hestra, Smith, Giro, Oakley and more.","Accessories"),
  ],

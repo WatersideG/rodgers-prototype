@@ -21,7 +21,7 @@ os.makedirs(OUT, exist_ok=True)
 LEGAL = {
  'privacy-policy.html': ("Privacy Policy", """
 <p><em>Effective date: at launch. Plain-language draft for counsel review.</em></p>
-<h2>What we collect</h2><p>When you join our email list, request a boot fitting, or send a message through the site, we collect what you type into the form: your name, email address, phone number, the store you chose, and your message. We also use standard website analytics (Google Analytics 4) that record how visitors use the site without identifying you by name.</p>
+<h2>What we collect</h2><p>When you join our email list or send a message through the site, we collect what you type into the form: your name, email address, phone number, the store you chose, and your message. We also use standard website analytics (Google Analytics 4) that record how visitors use the site without identifying you by name.</p>
 <h2>How we use it</h2><p>To answer your request, to send the emails you signed up for (sale dates, new arrivals, service reminders and your 10% code), and to understand which pages are useful. We do not sell your information.</p>
 <h2>Email</h2><p>Every email we send has an unsubscribe link. Unsubscribing removes you from marketing email; we may still reply to a message you sent us.</p>
 <h2>Third parties</h2><p>Our email platform, analytics provider and map provider process data on our behalf under their own policies. Links to Instagram, Facebook, TikTok, partner websites and Google Maps leave this site.</p>
@@ -68,7 +68,7 @@ write('lincoln-nh-services.html', P.lin_services())
 write('lincoln-nh-accessories.html', P.lin_accessories())
 write('lincoln-nh-apparel.html', P.lin_apparel())
 write('rentals.html', P.rentals())
-write('reserve-rental.html', P.reserve_rental())
+if shell.ONLINE_RESERVATIONS: write('reserve-rental.html', P.reserve_rental())   # off this season
 write('scarborough-me.html', P.scarborough())
 write('scarborough-me-ski.html', P.sca_ski())
 write('scarborough-me-bikes.html', P.sca_bikes())
