@@ -345,7 +345,7 @@ def staff_picks():
     h += crumbs(("Journal","journal.html"),("Staff Picks",""))
     h += (f'<section><div class="wrap"><div class="grid g2">{"".join(pick_card(p) for p in STAFF_PICKS)}</div>'
           f'</div></section>')
-    h += (f'<section class="ice"><div class="wrap">{sechead("Shop favorites from the reels", "Quick takes from the TikTok and Instagram reels this year.")}<div class="grid g3">'
+    h += (f'<section class="ice"><div class="wrap">{sechead("Shop Favorites")}<div class="grid g3">'
           '<div class="card reel"><img src="img/p-rossignol-forza-70.jpg" alt="Rossignol Forza 70" loading="lazy"><h3>Rossignol Forza 70</h3><p class="tagline">&ldquo;One of the shop favorites: carve like a mad man, manage ski&rsquo;d off chop like a mad man, and can handle the occasional bump run with ease.&rdquo;</p></div>'
           '<div class="card reel"><img src="img/p-atomic-maverick-88.jpg" alt="Atomic Maverick 88" loading="lazy"><h3>Atomic Maverick 88</h3><p class="tagline">&ldquo;The perfect east coast ski?&rdquo;</p></div>'
           '<div class="card reel"><img src="img/p-salomon-qst-blank.jpg" alt="Salomon S/Lab QST Blank" loading="lazy"><h3>Salomon S/Lab QST Blank</h3><p class="tagline">&ldquo;With a 112 waist these things charge in new snow but are powerful and responsive on crud and groomers. Wicked versatile!&rdquo;</p></div>'
